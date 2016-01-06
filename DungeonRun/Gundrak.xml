@@ -1,13 +1,7 @@
 <If Condition="Me.MapId == 604" >
 	<CustomBehavior File="RunMacro" Macro="/sw clear" />
-	<CustomBehavior File="Misc\RunLua" Lua="print(&quot;|cFF3399FF[Azyul]|r: In-game timer started.&quot;)" />
 	<CustomBehavior File="RunMacro" Macro="/sw play" />
-	<CustomBehavior File="Misc\RunLua" Lua="ShowLoadMessage = GetMoney();" />
-	<CustomBehavior File="Misc\RunLua" Lua="WarningIconRight = GetTime();" />
-	<CustomBehavior File="Misc\RunLua" Lua="ShowEngageMessage = GetMoney();" />
-
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
-	<CustomBehavior File="Hooks\DoWhen" ActivityName="CustomDeathHook" Command="Enable" />
 
 	<MoveTo X="1854.622" Y="640.1485" Z="175.8663" />
 	<MoveTo X="1853.228" Y="638.6234" Z="175.802" />

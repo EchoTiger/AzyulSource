@@ -1,34 +1,31 @@
 <If Condition="Me.FreeBagSlots &lt; 17" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Moving to Sell, Repair and Mail.&quot;);" />
-	<If Condition="Me.FreeBagSlots &lt; 17" >
-		<MoveTo Nav="Fly" X="5770.711" Y="-3573.024" Z="387.1675" />
+	<MoveTo Nav="Fly" X="5770.711" Y="-3573.024" Z="387.1675" />
 
-		<CustomBehavior File="InteractWith" MobId="28855" MobState="Alive" WaitTime="1000" X="5769.661" Y="-3572.947" Z="387.2385" />
-		<CustomBehavior File="RunCode" >
-		<![CDATA[
-			foreach (WoWItem i in Me.BagItems)
-			{
-				if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
-					i.UseContainerItem();
-					StyxWoW.SleepForLagDuration();
-			}
-		]]>
-		</CustomBehavior>
+	<CustomBehavior File="InteractWith" MobId="28855" MobState="Alive" WaitTime="1000" X="5769.661" Y="-3572.947" Z="387.2385" />
+	<CustomBehavior File="RunCode" >
+	<![CDATA[
+		foreach (WoWItem i in Me.BagItems)
+		{
+			if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+				i.UseContainerItem();
+				StyxWoW.SleepForLagDuration();
+		}
+	]]>
+	</CustomBehavior>
 
-		<If Condition="Me.FreeBagSlots &lt; 20" >
-			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: You're still under 20 bagslots after selling. Moving to mail.&quot;);" />
-			<MoveTo Nav="Fly" X="5490.855" Y="-2640.885" Z="305.896" />
-			<CustomBehavior File="RunMacro" Macro="/dismount" />
-			<SetMailbox>
-				<Mailboxes>
-					<Mailbox X="5417.155" Y="-2620.26" Z="307.0088" />
-				</Mailboxes>
-			</SetMailbox>
-			<RunTo X="5416.015" Y="-2622.577" Z="306.9517" />
-			<CustomBehavior File="ForceSetVendor" DoMail="True" />
-			<RunTo X="5396.842" Y="-2617.582" Z="303.9539" />
-			<ClearMailbox />
-		</If>
-		<MoveTo Nav="Fly" X="6002.019" Y="-3651.332" Z="491.8026" />
+	<If Condition="Me.FreeBagSlots &lt; 20" >
+		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.Orange, &quot;You're still under 20 bagslots after selling. Moving to mail.&quot;);" />
+		<MoveTo Nav="Fly" X="5490.855" Y="-2640.885" Z="305.896" />
+		<SetMailbox>
+			<Mailboxes>
+				<Mailbox X="5417.155" Y="-2620.26" Z="307.0088" />
+			</Mailboxes>
+		</SetMailbox>
+		<RunTo X="5416.015" Y="-2622.577" Z="306.9517" />
+		<CustomBehavior File="ForceSetVendor" DoMail="True" />
+		<RunTo X="5396.842" Y="-2617.582" Z="303.9539" />
+		<ClearMailbox />
 	</If>
+	<MoveTo Nav="Fly" X="6002.019" Y="-3651.332" Z="491.8026" />
 </If>

@@ -1,0 +1,5 @@
+<If Condition="Me.MapId != 574 &amp;&amp; Me.FreeBagSlots &gt;= 17" >
+	<MoveTo Nav="Fly" X="1215.008" Y="-4866.93" Z="41.24829" />
+	<CustomBehavior File="MyCTM" X="1236.456" Y="-4859.878" Z="41.24817" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1100" TerminateWhen="Me.IsInInstance" />
+</If>

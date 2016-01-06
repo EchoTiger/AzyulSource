@@ -1,0 +1,13 @@
+<If Condition="Me.MapId != 658 &amp;&mp; Me.FreeBagSlots &gt;= 17" >
+	<If Condition="Me.Location.Distance(new WoWPoint(5634.798, 2045.548, 798.2698)) &gt; 300" >
+		<CustomBehavior File="FlyTo" X="5770.986" Y="2326.418" Z="850.9347" />
+		<CustomBehavior File="FlyTo" X="5698.327" Y="2260.403" Z="804.2882" />
+		<CustomBehavior File="FlyTo" X="5691.296" Y="2149.469" Z="798.1164" />
+		<RunTo X="5686.696" Y="2098.407" Z="798.0547" />
+		<RunTo X="5642.319" Y="2098.064" Z="798.0547" />
+		<RunTo X="5635.262" Y="2048.698" Z="798.0886" /> <!-- Instance Hub Center -->
+		<RunTo X="5603.936" Y="2020.71" Z="798.0433" />
+	</If>
+	<RunTo X="5587.691" Y="2005.754" Z="798.0637" />
+	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="!Me.IsInInstance" />
+</If>

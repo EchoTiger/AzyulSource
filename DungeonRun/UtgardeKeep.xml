@@ -1,0 +1,94 @@
+<If Condition="Me.MapId == 574" >
+	<CustomBehavior File="RunMacro" Macro="/sw clear" />
+	<CustomBehavior File="RunMacro" Macro="/sw play" />
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+
+	<MoveTo X="186.7376" Y="-75.69962" Z="16.87691" />
+
+	<DisableBehavior Name="Combat" />
+		<RunTo X="211.3973" Y="-63.97879" Z="24.67863" />
+		<RunTo X="256.3593" Y="-40.54176" Z="24.67863" />
+		<RunTo X="269.1995" Y="-62.08339" Z="24.67863" />
+		<RunTo X="316.3462" Y="-36.62894" Z="22.75489" />
+		<RunTo X="352.1555" Y="-39.64727" Z="24.67764" />
+		<RunTo X="386.5623" Y="-11.83339" Z="24.48933" />
+		<RunTo X="347.031" Y="4.550358" Z="24.63421" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo X="376.1462" Y="56.9547" Z="24.67728" />
+	<MoveTo X="380.2594" Y="91.26851" Z="30.74202" />
+
+	<DisableBehavior Name="Combat" />
+			<RunTo X="333.3249" Y="101.2789" Z="31.85162" />
+			<RunTo X="395.1321" Y="154.4304" Z="30.77521" />
+			<RunTo X="343.9766" Y="160.103" Z="30.7719" />
+			<RunTo X="311.6241" Y="168.6147" Z="31.93963" />
+			<RunTo X="375.8603" Y="184.6561" Z="30.77577" />
+			<RunTo X="336.756" Y="212.5732" Z="30.80466" />
+			<RunTo X="325.302" Y="256.4638" Z="30.74519" />
+			<RunTo X="303.5671" Y="246.6837" Z="30.74193" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo X="241.9964" Y="224.748" Z="40.9099" />
+	<MoveTo X="221.3011" Y="201.247" Z="40.8164" />
+	<MoveTo X="187.6204" Y="205.7753" Z="40.81636" /> <!-- Boss -->
+	<MoveTo X="164.7505" Y="251.5552" Z="42.86683" />
+
+	<DisableBehavior Name="Combat" />
+			<RunTo X="152.5092" Y="277.3574" Z="42.86846" />
+			<RunTo X="130.3804" Y="275.3771" Z="42.86846" />
+			<RunTo X="87.87313" Y="259.5667" Z="42.8671" />
+			<RunTo X="99.67241" Y="200.5663" Z="49.3759" />
+			<RunTo X="66.38676" Y="186.1246" Z="49.37411" />
+			<RunTo X="113.6451" Y="80.90563" Z="65.70265" />
+			<RunTo X="133.3807" Y="77.24162" Z="65.70821" />
+			<RunTo X="106.2656" Y="45.22725" Z="65.68821" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo X="103.1364" Y="59.01193" Z="65.70141" />
+
+	<DisableBehavior Name="Combat" />
+			<RunTo X="93.53909" Y="108.0608" Z="87.33531" />
+			<RunTo X="112.9307" Y="113.8913" Z="87.30109" />
+			<RunTo X="102.4625" Y="46.53362" Z="109.0073" />
+			<RunTo X="24.52928" Y="22.2913" Z="115.0299" />
+			<RunTo X="50.57508" Y="-9.289353" Z="118.7753" />
+			<RunTo X="43.34703" Y="-32.25538" Z="118.7753" />
+			<RunTo X="113.4088" Y="-38.0535" Z="118.9998" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo  X="106.699" Y="-37.19381" Z="118.8866" /> <!-- Extra coordinate because bot didn't loot during testing -->
+	<CustomBehavior File="UserSettings" LootMobs="True"/>
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
+	<MoveTo X="180.117" Y="-15.40531" Z="134.9601" />
+
+	<!-- Different aggro method for the landing mob -->
+
+	<DisableBehavior Name="Combat" />
+	<MoveTo X="242.9421" Y="14.83746" Z="135.1886" />
+	<MoveTo X="216.0704" Y="7.687538" Z="178.5074" />
+	<MoveTo X="250.8247" Y="-11.3468" Z="178.5074" />
+	<MoveTo X="270.8568" Y="-108.3208" Z="190.3894" />
+	<MoveTo X="248.751" Y="-157.2589" Z="190.4111" />
+	<CustomBehavior File="WaitTimer" WaitTime="5000" />
+	<MoveTo X="154.3276" Y="-178.3493" Z="180.5018" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo X="244.031" Y="-336.4045" Z="180.4473" /> <!-- Boss -->
+	<CustomBehavior File="WaitTimer" WaitTime="2000" />
+	<DisableBehavior Name="Combat" />
+	<CustomBehavior File="WaitTimer" WaitTime="26000" />
+	<EnableBehavior Name="Combat" />
+
+	<!-- Leave coordinates -->
+
+	<RunTo X="156.7793" Y="-171.9999" Z="180.5006"  />
+	<CustomBehavior File="MyCTM" X="138.1159" Y="-114.84" Z="88.37748" />
+	<CustomBehavior File="MyCTM" X="149.0161" Y="-147.3957" Z="94.20318" />
+	<CustomBehavior File="MyCTM" X="150.1802" Y="-160.539" Z="7.517741" />
+	<CustomBehavior File="MyCTM" X="186.7866" Y="-151.26" Z="10.72245" />
+	<CustomBehavior File="MyCTM" X="182.8658" Y="-152.0624" Z="10.86669" />
+	<RunTo X="160.7596" Y="-87.45521" Z="12.55195" />
+	
+	<CustomBehavior File="RunMacro" Macro="/sw pause" />
+</If>

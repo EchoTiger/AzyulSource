@@ -1,0 +1,28 @@
+<If Condition="Me.FreeBagSlots &lt; 17" >
+	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
+	<MoveTo Nav="Fly" X="5797.183" Y="688.9267" Z="648.1799" />
+
+	<CustomBehavior File="InteractWith" MobId="35496" MobState="Alive" WaitTime="1000" X="5798.024" Y="689.6007" Z="647.0987" />
+	<CustomBehavior File="RunCode" >
+	<![CDATA[
+		foreach (WoWItem i in Me.BagItems)
+		{
+			if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+				i.UseContainerItem();
+				StyxWoW.SleepForLagDuration();
+		}
+	]]>
+	</CustomBehavior>
+
+	<RunTo X="5788.56" Y="689.9357" Z="647.0991" />
+	<SetMailbox>
+		<Mailboxes>
+			<Mailbox X="5800.739" Y="731.1019" Z="640.4297" />
+		</Mailboxes>
+	</SetMailbox>
+	<RunTo X="5800.739" Y="731.1019" Z="640.4297" />
+	<CustomBehavior File="ForceSetVendor" DoMail="True" />
+	<RunTo X="5803.12" Y="718.2377" Z="640.7383" />
+	<ClearMailbox />
+	<MoveTo Nav="Fly" X="5686.838" Y="905.868" Z="712.2202" />
+</If>

@@ -1,0 +1,57 @@
+<If Condition="Me.FreeBagSlots &lt; 17" >
+	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
+	<If Condition="!(Me.Location.Distance(new WoWPoint(3843.809, 6980.912, 86.65029)) &gt; 100)" >
+		<RunTo X="3787.271" Y="6959.985" Z="104.8405" />
+		<CustomBehavior File="FlyTo" X="3724.287" Y="6919.871" Z="183.8073" />
+	</If>
+	<MoveTo Nav="Fly" X="3576.351" Y="6670.911" Z="195.1068" />
+
+	<CustomBehavior File="InteractWith" MobId="25314" MobState="Alive" WaitTime="1000" X="3575.609" Y="6671.719" Z="195.1093" />
+	<CustomBehavior File="RunCode" >
+	<![CDATA[
+		foreach (WoWItem i in Me.BagItems)
+		{
+			if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+				i.UseContainerItem();
+				StyxWoW.SleepForLagDuration();
+		}
+	]]>
+	</CustomBehavior>
+
+	<If Condition="Me.FreeBagSlots &lt; 20" >
+		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.Orange, &quot;You're still under 20 bagslots after selling. Moving to mail.&quot;);" />
+		<MoveTo Nav="Fly" X="3040.02" Y="5984.059" Z="251.9397" />
+		<If Condition="Me.IsHorde" >
+			<MoveTo Nav="Fly" X="4469.471" Y="5769.258" Z="112.6388" />
+			<SetMailbox>
+				<Mailboxes>
+					<Mailbox Nav="Fly" X="4502.223" Y="5716.38" Z="81.48362" />
+				</Mailboxes>
+			</SetMailbox>
+
+			<!-- Backup vendor 
+			<SetVendor>
+				<Vendors>
+					<Vendor Nav="Fly" Name="Vrok" Entry="27063" Type="Repair" X="4507.342" Y="5722.407" Z="81.51395" />
+				</Vendors>
+			</SetVendor>
+			<CustomBehavior File="ForceSetVendor" DoMail="True" DoSell="True" DoRepair="True" /> -->
+			<CustomBehavior File="ForceSetVendor" DoMail="True" />
+			<MoveTo Nav="Fly" X="4469.471" Y="5769.258" Z="112.6388" />
+			<ClearMailbox />
+		</If>
+		<If Condition="Me.IsAlliance" >
+			<MoveTo Nav="Fly" X="2262.701" Y="5223.041" Z="11.29597" />
+			<RunTo X="2255.257" Y="5200.692" Z="11.31578" />
+			<SetMailbox>
+				<Mailboxes>
+					<Mailbox X="2262.991" Y="5196.116" Z="12.07119" />
+				</Mailboxes>
+			</SetMailbox>
+			<CustomBehavior File="ForceSetVendor" DoMail="True" />
+			<RunTo X="2250.853" Y="5193.352" Z="11.40879" />
+			<ClearMailbox/>
+			<MoveTo Nav="Fly" X="2506.578" Y="5315.387" Z="149.9376" />
+		</If>
+	</If>
+</If>

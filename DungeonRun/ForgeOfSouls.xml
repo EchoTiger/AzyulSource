@@ -1,0 +1,48 @@
+<If Condition="Me.MapId == 632" >
+	<CustomBehavior File="RunMacro" Macro="/sw clear" />
+	<CustomBehavior File="RunMacro" Macro="/sw play" />
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+
+	<DisableBehavior Name="Combat" />
+		<RunTo X="4949.285" Y="2220.286" Z="638.733" />
+		<RunTo X="5025.729" Y="2157.038" Z="641.4286" />
+		<RunTo X="5158.983" Y="2134.435" Z="652.2718" />
+		<RunTo X="5214.833" Y="2176.601" Z="652.276" />
+		<RunTo X="5141.462" Y="2299.482" Z="665.4296" />
+		<RunTo X="5168.427" Y="2340.728" Z="668.161" />
+		<RunTo X="5158.18" Y="2336.105" Z="668.161" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo X="5219.134" Y="2355.058" Z="668.1611" />
+	<MoveTo X="5215.247" Y="2393.873" Z="668.1611" />
+
+	<DisableBehavior Name="Combat" />
+		<RunTo X="5254.924" Y="2460.375" Z="677.9609" />
+		<RunTo X="5257.022" Y="2551.821" Z="675.2283" />
+		<RunTo X="5301.722" Y="2507.023" Z="686.0684" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo X="5318.403" Y="2509.544" Z="686.0679" />
+	<MoveTo X="5340.788" Y="2528.873" Z="677.9619" />
+
+	<DisableBehavior Name="Combat" />
+		<RunTo X="5322.511" Y="2544.449" Z="675.2291" />
+		<RunTo X="5346.5" Y="2452.666" Z="686.4702" />
+		<RunTo X="5394.309" Y="2438.148" Z="695.0018" />
+		<RunTo X="5480.37" Y="2497.604" Z="705.9774" />
+		<RunTo X="5592.879" Y="2420.364" Z="705.8525" />
+		<RunTo X="5599.306" Y="2441.356" Z="705.8517" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo X="5629.906" Y="2467.044" Z="708.6968" /> <!-- Before boss. -->
+
+	<CustomBehavior File="GetOutOfGroundEffectAndAuras" MoveAwayFromMobWithAuraId1="69051" EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="36502" EventX="5661.752" EventY="2507.394" EventZ="708.83" >
+		<Safespots>
+			<RunTo X="5641.85" Y="2498.017" Z="708.697" />
+		</Safespots>
+	</CustomBehavior>
+
+	<RunTo X="4964.0605" Y="2237.5291" Z="638.8666"  />
+
+	<CustomBehavior File="RunMacro" Macro="/sw pause" />
+</If>

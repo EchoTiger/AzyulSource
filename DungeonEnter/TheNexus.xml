@@ -1,0 +1,13 @@
+<If Condition="Me.MapId != 576 &amp;&amp; Me.FreeBagSlots &gt;= 17" >
+	<If Condition="(Me.Location.Distance(new WoWPoint(3843.809, 6980.912, 86.65029)) &gt; 100)" >
+		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Heading to Instance.&quot;);" />
+		<CustomBehavior File="FlyTo" X="3752.128" Y="6946.389" Z="158.0456" />
+		<CustomBehavior File="FlyTo" X="3802.37" Y="6963.975" Z="102.0923" />
+		<RunTo X="3841.842" Y="6985.99" Z="86.33597" />
+		<CustomBehavior File="MyCTM" X="3884.149" Y="6984.979" Z="72.9556" />
+		<CustomBehavior File="RunMacro" Macro="/dismount" />
+	</If>
+	<RunTo X="3894.839" Y="6985.287" Z="69.4888" />
+	<CustomBehavior File="MyCTM" X="3901.258" Y="6985.32" Z="69.4879" TerminateWhen="Me.MapId == 576 || Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.MapId == 576 || Me.IsInInstance" />
+</If>
