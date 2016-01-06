@@ -10,7 +10,7 @@
 		end" />
 
 	<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
-		if(Contains(DepositItems, i.Name) &amp;&amp; GuildBankFrame.IsVisible)
+		if(Contains(DepositItems, i.Name) &amp;&amp; Lua.GetReturnVal&lt;bool&gt;(&quot;return GuildBankFrame:IsVisible();&quot;, 0))
 			i.UseContainerItem();
 			StyxWoW.SleepForLagDuration();
 	}" />
