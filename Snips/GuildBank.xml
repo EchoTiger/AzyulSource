@@ -1,0 +1,15 @@
+<If Condition="SpellManager.CanCast(83958)" >
+	<CustomBehavior File="RunCode" Code="SpellManager.Cast(83958);" />
+	<CustomBehavior File="WaitTimer" WaitTime="3500" />
+	<CustomBehavior File="InteractWith" MobId1="206602" MobId2="206603" WaitForNpcs="false" WaitTime="2000" /> 
+
+	<!-- Add <If/> we are set to deposit gold.
+	<CustomBehavior File="Misc\RunLua" Lua="
+		if GuildBankFrame:IsVisible()==true then
+			DepositGuildBankMoney(GetMoney());
+		end" />
+	-->
+
+	<!-- DynDeposit here
+	-->
+</If>

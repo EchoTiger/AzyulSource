@@ -1,0 +1,5 @@
+<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
+	if(DepositArray.Contains(i))
+		i.UseContainerItem();
+		StyxWoW.SleepForLagDuration();
+}" />

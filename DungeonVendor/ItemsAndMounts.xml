@@ -1,0 +1,9 @@
+<If Condition="Me.KnowsSpell(61425) || Me.KnowsSpell(61447) || Me.KnowsSpell(122708)" > <!-- Traveler's + Yak -->
+	<CustomBehavior File="WaitTimer" WaitTime="750" />
+	<CustomBehavior File="RunMacro" Macro="/cast Тундровый мамонт путешественника\n/cast Traveler's Tundra Mammoth\n/cast Tundramammut des Reisenden\n/cast Großes Expeditionsyak\n/cast Большой як для путешествий\n/cast Grand Expedition Yak" />
+	<CustomBehavior File="WaitTimer" WaitTime="2000" />
+	<!-- Use DynSell 
+	-->
+</If>
+
+<!-- Add Repair Bot support // Jeeves // Portable Mailboxes // etc -->

@@ -1,0 +1,16 @@
+<HBProfile>
+	<Name>Gundrak - Remote Version</Name>
+
+	<Blacklist>
+		<Mob Name="Drakkari Frenzy" Id="29834" Flags="Pull,Combat" />
+		<Mob Name="Small Frog" Id="13321" Flags="Pull,Combat" /> 
+	</Blacklist>
+
+	<QuestOrder>
+		<CustomBehavior File="RunCode" Type="Definition" Code="
+			string[] ProtectedItems = {'example'};
+			string[] DepositItems = {'example'}; 
+		" />
+
+	</QuestOrder>
+</HBProfile>
