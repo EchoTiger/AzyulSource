@@ -1,133 +1,95 @@
-<If Condition="Me.MapId != 604 &amp;&amp; Me.FreeBagSlots &gt;= 17" >
-	<If Condition="Me.Location.Distance(new WoWPoint(6944.809, -4426.977, 450.8831)) &gt; 100 " >
-		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Heading to Instance.&quot;);" />
-		<CustomBehavior File="FlyTo" X="6869.925" Y="-4472.948" Z="511.2688" />
-		<CustomBehavior File="FlyTo" X="6954.726" Y="-4416.813" Z="450.0275" />
-		<CustomBehavior File="WaitTimer" WaitTime="1000" />
-		<CustomBehavior File="RunMacro" Macro="/dismount" />
-	</If>
+<If Condition="Me.MapId == 604" >
+	<CustomBehavior File="RunMacro" Macro="/sw clear" />
+	<CustomBehavior File="Misc\RunLua" Lua="print(&quot;|cFF3399FF[Azyul]|r: In-game timer started.&quot;)" />
+	<CustomBehavior File="RunMacro" Macro="/sw play" />
+	<CustomBehavior File="Misc\RunLua" Lua="ShowLoadMessage = GetMoney();" />
+	<CustomBehavior File="Misc\RunLua" Lua="WarningIconRight = GetTime();" />
+	<CustomBehavior File="Misc\RunLua" Lua="ShowEngageMessage = GetMoney();" />
+
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="Hooks\DoWhen" ActivityName="CustomDeathHook" Command="Enable" />
+
+	<MoveTo X="1854.622" Y="640.1485" Z="175.8663" />
+	<MoveTo X="1853.228" Y="638.6234" Z="175.802" />
+	<CustomBehavior File="MyCTM" X="1840.902" Y="631.1052" Z="126.2862" />
+	<MoveTo X="1824.368" Y="632.9717" Z="129.3592" />
+
+	<DisableBehavior Name="Combat" />
+		<RunTo X="1805.276" Y="633.3484" Z="129.1355" />
+		<RunTo X="1789.081" Y="630.5768" Z="124.4691" />
+		<RunTo X="1775.437" Y="610.9134" Z="124.6004" />
+		<RunTo X="1763.212" Y="624.6196" Z="124.4669" />
+		<RunTo X="1775.782" Y="650.1952" Z="124.4696" />
+		<RunTo X="1775.17" Y="675.1672" Z="129.2167" />
+	<EnableBehavior Name="Combat" />
+	<MoveTo X="1777.956" Y="676.9604" Z="129.2174" />
+
+	<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="(Object(192518, o => o.ToGameObject().State == 0) != null) || (Object(192518, o => o.ToGameObject().CanUse()) != null)" />
+	<While Condition="!(Object(192518, o =&gt; o.ToGameObject().State == 0) != null)">
+		<CustomBehavior File="InteractWith" WaitForNpcs="false" IgnoreLoSToTarget="true" Range="4.8" MobId="192518" X="1775.293" Y="679.6804" Z="129.2361" />
+		<CustomBehavior File="WaitTimer" WaitTime="1200" />
+	</While>
+
+	<MoveTo X="1765.704" Y="644.8124" Z="124.4661" />
+	<MoveTo X="1726.359" Y="632.9615" Z="129.1971" />
+
+	<DisableBehavior Name="Combat" />
+		<RunTo X="1694.117" Y="633.3572" Z="128.4503" />
+		<RunTo X="1673.767" Y="633.6954" Z="127.5972" />
+		<RunTo X="1663.43" Y="625.3335" Z="128.0307" />
+		<RunTo X="1664.98" Y="649.3254" Z="127.0745" />
+		<RunTo X="1640.559" Y="639.2423" Z="126.216" />
+		<RunTo X="1639.297" Y="659.866" Z="124.4361" />
+		<RunTo X="1626.241" Y="695.3307" Z="142.1719" />
+		<RunTo X="1626.227" Y="744.3055" Z="142.7861" />
+		<RunTo X="1680.791" Y="743.1531" Z="142.7869" />
+	<EnableBehavior Name="Combat" />
+
+	<MoveTo X="1690.795" Y="743.5365" Z="142.7789" />
+	<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="(Object(192520, o => o.ToGameObject().State == 0) != null) || (Object(192520, o => o.ToGameObject().CanUse()) != null)" />
+	<While Condition="!(Object(192520, o =&gt; o.ToGameObject().State == 0) != null)">
+		<CustomBehavior File="InteractWith" WaitForNpcs="false" IgnoreLoSToTarget="true" Range="4.8" MobId="192520" X="1693.509" Y="743.595" Z="142.7876" />
+		<CustomBehavior File="WaitTimer" WaitTime="1200" />
+	</While>
+
+	<MoveTo X="1627.208" Y="751.5085" Z="142.7861" />
+
+	<DisableBehavior Name="Combat" />
+		<RunTo X="1625.227" Y="790.0083" Z="142.7824" />
+		<RunTo X="1575.291" Y="833.7738" Z="153.3104" />
+		<RunTo X="1585.866" Y="883.0992" Z="151.4873" />
+		<RunTo X="1643.559" Y="894.985" Z="143.8395" />
+		<RunTo X="1660.83" Y="867.6797" Z="137.6806" />
+		<RunTo X="1686.498" Y="894.6101" Z="133.4067" />
+		<RunTo X="1715.809" Y="854.1606" Z="129.1983" />
+		<RunTo X="1746.728" Y="858.087" Z="129.1924" />
+		<RunTo X="1776.924" Y="850.5671" Z="123.1936" />
+		<RunTo X="1797.481" Y="856.8885" Z="129.1889" />
+		<RunTo X="1772.675" Y="810.5074" Z="129.2168" /> <!-- Third boss -->
+	<EnableBehavior Name="Combat" />
+	<MoveTo X="1772.236" Y="808.7632" Z="129.2166" />
+
+	<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="(Object(192519, o => o.ToGameObject().State == 0) != null) || (Object(192519, o => o.ToGameObject().CanUse()) != null)" />
+	<While Condition="!(Object(192519, o =&gt; o.ToGameObject().State == 0) != null)">
+		<CustomBehavior File="InteractWith" WaitForNpcs="false" IgnoreLoSToTarget="true" Range="4.8" MobId="192519" X="1772.219" Y="804.9631" Z="129.2361" />
+		<CustomBehavior File="WaitTimer" WaitTime="1200" />
+	</While>
+
+    <RunTo X="1769.452" Y="801.0773" Z="129.2167" />
+    <RunTo X="1739.418" Y="758.1852" Z="113.3648" />
+
+    <MoveTo X="1751.777" Y="743.4966" Z="118.9603" />
+
+	<DisableBehavior Name="Combat" />
+		<RunTo X="1847.016" Y="742.9401" Z="135.9356" />
+		<RunTo X="1880.714" Y="757.1185" Z="135.9769" />
+		<RunTo X="1882.871" Y="728.2493" Z="135.9563" />
+		<RunTo X="1919.834" Y="743.6863" Z="136.5191" />
+	<EnableBehavior Name="Combat" />
+
+	<CustomBehavior File="InteractWith" MobId="29306" MobState="Alive" IgnoreCombat="true" WaitForNpcs="false" /> <!-- Pull Gal'darah just in case he was missed. -->
+	<MoveTo X="1947.211" Y="681.9457" Z="135.4161" />
+	<MoveTo X="1945.433" Y="663.1171" Z="135.2176" />
+
+	<CustomBehavior File="RunMacro" Macro="/sw pause" />
 </If>
-<While Condition="Me.FreeBagSlots &gt;= 17" >
-	<If Condition="!(Me.MapId == 604)" >
-		<RunTo X="6962.967" Y="-4409.615" Z="446.2835" />
-		<!--<CustomBehavior File="MyCTM" X="6973.58" Y="-4400.046" Z="441.5751" />-->
-		<CustomBehavior File="GoThruPortal" Timeout="30000" X="6968.59" Y="-4404.028" Z="442.5896" />
-	</If>
-	<If Condition="Me.MapId == 604" >
-		<CustomBehavior File="RunMacro" Macro="/sw clear" />
-		<CustomBehavior File="Misc\RunLua" Lua="print(&quot;|cFF3399FF[Azyul]|r: In-game timer started.&quot;)" />
-		<CustomBehavior File="RunMacro" Macro="/sw play" />
-		<CustomBehavior File="Misc\RunLua" Lua="ShowLoadMessage = GetMoney();" />
-		<CustomBehavior File="Misc\RunLua" Lua="WarningIconRight = GetTime();" />
-		<CustomBehavior File="Misc\RunLua" Lua="ShowEngageMessage = GetMoney();" />
-
-		<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="CustomDeathHook" Command="Enable" />
-
-		<MoveTo X="1854.622" Y="640.1485" Z="175.8663" />
-		<MoveTo X="1853.228" Y="638.6234" Z="175.802" />
-		<CustomBehavior File="MyCTM" X="1840.902" Y="631.1052" Z="126.2862" />
-		<MoveTo X="1824.368" Y="632.9717" Z="129.3592" />
-
-		<DisableBehavior Name="Combat" />
-			<RunTo X="1805.276" Y="633.3484" Z="129.1355" />
-			<RunTo X="1789.081" Y="630.5768" Z="124.4691" />
-			<RunTo X="1775.437" Y="610.9134" Z="124.6004" />
-			<RunTo X="1763.212" Y="624.6196" Z="124.4669" />
-			<RunTo X="1775.782" Y="650.1952" Z="124.4696" />
-			<RunTo X="1775.17" Y="675.1672" Z="129.2167" />
-		<EnableBehavior Name="Combat" />
-		<MoveTo X="1777.956" Y="676.9604" Z="129.2174" />
-
-		<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="(Object(192518, o => o.ToGameObject().State == 0) != null) || (Object(192518, o => o.ToGameObject().CanUse()) != null)" />
-		<While Condition="!(Object(192518, o =&gt; o.ToGameObject().State == 0) != null)">
-			<CustomBehavior File="InteractWith" WaitForNpcs="false" IgnoreLoSToTarget="true" Range="4.8" MobId="192518" X="1775.293" Y="679.6804" Z="129.2361" />
-			<CustomBehavior File="WaitTimer" WaitTime="1200" />
-		</While>
-
-		<MoveTo X="1765.704" Y="644.8124" Z="124.4661" />
-		<MoveTo X="1726.359" Y="632.9615" Z="129.1971" />
-
-		<DisableBehavior Name="Combat" />
-			<RunTo X="1694.117" Y="633.3572" Z="128.4503" />
-			<RunTo X="1673.767" Y="633.6954" Z="127.5972" />
-			<RunTo X="1663.43" Y="625.3335" Z="128.0307" />
-			<RunTo X="1664.98" Y="649.3254" Z="127.0745" />
-			<RunTo X="1640.559" Y="639.2423" Z="126.216" />
-			<RunTo X="1639.297" Y="659.866" Z="124.4361" />
-			<RunTo X="1626.241" Y="695.3307" Z="142.1719" />
-			<RunTo X="1626.227" Y="744.3055" Z="142.7861" />
-			<RunTo X="1680.791" Y="743.1531" Z="142.7869" />
-		<EnableBehavior Name="Combat" />
-
-		<MoveTo X="1690.795" Y="743.5365" Z="142.7789" />
-		<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="(Object(192520, o => o.ToGameObject().State == 0) != null) || (Object(192520, o => o.ToGameObject().CanUse()) != null)" />
-		<While Condition="!(Object(192520, o =&gt; o.ToGameObject().State == 0) != null)">
-			<CustomBehavior File="InteractWith" WaitForNpcs="false" IgnoreLoSToTarget="true" Range="4.8" MobId="192520" X="1693.509" Y="743.595" Z="142.7876" />
-			<CustomBehavior File="WaitTimer" WaitTime="1200" />
-		</While>
-
-		<MoveTo X="1627.208" Y="751.5085" Z="142.7861" />
-
-		<DisableBehavior Name="Combat" />
-			<RunTo X="1625.227" Y="790.0083" Z="142.7824" />
-			<RunTo X="1575.291" Y="833.7738" Z="153.3104" />
-			<RunTo X="1585.866" Y="883.0992" Z="151.4873" />
-			<RunTo X="1643.559" Y="894.985" Z="143.8395" />
-			<RunTo X="1660.83" Y="867.6797" Z="137.6806" />
-			<RunTo X="1686.498" Y="894.6101" Z="133.4067" />
-			<RunTo X="1715.809" Y="854.1606" Z="129.1983" />
-			<RunTo X="1746.728" Y="858.087" Z="129.1924" />
-			<RunTo X="1776.924" Y="850.5671" Z="123.1936" />
-			<RunTo X="1797.481" Y="856.8885" Z="129.1889" />
-			<RunTo X="1772.675" Y="810.5074" Z="129.2168" /> <!-- Third boss -->
-		<EnableBehavior Name="Combat" />
-		<MoveTo X="1772.236" Y="808.7632" Z="129.2166" />
-
-		<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="(Object(192519, o => o.ToGameObject().State == 0) != null) || (Object(192519, o => o.ToGameObject().CanUse()) != null)" />
-		<While Condition="!(Object(192519, o =&gt; o.ToGameObject().State == 0) != null)">
-			<CustomBehavior File="InteractWith" WaitForNpcs="false" IgnoreLoSToTarget="true" Range="4.8" MobId="192519" X="1772.219" Y="804.9631" Z="129.2361" />
-			<CustomBehavior File="WaitTimer" WaitTime="1200" />
-		</While>
-
-	    <RunTo X="1769.452" Y="801.0773" Z="129.2167" />
-	    <RunTo X="1739.418" Y="758.1852" Z="113.3648" />
-
-	    <MoveTo X="1751.777" Y="743.4966" Z="118.9603" />
-
-		<DisableBehavior Name="Combat" />
-			<RunTo X="1847.016" Y="742.9401" Z="135.9356" />
-			<RunTo X="1880.714" Y="757.1185" Z="135.9769" />
-			<RunTo X="1882.871" Y="728.2493" Z="135.9563" />
-			<RunTo X="1919.834" Y="743.6863" Z="136.5191" />
-		<EnableBehavior Name="Combat" />
-
-		<CustomBehavior File="InteractWith" MobId="29306" MobState="Alive" IgnoreCombat="true" WaitForNpcs="false" /> <!-- Pull Gal'darah just in case he was missed. -->
-		<MoveTo X="1947.211" Y="681.9457" Z="135.4161" />
-		<MoveTo X="1945.433" Y="663.1171" Z="135.2176" />
-		<CustomBehavior File="Misc\RunLua" Lua="print(&quot;|cFF3399FF[Azyul]|r: Instance completed, in-game timer paused.&quot;)" />
-
-		<CustomBehavior File="Misc\RunLua" Lua="
-			ShowPizzaMessage = GetMoney();
-			WarningIconChat = GetTime();
-			WarningIconLeft = math.floor(WarningIconChat-WarningIconRight)
-			ShowWipeMessage = math.floor(ShowPizzaMessage-ShowLoadMessage);
-			totalmoney = math.floor(ShowPizzaMessage-ShowKillMessage);
-			print(&quot;|cFF3399FF[Azyul]|r: Quick Stats!\nPicked up: &quot;, GetCoinTextureString(ShowWipeMessage), &quot;\nTotals:  &quot;, GetCoinTextureString(totalmoney))
-		" /> 
-
-		<CustomBehavior File="RunMacro" Macro="/sw pause" />
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="CustomDeathHook" Command="Disable" />
-
-		<If Condition="Me.FreeBagSlots &lt; 17" >
-			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Skipping wait since we're going to the vendor.&quot;);" />
-			<Else>
-				<CustomBehavior File="Misc\InstanceTimer" Timer="Check" WaitTime="369000" />
-			</Else>
-		</If>
-	    <CustomBehavior File="MyCTM" X="1905.168" Y="640.1153" Z="176.6356" TerminateWhen="Me.MapId != 604" />
-		<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="!Me.IsInInstance" />
-		<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" /> 
-	</If>
-	<!--Instance Coordination Complete-->
-</While>
