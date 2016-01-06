@@ -1,4 +1,4 @@
-<If Condition="Me.MapId != 602 &amp;&mp; Me.FreeBagSlots &gt;= 17" >
+<If Condition="Me.MapId != 602 &amp;&amp; Me.FreeBagSlots &gt;= 17" >
 	<If Condition="Me.Location.Distance(new WoWPoint(9168.483, -1370.176, 1095.251)) &gt;= 30" >
 		<CustomBehavior File="FlyTo" X="9160.772" Y="-1364.403" Z="1115.498" />
 	</If>
