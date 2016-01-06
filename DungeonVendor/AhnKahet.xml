@@ -7,9 +7,10 @@
 			<CustomBehavior File="InteractWith" MobId="27055" MobState="Alive" WaitTime="1000" X="3514.701" Y="1999.156" Z="64.8862" />
 			<CustomBehavior File="RunCode" >
 			<![CDATA[
+				MerchantFrame.RepairAllItems;
 				foreach (WoWItem i in Me.BagItems)
 				{
-					if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+					if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Contains(DepositItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 						i.UseContainerItem();
 						StyxWoW.SleepForLagDuration();
 				}
@@ -24,9 +25,10 @@
 			<CustomBehavior File="InteractWith" MobId="27019" MobState="Alive" WaitTime="1000" X="3845.488" Y="1572.724" Z="86.69914" />
 			<CustomBehavior File="RunCode" >
 			<![CDATA[
+				MerchantFrame.RepairAllItems;
 				foreach (WoWItem i in Me.BagItems)
 				{
-					if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+					if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Contains(DepositItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 						i.UseContainerItem();
 						StyxWoW.SleepForLagDuration();
 				}
