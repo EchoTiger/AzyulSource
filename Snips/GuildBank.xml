@@ -10,6 +10,9 @@
 		end" />
 	-->
 
-	<!-- DynDeposit here
-	-->
+	<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
+		if(Contains(DepositItems, i.Name) &amp;&amp; GuildBankFrame.IsVisible)
+			i.UseContainerItem();
+			StyxWoW.SleepForLagDuration();
+	}" />
 </If>

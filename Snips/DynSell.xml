@@ -1,5 +1,11 @@
-<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
-	if(i != null &amp;&amp; i.Entry != 6948 &amp;&amp; !Me.Combat &amp;&amp; !Me.IsDead &amp;&amp; !Me.IsGhost &amp;&amp; MerchantFrame.Instance.IsVisible)
-		i.UseContainerItem();
-		StyxWoW.SleepForLagDuration();
-}" />
+<CustomBehavior File="RunCode" Type="Definition" >
+<![CDATA[
+	public void DynSell() {
+		foreach (WoWItem i in Me.BagItems) {
+		if(i != null &amp;&amp; i.Entry != 6948 &amp;&amp; !Contains(ProtectedItems, i.Name) &amp;&amp; !Me.Combat &amp;&amp; !Me.IsDead &amp;&amp; !Me.IsGhost &amp;&amp; MerchantFrame.Instance.IsVisible)
+			i.UseContainerItem();
+			StyxWoW.SleepForLagDuration();
+		}
+	} 
+]]>
+</CustomBehavior>

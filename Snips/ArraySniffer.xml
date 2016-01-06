@@ -1,0 +1,11 @@
+<CustomBehavior File="RunCode" Type="Definition" > <!-- For sniffing through arrays -->
+<![CDATA[
+	public static bool Contains(System.Collections.Generic.IEnumerable<string> collection, string item)
+	{
+		foreach (var str in collection)
+		{
+		   if (str.Equals(item)) return true;
+		}
+		 return false;
+	} ]]>
+</CustomBehavior>

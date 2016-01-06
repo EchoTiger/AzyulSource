@@ -2,8 +2,19 @@
 	<CustomBehavior File="WaitTimer" WaitTime="750" />
 	<CustomBehavior File="RunMacro" Macro="/cast Тундровый мамонт путешественника\n/cast Traveler's Tundra Mammoth\n/cast Tundramammut des Reisenden\n/cast Großes Expeditionsyak\n/cast Большой як для путешествий\n/cast Grand Expedition Yak" />
 	<CustomBehavior File="WaitTimer" WaitTime="2000" />
-	<!-- Use DynSell 
-	-->
+
+	<CustomBehavior File="InteractWith" MobId1="32639" MobId2="32641" MobId3="62822" WaitTime="1000" />
+	
+	<CustomBehavior File="RunCode" >
+	<![CDATA[
+		foreach (WoWItem i in Me.BagItems)
+		{
+			if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+				i.UseContainerItem();
+				StyxWoW.SleepForLagDuration();
+		}
+	]]>
+	</CustomBehavior>
 </If>
 
 <!-- Add Repair Bot support // Jeeves // Portable Mailboxes // etc -->
