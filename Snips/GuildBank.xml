@@ -3,12 +3,11 @@
 	<CustomBehavior File="WaitTimer" WaitTime="3500" />
 	<CustomBehavior File="InteractWith" MobId1="206602" MobId2="206603" WaitForNpcs="false" WaitTime="2000" /> 
 
-	<!-- Add <If/> we are set to deposit gold.
+	<!-- Add <If/> we are set to deposit gold.	-->
 	<CustomBehavior File="Misc\RunLua" Lua="
 		if GuildBankFrame:IsVisible()==true then
 			DepositGuildBankMoney(GetMoney());
 		end" />
-	-->
 
 	<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
 		if(Contains(DepositItems, i.Name) &amp;&amp; GuildBankFrame.IsVisible)
