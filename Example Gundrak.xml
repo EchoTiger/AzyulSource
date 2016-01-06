@@ -7,6 +7,8 @@
 	</Blacklist>
 
 	<QuestOrder>
+		<CustomBehavior File="RunCode" Code="" /> <!-- Do we have the behaviors? -->
+
 		<CustomBehavior File="RunCode" Type="Definition" Code="
 			string[] ProtectedItems = {'example', 'example 2'};
 			string[] DepositItems = {'example', 'example 2'}; 
@@ -14,16 +16,17 @@
 
 		<CustomBehavior File="LoadRemoteCode" />
 
-		<CustomBehavior File="RemoteCode" CodeUrl="https://raw.githubusercontent.com/EchoTiger/AzyulSource/master/UniversalNav/ToNorthrend.xml" /> <!-- Go to Northrend -->
-		<CustomBehavior File="RemoteCode" CodeUrl="https://raw.githubusercontent.com/EchoTiger/AzyulSource/master/Snips/DefensiveHooks.xml" /> <!-- Activate Defensive Manuvers -->
+		<CustomBehavior  File="RemoteCode" CodeUrl="http://enu.li/Snips/ProfileSettings.xml" /> <!-- Activate Profile Settings -->
+		<CustomBehavior File="RemoteCode" CodeUrl="http://enu.li/UniversalNav/ToNorthrend.xml" /> <!-- Go to Northrend -->
+		<CustomBehavior File="RemoteCode" CodeUrl="http://enu.li/Snips/DefensiveHooks.xml" /> <!-- Activate Defensive Manuvers -->
 
 		<While Condition="true" >
-			<CustomBehavior File="RemoteCode" CodeUrl="https://raw.githubusercontent.com/EchoTiger/AzyulSource/master/DungeonEnter/Gundrak.xml" /> <!-- Enter Gundrak -->
-			<CustomBehavior File="RemoteCode" CodeUrl="https://raw.githubusercontent.com/EchoTiger/AzyulSource/master/DungeonRun/Gundrak.xml" /> <!-- Run Gundrak -->
-			<CustomBehavior File="RemoteCode" CodeUrl="https://raw.githubusercontent.com/EchoTiger/AzyulSource/master/Snips/GuildBank.xml" /> <!-- Guild Bank Stuff -->
-			<CustomBehavior File="RemoteCode" CodeUrl="https://raw.githubusercontent.com/EchoTiger/AzyulSource/master/DungeonExit/Gundrak.xml" /> <!-- Exit Gundrak -->
-			<CustomBehavior File="RemoteCode" CodeUrl="https://raw.githubusercontent.com/EchoTiger/AzyulSource/master/DungeonVendor/ItemsAndMounts.xml" /> <!-- Vendor by Mounts/Items/Etc -->
-			<CustomBehavior File="RemoteCode" CodeUrl="https://raw.githubusercontent.com/EchoTiger/AzyulSource/master/DungeonVendor/Gundrak.xml" /> <!-- Vendor by Gundrak Vendors -->
+			<CustomBehavior File="RemoteCode" CodeUrl="http://enu.li/DungeonEnter/Gundrak.xml" /> <!-- Enter Gundrak -->
+			<CustomBehavior File="RemoteCode" CodeUrl="http://enu.li/DungeonRun/Gundrak.xml" /> <!-- Run Gundrak -->
+			<CustomBehavior File="RemoteCode" CodeUrl="http://enu.li/Snips/GuildBank.xml" /> <!-- Guild Bank Stuff -->
+			<CustomBehavior File="RemoteCode" CodeUrl="http://enu.li/DungeonExit/Gundrak.xml" /> <!-- Exit Gundrak -->
+			<CustomBehavior File="RemoteCode" CodeUrl="http://enu.li/DungeonVendor/ItemsAndMounts.xml" /> <!-- Vendor by Mounts/Items/Etc -->
+			<CustomBehavior File="RemoteCode" CodeUrl="http://enu.li/DungeonVendor/Gundrak.xml" /> <!-- Vendor by Gundrak Vendors -->
 		</While>
 
 	</QuestOrder>
