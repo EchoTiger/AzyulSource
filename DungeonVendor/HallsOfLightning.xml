@@ -11,7 +11,7 @@
 				i.UseContainerItem();
 				await CommonCoroutines.SleepForRandomReactionTime();
 		}
-		MerchantFrame.Instance.RepairAllItems;
+		Lua.DoString("RepairAllItems();");
 	]]>
 	</CustomBehavior>
 
@@ -35,7 +35,7 @@
 						i.UseContainerItem();
 						await CommonCoroutines.SleepForRandomReactionTime();
 				}
-				MerchantFrame.Instance.RepairAllItems;
+				Lua.DoString("RepairAllItems();");
 			]]>
 			</CustomBehavior> -->
 		<ClearMailbox />

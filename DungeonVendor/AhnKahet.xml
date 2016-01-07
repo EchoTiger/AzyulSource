@@ -12,7 +12,7 @@
 					i.UseContainerItem();
 					await CommonCoroutines.SleepForRandomReactionTime();
 			}
-			MerchantFrame.Instance.RepairAllItems;
+			Lua.DoString("RepairAllItems();");
 		]]>
 		</CustomBehavior>
 
@@ -30,7 +30,7 @@
 					i.UseContainerItem();
 					await CommonCoroutines.SleepForRandomReactionTime();
 			}
-			MerchantFrame.Instance.RepairAllItems;
+			Lua.DoString("RepairAllItems();");
 		]]>
 		</CustomBehavior>
 		<MoveTo Nav="Fly" X="3825.224" Y="1533.922" Z="89.72506" />
