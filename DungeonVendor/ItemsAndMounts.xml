@@ -15,7 +15,7 @@
 					i.UseContainerItem();
 					await CommonCoroutines.SleepForRandomReactionTime();
 			}
-			MerchantFrame.RepairAllItems;
+			MerchantFrame.Instance.RepairAllItems;
 		]]>
 		</CustomBehavior>
 	</If>
