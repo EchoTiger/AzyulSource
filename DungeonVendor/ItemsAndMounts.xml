@@ -9,13 +9,13 @@
 		
 		<CustomBehavior File="RunCode" >
 		<![CDATA[
-			MerchantFrame.RepairAllItems;
 			foreach (WoWItem i in Me.BagItems)
 			{
 				if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Contains(DepositItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 					i.UseContainerItem();
-					StyxWoW.SleepForLagDuration();
+					await CommonCoroutines.SleepForRandomReactionTime();
 			}
+			MerchantFrame.RepairAllItems;
 		]]>
 		</CustomBehavior>
 	</If>

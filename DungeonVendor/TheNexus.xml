@@ -9,13 +9,13 @@
 	<CustomBehavior File="InteractWith" MobId="25314" MobState="Alive" WaitTime="1000" X="3575.609" Y="6671.719" Z="195.1093" />
 	<CustomBehavior File="RunCode" >
 	<![CDATA[
-		MerchantFrame.RepairAllItems;
 		foreach (WoWItem i in Me.BagItems)
 		{
 			if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Contains(DepositItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 				i.UseContainerItem();
-				StyxWoW.SleepForLagDuration();
+				await CommonCoroutines.SleepForRandomReactionTime();
 		}
+		MerchantFrame.RepairAllItems;
 	]]>
 	</CustomBehavior>
 
