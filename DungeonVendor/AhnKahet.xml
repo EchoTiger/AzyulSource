@@ -1,7 +1,7 @@
 <If Condition="Me.FreeBagSlots &lt; 17" >
 	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
 	<MoveTo Nav="Fly" X="3709.337" Y="2140.31" Z="55.26149" />
-	<If Condition="Me.IsAlliance">
+	<If Condition="Me.IsAlliance" >
 		<MoveTo Nav="Fly" X="3514.716" Y="2000.593" Z="64.89097" />
 		<CustomBehavior File="InteractWith" MobId="27055" MobState="Alive" WaitTime="1000" X="3514.701" Y="1999.156" Z="64.8862" />
 		<CustomBehavior File="RunCode" >

@@ -3,21 +3,16 @@
 	<CustomBehavior File="RunMacro" Macro="/sw play" />
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 
-	<DisableBehavior Name="Combat" /> <!-- Not sure why this is here. -->
-		<MoveTo X="452.1915" Y="-1034.2" Z="29.7841" />
-		<MoveTo X="504.5302" Y="-1037.181" Z="30.35317" />
-		<MoveTo X="481.3041" Y="-1011.203" Z="30.3519" />
-		<MoveTo X="496.138" Y="-972.3867" Z="30.35218" />
-		<!-- Check the above MoveTos to make sure they aren't irrelevent -->
-
+	<MoveTo X="452.1915" Y="-1034.2" Z="29.7841" />
+	<MoveTo X="504.5302" Y="-1037.181" Z="30.35317" />
+	<MoveTo X="481.3041" Y="-1011.203" Z="30.3519" />
+	<MoveTo X="496.138" Y="-972.3867" Z="30.35218" />
 
 	<DisableBehavior Name="Combat" />
 		<RunTo X="490.2238" Y="-1004.301" Z="30.3529" />
 		<RunTo X="550.4992" Y="-1003.801" Z="37.93991" />
 		<RunTo X="565.9688" Y="-1015.411" Z="37.9385" />
 		<RunTo X="549.9363" Y="-973.0606" Z="37.93736" />
-	<EnableBehavior Name="Combat" />
-
 	<EnableBehavior Name="Combat" />
 
 	<MoveTo X="548.456" Y="-913.4817" Z="22.44852" />
