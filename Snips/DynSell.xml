@@ -2,7 +2,7 @@
 <![CDATA[
 	public void DynSell() {
 		foreach (WoWItem i in Me.BagItems) {
-		if(i != null &amp;&amp; i.Entry != 6948 &amp;&amp; !Contains(ProtectedItems, i.Name) &amp;&amp; !Me.Combat &amp;&amp; !Me.IsDead &amp;&amp; !Me.IsGhost &amp;&amp; MerchantFrame.Instance.IsVisible)
+		if(i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 			i.UseContainerItem();
 			StyxWoW.SleepForLagDuration();
 		}
