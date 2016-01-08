@@ -1,5 +1,5 @@
 <If Condition="(Me.MapId != 571 &amp;&amp; !Me.IsInInstance) || (Me.ZoneId == 7078 || Me.ZoneId == 7004)" >
-	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul Navigator]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Going to Northerend!&quot;);" />
+	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul Navigator]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Going to Northrend!&quot;);" />
 	<If Condition="Me.IsAlliance" >
 		<!-- /// Mage Logic /// -->
 		<If Condition="SpellManager.CanCast(53140)" > <!-- Checks if we're a mage and spell is fully learnt+castable -->
@@ -323,5 +323,5 @@
 			<MoveTo X="2740.837" Y="6097.529" Z="76.88604" />
 		</If>
 	</If>
-	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul Navigator]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;We have reached Northerend!&quot;);" />
+	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul Navigator]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;We have reached Northrend!&quot;);" />
 </If>
