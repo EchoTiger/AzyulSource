@@ -2,7 +2,7 @@
 <![CDATA[
 	foreach (WoWItem i in Me.BagItems) {
 	if(i != null && Contains(DeleteItems, i.Name))
-		item.PickUp();
+		i.PickUp();
 		Lua.DoString("DeleteCursorItem();");
 		//Sleep isn't required.
 	}
