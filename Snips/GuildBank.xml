@@ -1,18 +1,20 @@
-<If Condition="SpellManager.CanCast(83958)" >
+<If Condition="SpellManager.CanCast(83958) &amp;&amp; (Settings.Instance.DepositGold || Settings.Instance.DepositItems)" >
 	<CustomBehavior File="RunCode" Code="SpellManager.Cast(83958);" />
 	<CustomBehavior File="WaitTimer" WaitTime="3500" />
 	<CustomBehavior File="InteractWith" MobId1="206602" MobId2="206603" WaitForNpcs="false" WaitTime="2000" /> 
 
-	<If Condition="DepositGold" >
+	<If Condition="Settings.Instance.DepositGold" >
 		<CustomBehavior File="Misc\RunLua" Lua="
 			if GuildBankFrame:IsVisible()==true then
 				DepositGuildBankMoney(GetMoney());
 			end" />
 	</If>
 
-	<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
-		if(Contains(DepositItems, i.Name) &amp;&amp; Lua.GetReturnVal&lt;bool&gt;(&quot;return GuildBankFrame:IsVisible();&quot;, 0))
-			i.UseContainerItem();
-			StyxWoW.SleepForLagDuration();
-	}" />
+	<If Condition="Settings.Instance.DepositItems" >
+		<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
+			if(Contains(Settings.Instance.DepositItemNames, i.Name) &amp;&amp; Lua.GetReturnVal&lt;bool&gt;(&quot;return GuildBankFrame:IsVisible();&quot;, 0))
+				i.UseContainerItem();
+				StyxWoW.SleepForLagDuration();
+		}" />
+	</If>
 </If>

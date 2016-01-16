@@ -1,4 +1,4 @@
-<If Condition="Me.FreeBagSlots &lt; 17" >
+<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
 	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
 	<If Condition="!(Me.Location.Distance(new WoWPoint(3843.809, 6980.912, 86.65029)) &gt; 100)" >
 		<RunTo X="3787.271" Y="6959.985" Z="104.8405" />
@@ -11,7 +11,7 @@
 	<![CDATA[
 		foreach (WoWItem i in Me.BagItems)
 		{
-			if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Contains(DepositItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+			if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 				i.UseContainerItem();
 				await CommonCoroutines.SleepForRandomReactionTime();
 		}
@@ -19,7 +19,7 @@
 	]]>
 	</CustomBehavior>
 
-	<If Condition="Me.FreeBagSlots &lt; 20" >
+	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.MailMinBagSlots" >
 		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.Orange, &quot;You're still under 20 bagslots after selling. Moving to mail.&quot;);" />
 		<MoveTo Nav="Fly" X="3040.02" Y="5984.059" Z="251.9397" />
 		<If Condition="Me.IsHorde" >

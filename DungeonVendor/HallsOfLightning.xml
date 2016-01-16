@@ -1,4 +1,4 @@
-<If Condition="Me.FreeBagSlots &lt; 17" >
+<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
 	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
 	<MoveTo Nav="Fly" X="8891.013" Y="-1359.756" Z="1033.76" />
 
@@ -7,7 +7,7 @@
 	<![CDATA[
 		foreach (WoWItem i in Me.BagItems)
 		{
-			if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Contains(DepositItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+			if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 				i.UseContainerItem();
 				await CommonCoroutines.SleepForRandomReactionTime();
 		}
@@ -15,7 +15,7 @@
 	]]>
 	</CustomBehavior>
 
-	<If Condition="Me.FreeBagSlots &lt; 20" >
+	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.MailMinBagSlots" >
 		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.Orange, &quot;You're still under 20 bagslots after selling. Moving to mail.&quot;);" />
 		<MoveTo Nav="Fly" X="8443.004" Y="-329.3138" Z="906.6082" />
 		<SetMailbox>
@@ -31,7 +31,7 @@
 			<![CDATA[
 				foreach (WoWItem i in Me.BagItems)
 				{
-					if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Contains(DepositItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+					if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 						i.UseContainerItem();
 						await CommonCoroutines.SleepForRandomReactionTime();
 				}

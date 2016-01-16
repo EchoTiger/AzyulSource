@@ -1,4 +1,4 @@
-<If Condition="Me.FreeBagSlots &lt; 17" >
+<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
 	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
 	<MoveTo Nav="Fly" X="5797.183" Y="688.9267" Z="648.1799" />
 
@@ -7,7 +7,7 @@
 	<![CDATA[
 		foreach (WoWItem i in Me.BagItems)
 		{
-			if (i != null && i.Entry != 6948 && !Contains(ProtectedItems, i.Name) && !Contains(DepositItems, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+			if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 				i.UseContainerItem();
 				await CommonCoroutines.SleepForRandomReactionTime();
 		}

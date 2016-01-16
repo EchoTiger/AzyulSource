@@ -1,7 +1,7 @@
 <CustomBehavior File="RunCode" >
 <![CDATA[
 	foreach (WoWItem i in Me.BagItems) {
-	if(i != null && Contains(DeleteItems, i.Name))
+	if(i != null && Contains(Settings.Instance.DeleteItemNames, i.Name))
 		i.PickUp();
 		Lua.DoString("DeleteCursorItem();");
 		//Sleep isn't required.
