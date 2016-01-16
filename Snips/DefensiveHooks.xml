@@ -1,13 +1,13 @@
 <!-- Defensive Maneuvers -->
 <If Condition="Settings.Instance.UseDefensiveHooks" >
 	<If Condition="Me.Class == WoWClass.Mage" > <!-- Ice Barrier -->
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (SpellManager.CanCast(11426).Cooldown &amp;&amp; Me.KnowsSpell(11426))" > <!-- (SpellManager.CanCast(1953)) ||  -->
+		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (SpellManager.CanCast(11426) &amp;&amp; Me.KnowsSpell(11426))" > <!-- (SpellManager.CanCast(1953)) ||  -->
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of defensive maneuvers.&quot;);" />
 			<CustomBehavior File="RunCode" Lua="SpellManager.Cast(11426);" />
 		</CustomBehavior>
 	</If>
 	<If Condition="Me.Class == WoWClass.Priest" > <!-- 139-Renew, 17-Power Word: Shield -->
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive)	&amp;&amp; ((SpellManager.CanCast(139).Cooldown &amp;&amp; !Me.HasAura(139)) || (SpellManager.CanCast(17).Cooldown &amp;&amp; !Me.HasAura(17) &amp;&amp; Me.KnowsSpell(17) &amp;&amp; !Me.HasAura(6788)))" >
+		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive)	&amp;&amp; ((SpellManager.CanCast(139) &amp;&amp; !Me.HasAura(139)) || (SpellManager.CanCast(17) &amp;&amp; !Me.HasAura(17) &amp;&amp; Me.KnowsSpell(17) &amp;&amp; !Me.HasAura(6788)))" >
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of defensive maneuvers.&quot;);" />
 			<CustomBehavior File="RunCode" Lua="SpellManager.Cast(139); CastSpellByID(17);" />
 		</CustomBehavior>
@@ -76,7 +76,7 @@
 		</CustomBehavior>
 	</If>
 	<If Condition="Me.Class == WoWClass.Paladin" > <!-- Judgment, talent speed buff -->
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; SpellManager.CanCast(20271).Cooldown &amp;&amp; Me.KnowsSpell(87172)" >
+		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; SpellManager.CanCast(20271) &amp;&amp; Me.KnowsSpell(87172)" >
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of speed buffs.&quot;);" />
 			<CustomBehavior File="Misc\RunLua" Lua="TargetNearestEnemy(); CastSpellByID(20271);" />
 		</CustomBehavior>
