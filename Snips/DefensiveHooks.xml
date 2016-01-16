@@ -13,7 +13,7 @@
 		</CustomBehavior>
 	</If>
 	<If Condition="Me.Class == WoWClass.Druid" > <!-- Barkskin -->
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (Me.HealthPercent &lt;= 20 &amp;&amp; !WoWSpell.FromId(22812).Cooldown)" >
+		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (Me.HealthPercent &lt;= 20 &amp;&amp; !WoWSpell.FromId(22812).Cooldown  &amp;&amp; Me.KnowsSpell(22812))" >
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of defensive maneuvers.&quot;);" />
 			<CustomBehavior File="RunCode" Lua="SpellManager.Cast(22812);" />
 		</CustomBehavior>
