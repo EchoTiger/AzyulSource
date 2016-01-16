@@ -64,20 +64,20 @@
 		</CustomBehavior>
 	</If>
 	<If Condition="Me.Class == WoWClass.Rogue" > <!-- Sprint -->
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (!WoWSpell.FromId(2983).Cooldown)" >
+		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (!WoWSpell.FromId(2983).Cooldown)" >
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of speed buffs.&quot;);" />
 			<CustomBehavior File="RunCode" Lua="SpellManager.Cast(2983);" />
 		</CustomBehavior>
 	</If>
 	<If Condition="Me.Class == WoWClass.Shaman" > <!-- Ghost Wolf -->
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (!Me.HasAura(2645))" >
-			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of defensive maneuvers.&quot;);" />
+		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (!Me.HasAura(2645))" >
+			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of speed buffs.&quot;);" />
 			<CustomBehavior File="RunCode" Lua="SpellManager.Cast(2645);" />
 		</CustomBehavior>
 	</If>
 	<If Condition="Me.Class == WoWClass.Paladin" > <!-- Judgment, talent speed buff -->
-		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; !WoWSpell.FromId(20271).Cooldown &amp;&amp; Me.KnowsSpell(87172)" >
-			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of defensive maneuvers.&quot;);" />
+		<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; !WoWSpell.FromId(20271).Cooldown &amp;&amp; Me.KnowsSpell(87172)" >
+			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of speed buffs.&quot;);" />
 			<CustomBehavior File="Misc\RunLua" Lua="TargetNearestEnemy(); CastSpellByID(20271);" />
 		</CustomBehavior>
 	</If>
