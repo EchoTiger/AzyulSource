@@ -6,7 +6,7 @@
 	</CustomBehavior>
 </If>
 <If Condition="Me.Class == WoWClass.Priest" > <!-- 139-Renew, 17-Power Word: Shield -->
-	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseDefensiveHooks &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; ((SpellManager.CanCast(139) &amp;&amp; !Me.HasAura(139)) || (SpellManager.CanCast(17) &amp;&amp; !Me.HasAura(17) &amp;&amp; !Me.HasAura(6788))" >
+	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseDefensiveHooks &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; ((SpellManager.CanCast(139) &amp;&amp; !Me.HasAura(139)) || (SpellManager.CanCast(17) &amp;&amp; !Me.HasAura(17) &amp;&amp; !Me.HasAura(6788)))" >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of defensive maneuvers.&quot;);" />
 		<CustomBehavior File="RunCode" Code="SpellManager.Cast(139); SpellManager.Cast(17);" />
 	</CustomBehavior>
