@@ -1,4 +1,4 @@
-<If Condition="Me.MapId != 604 &amp;&amp; Me.FreeBagSlots &gt;= 17" >
+<If Condition="Me.MapId != 604 &amp;&amp; Me.FreeBagSlots &gt;= Settings.Instance.VendorMinBagSlots" >
 	<If Condition="Me.Location.Distance(new WoWPoint(6944.809, -4426.977, 450.8831)) &gt; 100 " >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Heading to Instance.&quot;);" />
 		<CustomBehavior File="FlyTo" X="6869.925" Y="-4472.948" Z="511.2688" />

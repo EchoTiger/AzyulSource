@@ -1,4 +1,4 @@
-<If Condition="Me.MapId != 576 &amp;&amp; Me.FreeBagSlots &gt;= 17" >
+<If Condition="Me.MapId != 576 &amp;&amp; Me.FreeBagSlots &gt;= Settings.Instance.VendorMinBagSlots" >
 	<If Condition="(Me.Location.Distance(new WoWPoint(3843.809, 6980.912, 86.65029)) &gt; 100)" >
 		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Heading to Instance.&quot;);" />
 		<CustomBehavior File="FlyTo" X="3752.128" Y="6946.389" Z="158.0456" />
