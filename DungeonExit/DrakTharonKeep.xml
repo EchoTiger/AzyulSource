@@ -9,6 +9,7 @@
 	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" > <!-- Extra code to navigate out of the no-mount-zone for Drak'tharon -->
+		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
 		<RunTo X="4892.737" Y="-2032.301" Z="248.31" />
 	</If>
 
