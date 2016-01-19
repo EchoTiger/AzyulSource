@@ -1,6 +1,6 @@
 <!-- Defensive Maneuvers -->
 <If Condition="Me.Class == WoWClass.Mage" > <!-- Ice Barrier -->
-	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseDefensiveHooks &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (SpellManager.CanCast(11426) &amp;&amp; Me.KnowsSpell(11426))" > <!-- (SpellManager.CanCast(1953)) ||  -->
+	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveDefHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseDefensiveHooks &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (SpellManager.CanCast(11426) &amp;&amp; Me.KnowsSpell(11426) &amp;&amp; !Me.HasAura(11426))" > <!-- (SpellManager.CanCast(1953)) ||  -->
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of defensive maneuvers.&quot;);" />
 		<CustomBehavior File="RunCode" Code="SpellManager.Cast(11426);" />
 	</CustomBehavior>
