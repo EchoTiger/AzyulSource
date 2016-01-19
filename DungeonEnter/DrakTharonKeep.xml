@@ -1,5 +1,5 @@
 <If Condition="Me.MapId != 600 &amp;&amp; Me.FreeBagSlots &gt;= Settings.Instance.VendorMinBagSlots" >
-	<RunTo X="4774.621" Y="-2029.685" Z="229.3802" />
+	<MoveTo Nav="Fly" X="4774.621" Y="-2029.685" Z="229.3802" />
 	<CustomBehavior File="MyCTM" X="4774.691" Y="-2015.088" Z="229.3516" TerminateWhen="Me.MapId == 600" />
 	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
 </If>
