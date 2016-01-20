@@ -10,5 +10,5 @@
 	<RunTo X="3402.128" Y="1492.116" Z="181.5073" />
 	<RunTo X="3412.253" Y="1484.314" Z="182.8368" />
 	<CustomBehavior File="MyCTM" X="3417.772" Y="1480.286" Z="182.8368" TerminateWhen="Me.IsInInstance" />
-	<CustomBehavior File="WaitTimer" WaitTime="15000" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
 </If>

@@ -11,5 +11,5 @@
 		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
 		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
 	</While>
-	<CustomBehavior File="RunLua" Lua="ResetInstances();" />
+	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>
