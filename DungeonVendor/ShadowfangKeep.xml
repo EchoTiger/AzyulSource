@@ -1,0 +1,42 @@
+<If Condition="Me.FreeBagSlots &lt;= Settings.Instance.VendorMinBagSlots" >
+	<If Condition="Me.IsAlliance" >
+		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Moving to Wallace the Blind to sell and repair.&quot;);" />
+		<CustomBehavior File="InteractWith" MobId="3534" MobState="Alive" WaitTime="1000" X="1170.844" Y="2062.825" Z="5.249851" />
+		<CustomBehavior File="RunCode" >
+		<![CDATA[
+			Lua.DoString("RepairAllItems();");
+			foreach (WoWItem i in Me.BagItems)
+			{
+				if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+					i.UseContainerItem();
+					StyxWoW.SleepForLagDuration();
+			}
+		]]>
+		</CustomBehavior>
+		<If Condition="Me.FreeBagSlots &lt;= Settings.Instance.MailMinBagSlots" >
+			<!-- add mailbox and maybe more vendors -->
+			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: We're still low on bagslots, going to the closest mailbox.&quot;);" />
+			<MoveTo Nav="Fly" X="948.2783" Y="-1461.225" Z="62.47374" />
+			<CustomBehavior File="ForceSetVendor" DoMail="True" />
+		</If>
+	</If>
+
+	<If Condition="Me.IsHorde" >
+		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Moving to Sell, Repair and Mail in Deathknell.&quot;);" />
+		<CustomBehavior File="InteractWith" MobId="2117" MobState="Alive" WaitTime="1000" X="1836.369" Y="1568.609" Z="96.58121" />
+		<CustomBehavior File="RunCode" >
+		<![CDATA[
+			Lua.DoString("RepairAllItems();");
+			foreach (WoWItem i in Me.BagItems)
+			{
+				if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+					i.UseContainerItem();
+					StyxWoW.SleepForLagDuration();
+			}
+		]]>
+		</CustomBehavior>
+		<CustomBehavior File="WaitTimer" WaitTime="1000" />
+		<MoveTo DestName="Deathknell" X="1843.379" Y="1584.786" Z="93.73871" />
+		<CustomBehavior File="ForceSetVendor" DoMail="True" />
+	</If>
+</If>

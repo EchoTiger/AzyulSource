@@ -1,0 +1,16 @@
+<If Condition="Me.MapId == 33" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Moving to Reset Instance.&quot;);" />
+	<MoveTo X="-228.3606" Y="2109.246" Z="76.88993" />
+	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
+		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Skipping wait since we're going to the vendor.&quot;);" />
+		<Else>
+			<CustomBehavior File="Misc\InstanceTimer" Timer="Check" WaitTime="369000" />
+		</Else>
+	</If>
+	<CustomBehavior File="MyCTM" X="-230.1028" Y="2103.024" Z="76.8905" TerminateWhen="!Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="15000" TerminateWhen="!Me.IsInInstance" />
+
+	<If Condition="Me.FreeBagSlots &lt;= Settings.Instance.VendorMinBagSlots" > <!-- Pull away from dungeon entrance to avoid issues with mounts -->
+		<MoveTo X="-234.3064" Y="1564.037" Z="76.8845" />
+	</If>
+</If>
