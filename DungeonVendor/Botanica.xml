@@ -1,0 +1,28 @@
+<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Moving to Sell and Repair.&quot;);" />
+
+	<MoveTo Nav="Fly" X="2955.032" Y="1802.131" Z="139.1213" />
+	<CustomBehavior File="InteractWith" MobId="22491" MobState="Alive" WaitTime="1000" X="2955.032" Y="1802.131" Z="139.1213" />
+	<CustomBehavior File="RunCode" >
+	<![CDATA[
+		Lua.DoString("RepairAllItems();");
+		foreach (WoWItem i in Me.BagItems)
+		{
+			if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+				i.UseContainerItem();
+				StyxWoW.SleepForLagDuration();
+		}
+	]]>
+	</CustomBehavior>
+	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.MailMinBagSlots" >
+		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Moving to Mail.&quot;);" />
+		<SetMailbox>
+			<Mailboxes>
+					<Mailbox Nav="Fly" X="3056.502" Y="3687.034" Z="142.7493" />
+			</Mailboxes>
+		</SetMailbox>
+		<CustomBehavior File="ForceSetVendor" DoSell="False" DoRepair="False" DoMail="True" />
+		<MoveTo Nav="Fly" X="3056.502" Y="3687.034" Z="142.7493" />
+		<ClearMailbox />
+	</If>
+</If>

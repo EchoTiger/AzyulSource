@@ -1,0 +1,15 @@
+<If Condition="Me.MapId == 604" >
+	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
+		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Skipping wait since we're going to the vendor.&quot;);" />
+		<Else>
+			<CustomBehavior File="Misc\InstanceTimer" Timer="Check" WaitTime="369000" />
+		</Else>
+	</If>
+	<While Condition="Me.IsInInstance" >
+		<MoveTo X="152.0139" Y="391.3595" Z="-34.01377" />
+		<CustomBehavior File="MyCTM" X="160.2607" Y="391.3514" Z="-35.81748" TerminateWhen="!Me.IsInInstance" />
+		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
+		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
+	</While>
+	<CustomBehavior File="RunLua" Lua="ResetInstances();" />
+</If>

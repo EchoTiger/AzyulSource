@@ -1,0 +1,14 @@
+<If Condition="Me.ZoneId != 3523" > <!-- Enter Netherstorm -->
+	<CustomBehavior File="FlyTo" X="589.3289" Y="3427.308" Z="291.0131" />
+	<CustomBehavior File="MyCTM" X="2945.934" Y="1784.823" Z="206.9143" />
+</If>
+<If Condition="Me.MapId != 553 &amp;&amp; Me.FreeBagSlots &gt;= Settings.Instance.VendorMinBagSlots" >
+	<If Condition="Me.Location.Distance(new WoWPoint(3366.32, 1518.864, 182.6719)) &gt;= 56" >
+		<MoveTo Nav="Fly" X="3403.443" Y="1489.909" Z="182.8369" />
+		<CustomBehavior File="ForcedDismount" />
+	</If>
+	<RunTo X="3402.128" Y="1492.116" Z="181.5073" />
+	<RunTo X="3412.253" Y="1484.314" Z="182.8368" />
+	<CustomBehavior File="MyCTM" X="3417.772" Y="1480.286" Z="182.8368" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="15000" TerminateWhen="Me.IsInInstance" />
+</If>
