@@ -4,13 +4,13 @@
 		<CustomBehavior File="InteractWith" MobId="3534" MobState="Alive" WaitTime="1000" X="1170.844" Y="2062.825" Z="5.249851" />
 		<CustomBehavior File="RunCode" >
 		<![CDATA[
-			Lua.DoString("RepairAllItems();");
 			foreach (WoWItem i in Me.BagItems)
 			{
 				if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 					i.UseContainerItem();
 					StyxWoW.SleepForLagDuration();
 			}
+			Lua.DoString("RepairAllItems();");
 		]]>
 		</CustomBehavior>
 		<If Condition="Me.FreeBagSlots &lt;= Settings.Instance.MailMinBagSlots" >
@@ -26,13 +26,13 @@
 		<CustomBehavior File="InteractWith" MobId="2117" MobState="Alive" WaitTime="1000" X="1836.369" Y="1568.609" Z="96.58121" />
 		<CustomBehavior File="RunCode" >
 		<![CDATA[
-			Lua.DoString("RepairAllItems();");
 			foreach (WoWItem i in Me.BagItems)
 			{
 				if (i != null && i.Entry != 6948 && !Contains(Settings.Instance.ProtectedItemNames, i.Name) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 					i.UseContainerItem();
 					StyxWoW.SleepForLagDuration();
 			}
+			Lua.DoString("RepairAllItems();");
 		]]>
 		</CustomBehavior>
 		<CustomBehavior File="WaitTimer" WaitTime="1000" />
