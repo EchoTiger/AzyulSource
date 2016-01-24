@@ -59,10 +59,9 @@
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of speed buffs.&quot;);" />
 		<CustomBehavior File="RunCode" Code="SpellManager.Cast(1850);" />
 	</CustomBehavior>
-	<CustomBehavior File="Hooks\DoWhen" ActivityName="CatForm_Hook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseSpeedBuffs &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (!Me.HasAura(768) &amp;&amp; SpellManager.CanCast(768))" >
+	<CustomBehavior File="Hooks\DoWhen" ActivityName="CatForm_Hook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseSpeedBuffs &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (!(Me.HasAura(768) || Me.HasAura(171746)) &amp;&amp; SpellManager.CanCast(768))" >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Shifting into Cat Form.&quot;);" />
 		<CustomBehavior File="RunCode" Code="SpellManager.Cast(768);" />
-		<CustomBehavior File="WaitTimer" WaitTime="650" />
 	</CustomBehavior>
 </If>
 <If Condition="Me.Class == WoWClass.Rogue" > <!-- Sprint -->
