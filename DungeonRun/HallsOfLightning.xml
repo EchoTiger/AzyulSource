@@ -37,7 +37,7 @@
 		<RunTo X="1296.846" Y="-144.8582" Z="52.00815" /> //
 	<EnableBehavior Name="Combat" />
 
-	<CustomBehavior File="InteractWith" MobId="28587" MobState="Alive" WaitForNpcs="false" X="1333.095" Y="-111.4276" Z="56.71784" /> <!-- Pull Volkhan -->
+	<CustomBehavior File="InteractWith" MobId="28587" MobState="Alive" WaitForNpcs="false" Range="1" X="1333.095" Y="-111.4276" Z="56.71784" /> <!-- Pull Volkhan -->
 	<RunTo X="1287.921" Y="-161.2075" Z="52.02122" /> <!-- No mobs pulled here. -->
 
 
