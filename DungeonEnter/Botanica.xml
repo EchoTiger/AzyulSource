@@ -1,4 +1,4 @@
-<If Condition="Me.ZoneId != 3523" > <!-- Enter Netherstorm -->
+<If Condition="Me.ZoneId != 3523 &amp;&amp; !Me.IsInInstance" > <!-- Enter Netherstorm -->
 	<CustomBehavior File="FlyTo" X="589.3289" Y="3427.308" Z="291.0131" />
 	<CustomBehavior File="MyCTM" X="2945.934" Y="1784.823" Z="206.9143" />
 </If>
