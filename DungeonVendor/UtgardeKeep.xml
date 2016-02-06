@@ -8,7 +8,7 @@
 	<![CDATA[
 		foreach (WoWItem i in Me.BagItems)
 		{
-			if (i != null && i.Entry != 6948 && (!Contains(Settings.Instance.ProtectedItemNames, i.Quality.ToString()) || !Contains(Settings.Instance.ProtectedItemNames, i.Name)) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+			if (i != null && i.Entry != 6948 && !(Contains(Settings.Instance.ProtectedItemNames, i.Quality.ToString()) || Contains(Settings.Instance.ProtectedItemNames, i.Name)) && !Contains(Settings.Instance.DepositItemNames, i.Name) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
 				i.UseContainerItem();
 				StyxWoW.SleepForLagDuration();
 		}
