@@ -55,9 +55,12 @@
 
 	<RunTo X="1078.436" Y="-39.96408" Z="61.19484" /> //
 
-	<RunTo X="1066.26" Y="-18.35331" Z="61.20409" /> <!-- No mobs pulled here. -->
-	<RunTo X="1039.36" Y="24.96756" Z="58.34365" /> <!-- Mob may be pulled here. -->
-	<RunTo X="1150.202" Y="33.70441" Z="60.43929" /> <!--Mob may be pulled here. -->
+	<DisableBehavior Name="Combat" />
+		<RunTo X="1066.26" Y="-18.35331" Z="61.20409" /> <!-- No mobs pulled here. -->
+		<RunTo X="1039.36" Y="24.96756" Z="58.34365" /> <!-- Mob may be pulled here. -->
+		<RunTo X="1150.202" Y="33.70441" Z="60.43929" /> <!--Mob may be pulled here. -->
+	<EnableBehavior Name="Combat" />
+	
 	<CustomBehavior File="InteractWith" MobId="28923" MobState="Alive" WaitForNpcs="false" X="1179.998" Y="34.06177" Z="60.72852" /> <!-- Pull Loken -->
 	<RunTo X="1183.806" Y="50.22289" Z="60.72858" /> <!-- Navigate shortcut 1 -->
 	<RunTo X="1243.369" Y="32.99341" Z="58.21875" /> <!-- Navigate shortcut 2 -->
