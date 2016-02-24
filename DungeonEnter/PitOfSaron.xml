@@ -9,5 +9,5 @@
 		<RunTo X="5603.936" Y="2020.71" Z="798.0433" />
 	</If>
 	<RunTo X="5587.691" Y="2005.754" Z="798.0637" />
-	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="!Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
 </If>
