@@ -26,24 +26,22 @@
 	<EnableBehavior Name="Combat" />
 
 	<MoveTo  X="694.9253" Y="-114.1457" Z="513.8766" />
-	<CustomBehavior File="InteractWith" MobId="36494" Range="1" X="686.7497" Y="-201.2122" Z="526.718" /><!-- Ensure boss is pulled -->
+	<CustomBehavior File="InteractWith" MobId="36494" Range="1" X="686.7497" Y="-201.2122" Z="526.718" /> <!-- Ensure boss is pulled -->
 	<MoveTo X="697.0652" Y="-154.8882" Z="528.0614" />
 
 	<DisableBehavior Name="Combat" />
 		<RunTo X="751.0167" Y="-67.72236" Z="511.3784" />
 		<RunTo X="832.5563" Y="4.63835" Z="509.8898" />
 		<RunTo X="792.0877" Y="73.15079" Z="511.1664" />
-		<RunTo X="855.215" Y="124.6178" Z="509.9713" /> <!-- Boss -->
+		<CustomBehavior File="InteractWith" MobId="36476" Range="1" X="855.215" Y="124.6178" Z="509.9713" /> <!-- Ensure boss is pulled -->
 	<EnableBehavior Name="Combat" />
 
 	<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="!Me.Combat" />
 
 	<!-- Different method for pulling because of wait timers -->
 	<DisableBehavior Name="Combat" />
-	<RunTo X="822.5422" Y="62.66116" Z="510.1578" />
-	<RunTo X="881.9714" Y="53.17904" Z="527.1292" />
-	<CustomBehavior File="WaitTimer" WaitTime="8000" />
-	<RunTo X="909.2275" Y="73.0071" Z="549.1202" />
+		<!-- We can get the mobs on the ramp on the way out. -->
+		<RunTo X="909.2275" Y="73.0071" Z="549.1202" />
 	<EnableBehavior Name="Combat" />
 
 	<MoveTo X="947.6536" Y="64.77467" Z="566.3545" />
@@ -72,9 +70,11 @@
 		<RunTo X="1057.673" Y="112.3984" Z="628.3781" />
 	<EnableBehavior Name="Combat" />
 
+	<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="!Me.Combat" />
+
 	<DisableBehavior Name="Combat" />
 	<MoveTo X="1017.669" Y="168.4924" Z="628.1569" />
-	<CustomBehavior File="WaitTimer" WaitTime="32000" />
+	<CustomBehavior File="WaitTimer" WaitTime="32000" TerminateWhen="Unit(36658, u =&gt; u.IsDead) != null" />
 	<MoveTo X="1030.496" Y="164.2683" Z="628.1561" />
 	<EnableBehavior Name="Combat" />
 	<MoveTo X="1025.215" Y="162.9924" Z="628.1561" />
