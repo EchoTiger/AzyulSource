@@ -17,7 +17,7 @@
 		<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="ObjectManager.GetObjectsOfType&lt;WoWUnit&gt;().Where(u =&gt; u.Aggro &amp;&amp; u.Distance &gt;= 8).Count() &gt;= 1" />
 		<RunTo X="594.894" Y="273.0906" Z="506.1729" />
 		<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="ObjectManager.GetObjectsOfType&lt;WoWUnit&gt;().Where(u =&gt; u.Aggro &amp;&amp; u.Distance &gt;= 8).Count() &gt;= 1" />
-		<RunTo X="627.7512" Y="329.0624" Z="511.8988" /
+		<RunTo X="627.7512" Y="329.0624" Z="511.8988" />
 		<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="ObjectManager.GetObjectsOfType&lt;WoWUnit&gt;().Where(u =&gt; u.Aggro &amp;&amp; u.Distance &gt;= 8).Count() &gt;= 1" />
 		<RunTo X="637.7632" Y="246.7409" Z="508.2406" />
 		<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="ObjectManager.GetObjectsOfType&lt;WoWUnit&gt;().Where(u =&gt; u.Aggro &amp;&amp; u.Distance &gt;= 8).Count() &gt;= 1" />
@@ -36,7 +36,7 @@
 		<RunTo X="622.8182" Y="-13.72707" Z="513.7403" />
 	<EnableBehavior Name="Combat" />
 
-	<MoveTo  X="694.9253" Y="-114.1457" Z="513.8766" />
+	<MoveTo X="694.9253" Y="-114.1457" Z="513.8766" />
 	<CustomBehavior File="InteractWith" MobId="36494" Range="1" X="686.7497" Y="-201.2122" Z="526.718" /> <!-- Ensure boss is pulled -->
 	<MoveTo X="697.0652" Y="-154.8882" Z="528.0614" />
 
