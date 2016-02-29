@@ -6,7 +6,6 @@
 	<CustomBehavior File="ForcedMount" />
 
 	<MoveTo X="462.8812" Y="210.3155" Z="528.7101" />
-	<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="Me.Combat" />
 
 	<DisableBehavior Name="Combat" />  <!-- Using messy WaitTimers since the player will be mounted during this pull section. -->
 		<RunTo X="497.7629" Y="198.9767" Z="528.711" />
