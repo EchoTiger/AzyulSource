@@ -39,7 +39,7 @@
 	<EnableBehavior Name="Combat" />
 
 	<MoveTo X="1690.795" Y="743.5365" Z="142.7789" />
-	<CustomBehavior File="InteractWith" MobId="29307" WaitForNpcs="false" WaitTimer="5000" />
+	<CustomBehavior File="InteractWith" MobId="29307" WaitForNpcs="false" MobState="Alive" WaitTimer="5000" />
 	<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="(Object(192520, o => o.ToGameObject().State == 0) != null) || (Object(192520, o => o.ToGameObject().CanUse()) != null)" />
 	<While Condition="!(Object(192520, o =&gt; o.ToGameObject().State == 0) != null)">
 		<CustomBehavior File="InteractWith" WaitForNpcs="false" IgnoreLoSToTarget="true" Range="4.8" MobId="192520" X="1693.509" Y="743.595" Z="142.7876" />
