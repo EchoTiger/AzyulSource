@@ -1,3 +1,28 @@
+<CustomBehavior File="Hooks\DoWhen" ActivityName="UniversalDungeonDeath" LogExecution="false" UseAtInterval="5000" >
+	<If Condition="Me.IsGhost &amp;&amp; Me.CorpseMapId != Me.MapId" >
+		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Orange, &quot;[Azyul]: We died inside of a dungeon! Returning to instance..&quot;);" />
+		<CustomBehavior File="RunCode"><![CDATA[
+			while (Me.HasAura(8326))
+			{
+				if (Me.Location.Distance(Me.CorpsePoint) > 5 )
+				{
+					TreeRoot.StatusText="[Azyul Death Handler]: Going to corpse location.";
+					if (Flightor.CanFly) { Flightor.MoveTo(Me.CorpsePoint); }
+					else { Navigator.MoveTo(Me.CorpsePoint); }
+				}
+				else
+				{
+					TreeRoot.StatusText="[Azyul Death Handler]: Entering dungeon for revive.";
+					WoWMovement.ClickToMove(Me.CorpsePoint);
+					Me.SetFacing(Me.CorpsePoint);
+					Lua.DoString("ToggleAutoRun();");
+				}
+				await Coroutine.Yield();
+			}
+		]]></CustomBehavior>
+	</If>
+</CustomBehavior> 
+
 <CustomBehavior File="RunCode" Code="try { var webRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(&quot;http://azyul.com/azyultracking.php&quot;); webRequest.Referer = ProfileManager.CurrentProfile.Name; webRequest.GetResponse(); }
 catch(Exception) {}"/>
 
