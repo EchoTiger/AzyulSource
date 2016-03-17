@@ -9,7 +9,7 @@
 
 	<If Condition="Settings.Instance.DepositItems" >
 		<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
-			if((Contains(Settings.Instance.DepositItemNames, i.Name) || Contains(Settings.Instance.DepositItemNames, i.Quality.ToString())) &amp;&amp; Lua.GetReturnVal&lt;bool&gt;(&quot;return GuildBankFrame:IsVisible();&quot;, 0))
+			if((Contains(Settings.Instance.DepositItemNames, i.Name) || Contains(Settings.Instance.DepositItemNames, i.Quality.ToString()) || Contains(Settings.Instance.DepositItemNames, i.Entry.ToString())) &amp;&amp; Lua.GetReturnVal&lt;bool&gt;(&quot;return GuildBankFrame:IsVisible();&quot;, 0))
 				i.UseContainerItem();
 				StyxWoW.SleepForLagDuration();
 		}" />
