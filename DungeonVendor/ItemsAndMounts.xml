@@ -1,4 +1,4 @@
-<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
+<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots &amp;&amp; !(Me.KnowsSpell(61425) || Me.KnowsSpell(61447) || Me.KnowsSpell(122708))" >
 
 	<If Condition="(Me.KnowsSpell(61425) || Me.KnowsSpell(61447) || Me.KnowsSpell(122708)) &amp;&amp; Mount.CanMount()" > <!-- Traveler's + Yak -->
 		<CustomBehavior File="WaitTimer" WaitTime="750" />
