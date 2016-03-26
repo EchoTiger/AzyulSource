@@ -40,7 +40,7 @@
 </If>
 
 <If Condition="Me.MapId == 552" > <!-- Exit -->
-	<If Condition="kill Zerekth &amp;&amp; !killDalliah &amp;&amp; !killSoccothrates &amp;&amp; !killSkyriss" >
+	<If Condition="killZerekth &amp;&amp; !killDalliah &amp;&amp; !killSoccothrates &amp;&amp; !killSkyriss" >
 		<MoveTo X="-1.490852" Y="-0.2063602" Z="-0.205496" />
 		<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 		<CustomBehavior File="MyCTM" X="-6.173574" Y="0.07185109" Z="-0.205496" TerminateWhen="!Me.IsInInstance" />
