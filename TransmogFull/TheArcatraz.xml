@@ -17,6 +17,9 @@
 
 <If Condition="Me.MapId == 552" > <!-- Run -->
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<DisableBehavior Name="Combat" />
+	<MoveTo X="202.7816" Y="-93.58123" Z="-10.10085" />
+	<EnableBehavior Name="Combat" />
 	<If Condition="killZerekth" >
 		<CustomBehavior File="InteractWith" MobId="20870" InteractByLooting="true" MobState="Dead" X="272.971" Y="-122.8917" Z="-10.12324" />
 	</If>
@@ -41,7 +44,9 @@
 
 <If Condition="Me.MapId == 552" > <!-- Exit -->
 	<If Condition="killZerekth &amp;&amp; !killDalliah &amp;&amp; !killSoccothrates &amp;&amp; !killSkyriss" >
+		<DisableBehavior Name="Combat" />
 		<MoveTo X="-1.490852" Y="-0.2063602" Z="-0.205496" />
+		<EnableBehavior Name="Combat" />
 		<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 		<CustomBehavior File="MyCTM" X="-6.173574" Y="0.07185109" Z="-0.205496" TerminateWhen="!Me.IsInInstance" />
 		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
