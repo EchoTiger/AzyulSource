@@ -11,10 +11,11 @@
 	<RunTo X="2864.212" Y="1547.367" Z="252.1594" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="2860.946" Y="1544.616" Z="252.1594" TerminateWhen="Me.IsInInstance" />
-	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
 
 <If Condition="Me.MapId == 554" > <!-- Run -->
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 	<If Condition="killGatewatchers" >
 		<CustomBehavior File="InteractWith" MobId="19710" InteractByLooting="true" MobState="Dead" X="144.7354" Y="-76.48514" Z="7.94109" /> <!-- Watcher 1 -->
 		<ElseIf Condition="killSepethrea || killPathaleon" >
@@ -49,6 +50,7 @@
 </If>
 
 <If Condition="Me.MapId == 554" > <!-- Exit -->
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<If Condition="Me.Z &gt; 18" >
 		<MoveTo X="80.09383" Y="150.2444" Z="25.5808" />
 		<CustomBehavior File="MyCTM" X="71.0237" Y="150.5397" Z="25.5808" TerminateWhen="!Me.IsInInstance" />

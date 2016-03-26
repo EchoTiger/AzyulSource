@@ -19,9 +19,11 @@
 	<MoveTo X="-8768.882" Y="-4179.974" Z="-209.8296" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="-8773.93" Y="-4161.558" Z="-210.6023" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
 
 <If Condition="Me.MapId == 269" > <!-- Run -->
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 	<MoveTo X="-2028.684" Y="7116.404" Z="22.6634" />
 
 	<If Condition="killDeja" >
@@ -121,6 +123,7 @@
 
 <If Condition="Me.MapId == 269" > <!-- Exit -->
 	<MoveTo X="-1492.448" Y="7037.925" Z="32.42463" />
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<CustomBehavior File="MyCTM" X="-1493.478" Y="7025.006" Z="33.02884" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>

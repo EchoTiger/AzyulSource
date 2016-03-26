@@ -12,10 +12,11 @@
 	<RunTo X="3412.253" Y="1484.314" Z="182.8368" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="3417.772" Y="1480.286" Z="182.8368" TerminateWhen="Me.IsInInstance" />
-	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
 
 <If Condition="Me.MapId == 553" > <!-- Run -->
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 	<If Condition="killSarannis" >
 		<CustomBehavior File="InteractWith" MobId="17976" InteractByLooting="true" MobState="Dead" X="126.6513" Y="320.4136" Z="-3.334505" />
 	</If>
@@ -61,6 +62,7 @@
 <If Condition="Me.MapId == 553" > <!-- Exit -->
 	<While Condition="Me.IsInInstance" >
 		<MoveTo X="152.0139" Y="391.3595" Z="-34.01377" />
+		<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 		<CustomBehavior File="MyCTM" X="160.2607" Y="391.3514" Z="-35.81748" TerminateWhen="!Me.IsInInstance" />
 		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
 		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />

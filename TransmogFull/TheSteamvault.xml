@@ -2,9 +2,11 @@
 	<MoveTo X="819.1292" Y="6941.444" Z="-80.51276" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="818.7762" Y="6951.784" Z="-80.54026" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
 
 <If Condition="Me.MapId == 545" > <!-- Run -->
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 	<If Condition="killHydromancer" >
 		<CustomBehavior File="InteractWith" MobId="17797" InteractByLooting="true" MobState="Dead" X="88.39713" Y="-316.1105" Z="-7.87075" />
 	</If>
@@ -30,6 +32,7 @@
 
 <If Condition="Me.MapId == 545" > <!-- Exit -->
 	<MoveTo X="6.907508" Y="-17.23494" Z="-2.752645" />
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<CustomBehavior File="MyCTM" X="3.783023" Y="-10.5617" Z="-2.751715" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>

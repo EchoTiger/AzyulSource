@@ -5,9 +5,11 @@
 	<MoveTo X="-3361.884" Y="5228.44" Z="-101.049" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="-3361.888" Y="5233.91" Z="-101.049" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
 
 <If Condition="Me.MapId == 558" > <!-- Run -->
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 	<If Condition="killShirrak" >
 		<CustomBehavior File="InteractWith" MobId="18371" InteractByLooting="true" MobState="Dead" X="-26.24541" Y="-162.7846" Z="26.11078" />
 	</If>
@@ -19,6 +21,7 @@
 
 <If Condition="Me.MapId == 558" > <!-- Exit -->
 	<MoveTo X="-25.90409" Y="0.1816833" Z="-0.1206567" />
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<CustomBehavior File="MyCTM" X="-30.43077" Y="0.1546497" Z="-0.1206567" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>

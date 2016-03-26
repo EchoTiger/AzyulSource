@@ -2,9 +2,11 @@
 	<MoveTo Nav="Fly" X="-361.3932" Y="3072.404" Z="-15.09247" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="-365.9775" Y="3085.278" Z="-14.63777" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
 
 <If Condition="Me.MapId == 543" > <!-- Run -->
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 	<If Condition="killGargolmar" >
 		<CustomBehavior File="InteractWith" MobId="17306" InteractByLooting="true" MobState="Dead" X="-1169.876" Y="1473.559" Z="68.43414" />
 	</If>
@@ -21,6 +23,7 @@
 
 <If Condition="Me.MapId == 543" > <!-- Exit -->
 	<MoveTo X="-1355.28" Y="1641.57" Z="68.274" />
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<CustomBehavior File="MyCTM" X="-1359.623" Y="1633.748" Z="68.47264" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>

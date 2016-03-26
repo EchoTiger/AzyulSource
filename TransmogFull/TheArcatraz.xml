@@ -12,10 +12,11 @@
 	<RunTo X="3311.929" Y="1332.03" Z="505.558" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="3313.6" Y="1327.441" Z="505.5584" TerminateWhen="Me.IsInInstance" />
-	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
 
 <If Condition="Me.MapId == 552" > <!-- Run -->
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 	<If Condition="killZerekth" >
 		<CustomBehavior File="InteractWith" MobId="20870" InteractByLooting="true" MobState="Dead" X="272.971" Y="-122.8917" Z="-10.12324" />
 	</If>
@@ -39,11 +40,21 @@
 </If>
 
 <If Condition="Me.MapId == 552" > <!-- Exit -->
-	<While Condition="Me.IsInInstance" >
+	<If Condition="kill Zerekth &amp;&amp; !killDalliah &amp;&amp; !killSoccothrates &amp;&amp; !killSkyriss" >
+		<MoveTo X="-1.490852" Y="-0.2063602" Z="-0.205496" />
+		<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+		<CustomBehavior File="MyCTM" X="-6.173574" Y="0.07185109" Z="-0.205496" TerminateWhen="!Me.IsInInstance" />
+		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
+		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
+		<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
+
+	<Else> <!-- MoveTo from Zerekth fails, so using alternative exit -->
 		<MoveTo X="152.0139" Y="391.3595" Z="-34.01377" />
+		<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 		<CustomBehavior File="MyCTM" X="160.2607" Y="391.3514" Z="-35.81748" TerminateWhen="!Me.IsInInstance" />
 		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
 		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
-	</While>
-	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
+		<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
+	</Else>
+	</If>
 </If>

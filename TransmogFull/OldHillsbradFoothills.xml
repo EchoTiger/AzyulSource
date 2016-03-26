@@ -20,6 +20,7 @@
 	<MoveTo X="-8342.982" Y="-4059.112" Z="-207.9367" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="-8328.222" Y="-4051.954" Z="-207.5872" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
 
 <If Condition="Me.MapId == 560" > <!-- Run -->
