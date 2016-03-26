@@ -9,6 +9,7 @@
 		<CustomBehavior File="ForcedDismount" />
 	</If>
 	<RunTo X="2864.212" Y="1547.367" Z="252.1594" />
+	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="2860.946" Y="1544.616" Z="252.1594" TerminateWhen="Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
 </If>
@@ -56,4 +57,5 @@
 		<MoveTo X="-33.71968" Y="0.009838104" Z="-1.8124" />
 		<CustomBehavior File="MyCTM" X="-41.85207" Y="0.6927355" Z="-1.8124" TerminateWhen="!Me.IsInInstance" />
 	</If>
+	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>

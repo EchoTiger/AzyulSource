@@ -3,6 +3,7 @@
 		<MoveTo Nav="Fly" X="-3175.741" Y="4941.784" Z="-101.3953" />
 	</If>
 	<MoveTo X="-3077.521" Y="4942.914" Z="-101.0473" />
+	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="-3071.095" Y="4942.949" Z="-101.0473" TerminateWhen="Me.IsInInstance" />
 </If>
 
@@ -21,4 +22,5 @@
 <If Condition="Me.MapId == 557" > <!-- Exit -->
 	<MoveTo X="3.766704" Y="0.9496511" Z="-0.954343" />
 	<CustomBehavior File="MyCTM" X="10.1926" Y="0.9868787" Z="-0.954343" TerminateWhen="!Me.IsInInstance" />
+	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>

@@ -10,6 +10,7 @@
 	</If>
 	<CustomBehavior File="MyCTM" X="3309.969" Y="1337.143" Z="505.5604" />
 	<RunTo X="3311.929" Y="1332.03" Z="505.558" />
+	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="3313.6" Y="1327.441" Z="505.5584" TerminateWhen="Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
 </If>
@@ -44,4 +45,5 @@
 		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
 		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
 	</While>
+	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>
