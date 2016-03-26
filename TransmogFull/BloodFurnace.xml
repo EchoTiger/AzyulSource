@@ -31,5 +31,6 @@
 	<MoveTo X="-2.471908" Y="20.21448" Z="-44.80131" />
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<CustomBehavior File="MyCTM" X="-0.2500557" Y="25.59114" Z="-44.80463" TerminateWhen="!Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>
