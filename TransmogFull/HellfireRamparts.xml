@@ -5,16 +5,16 @@
 
 <If Condition="Me.MapId == 543" > <!-- Run -->
 	<If Condition="killGargolmar" >
-		<CustomBehavior File="InteractWith" MobId="17306" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-1169.876" Y="1473.559" Z="68.43414" />
+		<CustomBehavior File="InteractWith" MobId="17306" InteractByLooting="true" MobState="Dead" X="-1169.876" Y="1473.559" Z="68.43414" />
 	</If>
 	<If Condition="killOmor" >
-		<CustomBehavior File="InteractWith" MobId="17308" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-1122.34" Y="1718.407" Z="89.34828" />
+		<CustomBehavior File="InteractWith" MobId="17308" InteractByLooting="true" MobState="Dead" X="-1122.34" Y="1718.407" Z="89.34828" />
 	</If>
 	<If Condition="killVazruden" >
 		<CustomBehavior File="InteractWith" MobId="17517" X="-1383.386" Y="1711.82" Z="82.71272" /> <!-- Blackrock Sentry, start boss event. -->
 		<MoveTo X="-1417.518" Y="1745.163" Z="81.00729" />
 		<CustomBehavior File="WaitTimer" WaitTime="15000" TerminateWhen="Unit(17536, u =&gt; u.IsDead) != null" />
-		<CustomBehavior File="InteractWith" MobId="185168" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-1429.81" Y="1772.916" Z="82.0765" /> <!-- Loot Fel Iron Chest -->
+		<CustomBehavior File="InteractWith" MobId="185168" InteractByLooting="true" MobState="Dead" X="-1429.81" Y="1772.916" Z="82.0765" /> <!-- Loot Fel Iron Chest -->
 	</If>
 </If>
 

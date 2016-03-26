@@ -16,13 +16,13 @@
 
 <If Condition="Me.MapId == 553" > <!-- Run -->
 	<If Condition="killSarannis" >
-		<CustomBehavior File="InteractWith" MobId="17976" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="126.6513" Y="320.4136" Z="-3.334505" />
+		<CustomBehavior File="InteractWith" MobId="17976" InteractByLooting="true" MobState="Dead" X="126.6513" Y="320.4136" Z="-3.334505" />
 	</If>
 	<If Condition="killFreywinn" >
-		<CustomBehavior File="InteractWith" MobId="17975" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="120.164" Y="450.6817" Z="-4.894922" />
+		<CustomBehavior File="InteractWith" MobId="17975" InteractByLooting="true" MobState="Dead" X="120.164" Y="450.6817" Z="-4.894922" />
 	</If>
 	<If Condition="killThorngrin" >
-		<CustomBehavior File="InteractWith" MobId="17978" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="4.9486" Y="596.5779" Z="-15.16165" />
+		<CustomBehavior File="InteractWith" MobId="17978" InteractByLooting="true" MobState="Dead" X="4.9486" Y="596.5779" Z="-15.16165" />
 	</If>
 	<If Condition="killLaj" >
 		<MoveTo X="-194.9688" Y="409.8737" Z="-14.88536" />
@@ -50,10 +50,10 @@
 		Laj Loc: X="-204.1253" Y="391.249" Z="-11.19434" />
 		Laj MobId: 17980
 		-->
-		<CustomBehavior File="InteractWith" MobId="17980" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-204.1253" Y="391.249" Z="-11.19434" />
+		<CustomBehavior File="InteractWith" MobId="17980" InteractByLooting="true" MobState="Dead" X="-204.1253" Y="391.249" Z="-11.19434" />
 	</If>
 	<If Condition="killWarpSplinter" >
-		<CustomBehavior File="InteractWith" MobId="17977" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="63.84069" Y="391.8824" Z="-27.97717" />
+		<CustomBehavior File="InteractWith" MobId="17977" InteractByLooting="true" MobState="Dead" X="63.84069" Y="391.8824" Z="-27.97717" />
 	</If>
 </If>
 

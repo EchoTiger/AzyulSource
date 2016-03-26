@@ -8,11 +8,11 @@
 
 <If Condition="Me.MapId == 556" > <!-- Run -->
 	<If Condition="killSyth" >
-		<CustomBehavior File="InteractWith" MobId="18472" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-144.8268" Y="173.5574" Z="1.685324" />
+		<CustomBehavior File="InteractWith" MobId="18472" InteractByLooting="true" MobState="Dead" X="-144.8268" Y="173.5574" Z="1.685324" />
 	</If>
 	<If Condition="killIkiss" >
 		<!-- <MoveTo X="-236.7271" Y="319.0752" Z="26.73051" /> If bot tries going wrong way. -->
-		<CustomBehavior File="InteractWith" MobId="18473" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="44.72272" Y="286.9597" Z="25.01321" />
+		<CustomBehavior File="InteractWith" MobId="18473" InteractByLooting="true" MobState="Dead" X="44.72272" Y="286.9597" Z="25.01321" />
 	</If>
 </If>
 

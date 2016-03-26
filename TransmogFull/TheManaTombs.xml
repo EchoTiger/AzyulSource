@@ -8,13 +8,13 @@
 
 <If Condition="Me.MapId == 557" > <!-- Run -->
 	<If Condition="killPandemonius" >
-		<CustomBehavior File="InteractWith" MobId="18341" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-67.29146" Y="-118.734" Z="-1.219549" />
+		<CustomBehavior File="InteractWith" MobId="18341" InteractByLooting="true" MobState="Dead" X="-67.29146" Y="-118.734" Z="-1.219549" />
 	</If>
 	<If Condition="killTavarok" >
-		<CustomBehavior File="InteractWith" MobId="18343" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-321.7171" Y="-222.1826" Z="-0.9403169" />
+		<CustomBehavior File="InteractWith" MobId="18343" InteractByLooting="true" MobState="Dead" X="-321.7171" Y="-222.1826" Z="-0.9403169" />
 	</If>
 	<If Condition="killShaffar" >
-		<CustomBehavior File="InteractWith" MobId="18344" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-184.3657" Y="9.333467" Z="16.73412" />
+		<CustomBehavior File="InteractWith" MobId="18344" InteractByLooting="true" MobState="Dead" X="-184.3657" Y="9.333467" Z="16.73412" />
 	</If>
 </If>
 

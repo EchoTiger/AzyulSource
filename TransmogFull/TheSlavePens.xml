@@ -5,17 +5,17 @@
 
 <If Condition="Me.MapId == 544" > <!-- Run -->
 	<If Condition="killMennu" >
-		<CustomBehavior File="InteractWith" MobId="17941" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="84.21481" Y="-380.2324" Z="12.64545" />
+		<CustomBehavior File="InteractWith" MobId="17941" InteractByLooting="true" MobState="Dead" X="84.21481" Y="-380.2324" Z="12.64545" />
 	</If>
 	<!-- before big drop X="-80.11595" Y="-379.0884" Z="78.72168" />
 		after big drop X="-210.2096" Y="-380.1454" Z="7.919087" /> -->
 	<If Condition="killRokmar" >
-		<CustomBehavior File="InteractWith" MobId="17991" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-35.11033" Y="-454.7559" Z="-2.114727" />
+		<CustomBehavior File="InteractWith" MobId="17991" InteractByLooting="true" MobState="Dead" X="-35.11033" Y="-454.7559" Z="-2.114727" />
 	</If>
 	<If Condition="killQuagmirran" >
 		<MoveTo X="-204.9972" Y="-707.0803" Z="37.37375" />
 		<CustomBehavior File="WaitTimer" WaitTime="60000" TerminateWhen="Unit(17942, u =&gt; u.Distance &lt;= 10) != null" />
-		<CustomBehavior File="InteractWith" MobId="17942" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-204.9972" Y="-707.0803" Z="37.37375" />
+		<CustomBehavior File="InteractWith" MobId="17942" InteractByLooting="true" MobState="Dead" X="-204.9972" Y="-707.0803" Z="37.37375" />
 	</If>
 </If>
 

@@ -16,24 +16,24 @@
 
 <If Condition="Me.MapId == 552" > <!-- Run -->
 	<If Condition="killZerekth" >
-		<CustomBehavior File="InteractWith" MobId="20870" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="272.971" Y="-122.8917" Z="-10.12324" />
+		<CustomBehavior File="InteractWith" MobId="20870" InteractByLooting="true" MobState="Dead" X="272.971" Y="-122.8917" Z="-10.12324" />
 	</If>
 	<If Condition="killDalliah" >
-		<CustomBehavior File="InteractWith" MobId="20885" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="137.2336" Y="128.5058" Z="22.44117" />
+		<CustomBehavior File="InteractWith" MobId="20885" InteractByLooting="true" MobState="Dead" X="137.2336" Y="128.5058" Z="22.44117" />
 		<ElseIf Condition="killSkyriss" >
-			<CustomBehavior File="KillUntilComplete" MobId="20885" X="137.2336" Y="128.5058" Z="22.44117" TerminateWhen="Unit(20885, u =&gt; u.IsDead) != null" />
+			<CustomBehavior File="InteractWith" MobState="Dead" MobId="20885" X="137.2336" Y="128.5058" Z="22.44117" TerminateWhen="Unit(20885, u =&gt; u.IsDead) != null" />
 		</ElseIf>
 	</If>
 	<If Condition="killSoccothrates" >
-		<CustomBehavior File="InteractWith" MobId="20886" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="136.1995" Y="168.3105" Z="22.44113" />
+		<CustomBehavior File="InteractWith" MobId="20886" InteractByLooting="true" MobState="Dead" X="136.1995" Y="168.3105" Z="22.44113" />
 		<ElseIf Condition="killSkyriss" >
-			<CustomBehavior File="KillUntilComplete" MobId="20886" X="136.1995" Y="168.3105" Z="22.44113" TerminateWhen="Unit(20886, u =&gt; u.IsDead) != null" />
+			<CustomBehavior File="InteractWith" MobState="Dead" MobId="20886" X="136.1995" Y="168.3105" Z="22.44113" TerminateWhen="Unit(20886, u =&gt; u.IsDead) != null" />
 		</ElseIf>
 	</If>
 	<If Condition="killSkyriss" >
 		<CustomBehavior File="InteractWith" MobId="20904" Range="1" X="445.8029" Y="-169.0068" Z="43.64423" />
 		<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="Unit(20912) != null &amp;&amp; Me.Combat" />
-		<CustomBehavior File="InteractWith" MobId="20912" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="448.5085" Y="-172.5178" Z="43.04952" />
+		<CustomBehavior File="InteractWith" MobId="20912" InteractByLooting="true" MobState="Dead" X="448.5085" Y="-172.5178" Z="43.04952" />
 	</If>
 </If>
 

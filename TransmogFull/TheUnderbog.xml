@@ -5,21 +5,21 @@
 
 <If Condition="Me.MapId == 544" > <!-- Run -->
 	<If Condition="killHungarfen" >
-		<CustomBehavior File="InteractWith" MobId="17770" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-121.3438" Y="-388.6259" Z="36.86593" />
+		<CustomBehavior File="InteractWith" MobId="17770" InteractByLooting="true" MobState="Dead" X="-121.3438" Y="-388.6259" Z="36.86593" />
 	</If>
 	<If Condition="killGhazan" >
-		<CustomBehavior File="InteractWith" MobId="18105" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="222.8672" Y="-401.2414" Z="45.49323" />
+		<CustomBehavior File="InteractWith" MobId="18105" InteractByLooting="true" MobState="Dead" X="222.8672" Y="-401.2414" Z="45.49323" />
 	</If>
 	<!-- X="324.7716" Y="-469.5115" Z="50.77295" />  on top
 		X="350.9888" Y="-473.0211" Z="24.30762" />  down
 	-->
 
 	<If Condition="killMuselek" >
-		<CustomBehavior File="InteractWith" MobId="17826" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="285.1636" Y="-121.1222" Z="29.77421" />
+		<CustomBehavior File="InteractWith" MobId="17826" InteractByLooting="true" MobState="Dead" X="285.1636" Y="-121.1222" Z="29.77421" />
 	</If>
 
 	<If Condition="killBlackStalker" >
-		<CustomBehavior File="InteractWith" MobId="17882" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="143.6717" Y="10.87584" Z="26.79156" />
+		<CustomBehavior File="InteractWith" MobId="17882" InteractByLooting="true" MobState="Dead" X="143.6717" Y="10.87584" Z="26.79156" />
 	</If>
 </If>
 

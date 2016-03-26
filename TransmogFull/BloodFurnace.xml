@@ -5,7 +5,7 @@
 
 <If Condition="Me.MapId == 542" > <!-- Run -->
 	<If Condition="killTheMaker" >
-		<CustomBehavior File="InteractWith" MobId="17381" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="329.1132" Y="129.975" Z="9.617923" />
+		<CustomBehavior File="InteractWith" MobId="17381" InteractByLooting="true" MobState="Dead" X="329.1132" Y="129.975" Z="9.617923" />
 		<Else>
 			<CustomBehavior File="InteractWith" MobId="17381" Range="1" X="329.1132" Y="129.975" Z="9.617923" /> <!-- Required to progress. -->
 		</Else>
@@ -15,7 +15,7 @@
 	<CustomBehavior File="WaitTimer" WaitTime="30000" TerminateWhen="Object(212908, o =&gt; o.ToGameObject().State == WoWGameObjectState.Active) != null" />
 
 	<If Condition="killBroggok" >
-		<CustomBehavior File="InteractWith" MobId="17308" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-1122.34" Y="1718.407" Z="89.34828" />
+		<CustomBehavior File="InteractWith" MobId="17308" InteractByLooting="true" MobState="Dead" X="-1122.34" Y="1718.407" Z="89.34828" />
 	</If>
 	<If Condition="killKelidan" >
 		<CustomBehavior File="InteractWith" MobId="17653" X="333.5563" Y="-119.0174" Z="-25.09809" /> <!-- Shadowmoon Channeler, start boss event. -->

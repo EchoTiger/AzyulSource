@@ -47,7 +47,7 @@
 	<If Condition="killDrake" >
 		<MoveTo X="2107.477" Y="118.394" Z="52.98422" />
 		<CustomBehavior File="WaitTimer" WaitTime="15000" TerminateWhen="Unit(17848, u =&gt; u.Distance &lt;= 17) != null" />
-		<CustomBehavior File="InteractWith" MobId="17848" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="2110.519" Y="107.0023" Z="52.49121" />
+		<CustomBehavior File="InteractWith" MobId="17848" InteractByLooting="true" MobState="Dead" X="2110.519" Y="107.0023" Z="52.49121" />
 	</If>
 
 	<If Condition="killSkarloc || killEpoch" >
@@ -59,10 +59,10 @@
 
 	<If Condition="killSkarloc" >
 		<!-- Looting must ABSOLUTELY be disabled or the bot will bread-crumb trail back into the keep, leaving Thrall to just die. -->
-		<CustomBehavior File="InteractWith" MobId="17862" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="2060.994" Y="232.4893" Z="64.2388" />
+		<CustomBehavior File="InteractWith" MobId="17862" InteractByLooting="true" MobState="Dead" X="2060.994" Y="232.4893" Z="64.2388" />
 		<ElseIf Condition="killEpoch" >
 			<CustomBehavior File="WaitTimer" WaitTime="20000" TerminateWhen="Me.Combat" /> <!-- Skarloc auto engage. -->
-			<CustomBehavior File="KillUntilComplete" MobId="17862" X="2060.994" Y="232.4893" Z="64.2388" TerminateWhen="Unit(17862, u =&gt; u.IsDead) != null" />
+			<CustomBehavior File="InteractWith" MobState="Dead" MobId="17862" X="2060.994" Y="232.4893" Z="64.2388" TerminateWhen="Unit(17862, u =&gt; u.IsDead) != null" />
 		</ElseIf>
 	</If>
 	<If Condition="killEpoch" >
@@ -88,7 +88,7 @@
 		<CustomBehavior File="WaitTimer" WaitTime="60000" TerminateWhen="Me.Combat" />
 		<CustomBehavior File="EscortGroup" EscortCompleteWhen="DestinationReached" EscortNpcId="17876" EscortCompleteX="1" EscortCompleteY="1" EscortCompleteZ="1" TerminateWhen="Unit(18096, u =&gt; u.IsDead) != null" />
 
-		<CustomBehavior File="InteractWith" MobId="18096" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" />
+		<CustomBehavior File="InteractWith" MobId="18096" InteractByLooting="true" MobState="Dead" />
 	</If>
 </If>
 
