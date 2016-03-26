@@ -1,0 +1,67 @@
+<If Condition="Me.ZoneId != 3523 &amp;&amp; !Me.IsInInstance" > <!-- Enter Netherstorm -->
+	<CustomBehavior File="FlyTo" X="589.3289" Y="3427.308" Z="291.0131" />
+	<CustomBehavior File="MyCTM" X="2945.934" Y="1784.823" Z="206.9143" />
+</If>
+
+<If Condition="Me.MapId != 553" > <!-- Enter -->
+	<If Condition="Me.Location.Distance(new WoWPoint(3366.32, 1518.864, 182.6719)) &gt;= 56" >
+		<MoveTo Nav="Fly" X="3403.443" Y="1489.909" Z="182.8369" />
+		<CustomBehavior File="ForcedDismount" />
+	</If>
+	<RunTo X="3402.128" Y="1492.116" Z="181.5073" />
+	<RunTo X="3412.253" Y="1484.314" Z="182.8368" />
+	<CustomBehavior File="MyCTM" X="3417.772" Y="1480.286" Z="182.8368" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 553" > <!-- Run -->
+	<If Condition="killSarannis" >
+		<CustomBehavior File="InteractWith" MobId="17976" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="126.6513" Y="320.4136" Z="-3.334505" />
+	</If>
+	<If Condition="killFreywinn" >
+		<CustomBehavior File="InteractWith" MobId="17975" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="120.164" Y="450.6817" Z="-4.894922" />
+	</If>
+	<If Condition="killThorngrin" >
+		<CustomBehavior File="InteractWith" MobId="17978" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="4.9486" Y="596.5779" Z="-15.16165" />
+	</If>
+	<If Condition="killLaj" >
+		<MoveTo X="-194.9688" Y="409.8737" Z="-14.88536" />
+		<!-- ScriptHelpers.CastRangedAbility(); isn't working?
+		<CustomBehavior File="RunCode"><![CDATA[
+			var lajPOI = Unit(17980);
+			while (lajPOI.IsValid && lajPOI.IsAlive) {
+				if (!Me.IsFacing(lajPOI)) {
+					Logging.Write("Facing Laj");
+					Me.SetFacing(lajPOI);
+					await Coroutine.Wait(5000, () => StyxWoW.Me.IsSafelyFacing(lajPOI.Location));
+				}
+
+				if (lajPOI != null && Me.CurrentTargetGuid != lajPOI.Guid) {
+					Logging.Write("Targetting Laj");
+					lajPOI.Target();
+					Logging.Write("Attackins Laj");
+					await Bots.DungeonBuddy.Helpers.ScriptHelpers.CastRangedAbility(lajPOI);
+				}
+
+				await Coroutine.Yield();
+			}
+		]]>
+		</CustomBehavior>
+		Laj Loc: X="-204.1253" Y="391.249" Z="-11.19434" />
+		Laj MobId: 17980
+		-->
+		<CustomBehavior File="InteractWith" MobId="17980" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-204.1253" Y="391.249" Z="-11.19434" />
+	</If>
+	<If Condition="killWarpSplinter" >
+		<CustomBehavior File="InteractWith" MobId="17977" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="63.84069" Y="391.8824" Z="-27.97717" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 553" > <!-- Exit -->
+	<While Condition="Me.IsInInstance" >
+		<MoveTo X="152.0139" Y="391.3595" Z="-34.01377" />
+		<CustomBehavior File="MyCTM" X="160.2607" Y="391.3514" Z="-35.81748" TerminateWhen="!Me.IsInInstance" />
+		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
+		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
+	</While>
+</If>

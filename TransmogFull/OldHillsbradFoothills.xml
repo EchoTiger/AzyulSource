@@ -1,0 +1,102 @@
+
+<If Condition="Me.Z &gt; 0" > <!-- Enter Caverns -->
+	<MoveTo Nav="Fly" X="-8178.014" Y="-4723.195" Z="38.75698" />
+	<CustomBehavior File="MyCTM" X="-8163.938" Y="-4825.534" Z="41.46125" />
+	<CustomBehavior File="MyCTM" X="-8163.12" Y="-4892.083" Z="29.47881" />
+	<CustomBehavior File="MyCTM" X="-8112.123" Y="-4884.003" Z="18.89497" />
+	<CustomBehavior File="MyCTM" X="-8091.606" Y="-4848.023" Z="-4.553775" />
+	<CustomBehavior File="MyCTM" X="-8132.29" Y="-4852.177" Z="-17.59421" />
+	<CustomBehavior File="MyCTM" X="-8140.016" Y="-4896.396" Z="-32.64989" />
+	<CustomBehavior File="MyCTM" X="-8098.638" Y="-4909.052" Z="-42.61154" />
+	<CustomBehavior File="MyCTM" X="-8073.51" Y="-4867.711" Z="-56.6311" />
+	<CustomBehavior File="MyCTM" X="-8110.92" Y="-4714.097" Z="-93.09811" />
+	<CustomBehavior File="MyCTM" X="-8303.079" Y="-4595.182" Z="-161.361" />
+	<CustomBehavior File="MyCTM" X="-8472.756" Y="-4639.271" Z="-194.8684" />
+	<CustomBehavior File="MyCTM" X="-8515.11" Y="-4620.958" Z="-195.5024" />
+	<CustomBehavior File="MyCTM" X="-8489.974" Y="-4488.689" Z="-203.1049" />
+</If>
+
+<If Condition="Me.MapId != 560" > <!-- Enter -->
+	<MoveTo X="-8342.982" Y="-4059.112" Z="-207.9367" />
+	<CustomBehavior File="MyCTM" X="-8328.222" Y="-4051.954" Z="-207.5872" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 560" > <!-- Run -->
+	<MoveTo X="2376.866" Y="1180.384" Z="65.80715" />
+	<If Condition="!HasItem(25853)" >
+		<CustomBehavior File="InteractWith" MobId="18723" X="2375.554" Y="1178.651" Z="65.38126" WaitTime="500" />
+		<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton3:Click(); GossipTitleButton2:Click();" />
+	</If>
+	<CustomBehavior File="InteractWith" MobId="18725" X="2382.093" Y="1172.208" Z="66.58888" WaitTime="500" />
+	<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton2:Click(); GossipTitleButton1:Click();" WaitTime="1200" />
+
+	<!-- Burn buildings event -->
+	<MoveTo X="2127.374" Y="233.1244" Z="64.64126" />
+	<CustomBehavior File="MyCTM" X="2148.493" Y="226.2396" Z="52.64328" />
+	<CustomBehavior File="InteractWith" MobId="182589" NumOfTimes="10" TerminateWhen="Unit(17848) != null" >
+		<HuntingGrounds WaypointVisitStrategy="InOrder" >
+			<Hotspot X="2157.16" Y="236.7292" Z="53.87271" />
+			<Hotspot X="2198.196" Y="269.8695" Z="53.99533" />
+			<Hotspot X="2067.788" Y="108.6571" Z="54.66002" />
+			<Hotspot X="2078.841" Y="71.9207" Z="53.73111" />
+			<Hotspot X="2088.771" Y="53.85477" Z="53.53317" />
+		</HuntingGrounds>
+	</CustomBehavior>
+	<!-- END Burn buildings event -->
+
+	<If Condition="killDrake" >
+		<MoveTo X="2107.477" Y="118.394" Z="52.98422" />
+		<CustomBehavior File="WaitTimer" WaitTime="15000" TerminateWhen="Unit(17848, u =&gt; u.Distance &lt;= 17) != null" />
+		<CustomBehavior File="InteractWith" MobId="17848" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="2110.519" Y="107.0023" Z="52.49121" />
+	</If>
+
+	<If Condition="killSkarloc || killEpoch" >
+		<MoveTo X="2230.594" Y="117.1687" Z="82.29082" />
+		<CustomBehavior File="InteractWith" MobId="17876" X="2231.521" Y="119.1349" Z="82.29907" WaitTime="500" />
+		<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton2:Click(); GossipTitleButton1:Click();" WaitTime="1200" />
+		<CustomBehavior File="EscortGroup" EscortCompleteWhen="DestinationReached" EscortNpcId="17876" EscortCompleteX="1" EscortCompleteY="1" EscortCompleteZ="1" TerminateWhen="Unit(17862, u =&gt; u.IsDead) != null" />
+	</If>
+
+	<If Condition="killSkarloc" >
+		<!-- Looting must ABSOLUTELY be disabled or the bot will bread-crumb trail back into the keep, leaving Thrall to just die. -->
+		<CustomBehavior File="InteractWith" MobId="17862" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="2060.994" Y="232.4893" Z="64.2388" />
+		<ElseIf Condition="killEpoch" >
+			<CustomBehavior File="WaitTimer" WaitTime="20000" TerminateWhen="Me.Combat" /> <!-- Skarloc auto engage. -->
+			<CustomBehavior File="KillUntilComplete" MobId="17862" X="2060.994" Y="232.4893" Z="64.2388" TerminateWhen="Unit(17862, u =&gt; u.IsDead) != null" />
+		</ElseIf>
+	</If>
+	<If Condition="killEpoch" >
+		<CustomBehavior File="InteractWith" MobId="17876" X="2063.042" Y="229.1765" Z="64.48978" WaitTime="500" />
+		<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton1:Click();" WaitTime="800" />
+		<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton1:Click();" WaitTime="800" />
+		<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton1:Click();" WaitTime="800" />
+		<CustomBehavior File="EscortGroup" EscortCompleteWhen="DestinationReached" EscortNpcId="17876" EscortCompleteX="2486.878" EscortCompleteY="624.3096" EscortCompleteZ="57.90589" />
+
+		<CustomBehavior File="WaitTimer" WaitTime="11000" />
+
+		<CustomBehavior File="InteractWith" MobId="17876" X="2063.042" Y="229.1765" Z="64.48978" WaitTime="500" />
+		<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton1:Click();" WaitTime="800" />
+		<CustomBehavior File="EscortGroup" EscortCompleteWhen="DestinationReached" EscortNpcId="17876" EscortCompleteMaxRange="1" EscortCompleteX="2660.485" EscortCompleteY="659.4092" EscortCompleteZ="61.9357" />
+
+		<CustomBehavior File="WaitTimer" WaitTime="10000" />
+
+		<CustomBehavior File="InteractWith" MobId="18887" X="2664.657" Y="657.5964" Z="61.93803" WaitTime="500" />
+		<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton1:Click();" WaitTime="800" />
+		<CustomBehavior File="Misc\RunLua" Lua="GossipTitleButton1:Click();" WaitTime="800" />
+
+		<MoveTo X="2637.237" Y="694.038" Z="55.68291" />
+		<CustomBehavior File="WaitTimer" WaitTime="60000" TerminateWhen="Me.Combat" />
+		<CustomBehavior File="EscortGroup" EscortCompleteWhen="DestinationReached" EscortNpcId="17876" EscortCompleteX="1" EscortCompleteY="1" EscortCompleteZ="1" TerminateWhen="Unit(18096, u =&gt; u.IsDead) != null" />
+
+		<CustomBehavior File="InteractWith" MobId="18096" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 560" > <!-- Exit -->
+	<While Condition="Me.IsInInstance" >
+		<MoveTo X="152.0139" Y="391.3595" Z="-34.01377" />
+		<CustomBehavior File="MyCTM" X="160.2607" Y="391.3514" Z="-35.81748" TerminateWhen="!Me.IsInInstance" />
+		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
+		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
+	</While>
+</If>

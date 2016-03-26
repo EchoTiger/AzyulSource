@@ -1,0 +1,47 @@
+<If Condition="Me.ZoneId != 3523 &amp;&amp; !Me.IsInInstance" > <!-- Enter Netherstorm -->
+	<CustomBehavior File="FlyTo" X="589.3289" Y="3427.308" Z="291.0131" />
+	<CustomBehavior File="MyCTM" X="2945.934" Y="1784.823" Z="206.9143" />
+</If>
+
+<If Condition="Me.MapId != 552" > <!-- Enter -->
+	<If Condition="Me.Location.Distance(new WoWPoint(3291.662, 1384.015, 503.9863)) &gt;= 55" >				
+		<MoveTo Nav="Fly" X="3307.26" Y="1343.292" Z="505.5608" />
+		<CustomBehavior File="ForcedDismount" />
+	</If>
+	<CustomBehavior File="MyCTM" X="3309.969" Y="1337.143" Z="505.5604" />
+	<RunTo X="3311.929" Y="1332.03" Z="505.558" />
+	<CustomBehavior File="MyCTM" X="3313.6" Y="1327.441" Z="505.5584" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 552" > <!-- Run -->
+	<If Condition="killZerekth" >
+		<CustomBehavior File="InteractWith" MobId="20870" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="272.971" Y="-122.8917" Z="-10.12324" />
+	</If>
+	<If Condition="killDalliah" >
+		<CustomBehavior File="InteractWith" MobId="20885" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="137.2336" Y="128.5058" Z="22.44117" />
+		<ElseIf Condition="killSkyriss" >
+			<CustomBehavior File="KillUntilComplete" MobId="20885" X="137.2336" Y="128.5058" Z="22.44117" TerminateWhen="Unit(20885, u =&gt; u.IsDead) != null" />
+		</ElseIf>
+	</If>
+	<If Condition="killSoccothrates" >
+		<CustomBehavior File="InteractWith" MobId="20886" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="136.1995" Y="168.3105" Z="22.44113" />
+		<ElseIf Condition="killSkyriss" >
+			<CustomBehavior File="KillUntilComplete" MobId="20886" X="136.1995" Y="168.3105" Z="22.44113" TerminateWhen="Unit(20886, u =&gt; u.IsDead) != null" />
+		</ElseIf>
+	</If>
+	<If Condition="killSkyriss" >
+		<CustomBehavior File="InteractWith" MobId="20904" Range="1" X="445.8029" Y="-169.0068" Z="43.64423" />
+		<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="Unit(20912) != null &amp;&amp; Me.Combat" />
+		<CustomBehavior File="InteractWith" MobId="20912" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="448.5085" Y="-172.5178" Z="43.04952" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 552" > <!-- Exit -->
+	<While Condition="Me.IsInInstance" >
+		<MoveTo X="152.0139" Y="391.3595" Z="-34.01377" />
+		<CustomBehavior File="MyCTM" X="160.2607" Y="391.3514" Z="-35.81748" TerminateWhen="!Me.IsInInstance" />
+		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
+		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
+	</While>
+</If>

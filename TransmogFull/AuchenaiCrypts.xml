@@ -1,0 +1,22 @@
+<If Condition="Me.MapId != 558" > <!-- Enter -->
+	<If Condition="Me.SubZoneId != 3688" >
+		<MoveTo Nav="Fly" X="-3362.154" Y="5129.264" Z="-101.3953" />
+	</If>
+	<MoveTo X="-3361.884" Y="5228.44" Z="-101.049" />
+	<CustomBehavior File="MyCTM" X="-3361.888" Y="5233.91" Z="-101.049" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 558" > <!-- Run -->
+	<If Condition="killShirrak" >
+		<CustomBehavior File="InteractWith" MobId="18371" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-26.24541" Y="-162.7846" Z="26.11078" />
+	</If>
+	<If Condition="killMaladaar" >
+		<!-- <MoveTo X="-236.7271" Y="319.0752" Z="26.73051" /> If bot tries going wrong way. -->
+		<CustomBehavior File="InteractWith" MobId="18373" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="66.76575" Y="-388.3454" Z="26.59" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 558" > <!-- Exit -->
+	<MoveTo X="-25.90409" Y="0.1816833" Z="-0.1206567" />
+	<CustomBehavior File="MyCTM" X="-30.43077" Y="0.1546497" Z="-0.1206567" TerminateWhen="!Me.IsInInstance" />
+</If>

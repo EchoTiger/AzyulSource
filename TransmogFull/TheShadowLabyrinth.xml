@@ -1,0 +1,47 @@
+<If Condition="Me.MapId != 555" > <!-- Enter -->
+	<If Condition="Me.SubZoneId != 3688" >
+		<MoveTo Nav="Fly" X="-3548.11" Y="4942.87" Z="-101.3962" />
+	</If>
+	<MoveTo X="-3648.047" Y="4943.085" Z="-101.0499" />
+	<CustomBehavior File="MyCTM" X="-3652.336" Y="4942.938" Z="-101.0499" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 555" > <!-- Run -->
+	<If Condition="killHellmaw" >
+		<CustomBehavior File="InteractWith" MobId="18794" MobState="AliveNotInCombat" NumOfTimes="500" TerminateWhen="Unit(18731, u =&gt; !u.HasAura(30231)) != null" >
+			<HuntingGrounds>
+				<Hotspot X="-168.1665" Y="-77.76838" Z="8.068418" />
+				<Hotspot X="-144.7958" Y="-77.89837" Z="8.067692" />
+				<Hotspot X="-150.8454" Y="-58.43878" Z="8.073087" />
+				<Hotspot X="-163.5437" Y="-19.48027" Z="8.073103" />
+				<Hotspot X="-168.3854" Y="0.363827" Z="8.073062" />
+				<Hotspot X="-144.8931" Y="0.221401" Z="8.072976" />
+			</HuntingGrounds>
+		</CustomBehavior>
+		<CustomBehavior File="InteractWith" MobId="18731" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-156.6754" Y="4.982729" Z="8.073065" />
+	</If>
+	<If Condition="killBlackheart" >
+		<CustomBehavior File="InteractWith" MobId="18667" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-321.4991" Y="-28.53862" Z="12.68886" />
+		<Else>
+			<MoveTo X="-303.1642" Y="-39.04573" Z="8.072831" />
+			<CustomBehavior File="KillUntilComplete" MobId="18667" X="-321.4991" Y="-28.53862" Z="12.68886" TerminateWhen="Unit(18667, u =&gt; u.IsDead) != null" />
+		</Else>
+	</If>
+
+	<If Condition="killVorpil" >
+		<CustomBehavior File="InteractWith" MobId="18732" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-253.5477" Y="-263.6456" Z="17.08634" />
+		<Else>
+			<MoveTo X="-274.5325" Y="-263.6308" Z="12.68" />
+			<CustomBehavior File="KillUntilComplete" MobId="18732" X="-253.5477" Y="-263.6456" Z="17.08634" TerminateWhen="Unit(18732, u =&gt; u.IsDead) != null" />
+		</Else>
+	</If>
+	<If Condition="killMurmur" >
+		<!-- <MoveTo X="-236.7271" Y="319.0752" Z="26.73051" /> If bot tries going wrong way. -->
+		<CustomBehavior File="InteractWith" MobId="18708" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-157.8953" Y="-497.3225" Z="15.78175" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 555" > <!-- Exit -->
+	<MoveTo X="4.884669" Y="-0.3230898" Z="-1.128737" />
+	<CustomBehavior File="MyCTM" X="10.3539" Y="-0.3335206" Z="-1.128737" TerminateWhen="!Me.IsInInstance" />
+</If>

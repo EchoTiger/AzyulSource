@@ -1,0 +1,37 @@
+<!--
+	Some dungeons have a section outside of them that must be navigated around.
+	Flightor typically has issues with these locations, so this profile can be called to assist movement out of these areas.
+-->
+
+<If Condition="Me.SubZoneId == 3688" > <!-- Ring of Observance -->
+	<If Condition="Me.Location.Distance(new WoWPoint(-3075.25, 4942.998, -101.0477)) &lt; 48" > <!-- Mana-Tombs -->
+		<RunTo X="-3184.615" Y="4943.426" Z="-101.396" />
+		<MoveTo Nav="Fly" X="-3248.064" Y="4943.663" Z="-64.26036" />
+	</If>
+
+	<If Condition="Me.Location.Distance(new WoWPoint(-3599.803, 4942.945, -101.2216)) &lt; 48" > <!-- Shadow Labyrinth -->
+		<RunTo X="-3548.265" Y="4942.757" Z="-101.3956" />
+		<MoveTo Nav="Fly" X="-3457.901" Y="4943.089" Z="-47.57282" />
+	</If>
+
+	<If Condition="Me.Location.Distance(new WoWPoint(-3361.649, 4706.207, -101.2221)) &lt; 50" > <!-- Sethekk Halls -->
+		<RunTo X="-3361.763" Y="4751.139" Z="-101.3958" />
+		<MoveTo Nav="Fly" X="-3360.581" Y="4864.235" Z="-57.11242" />
+	</If>
+
+	<If Condition="Me.Location.Distance(new WoWPoint(-3361.979, 5181.076, -101.2219)) &lt; 49" > <!-- Auchenai Crypts -->
+		<RunTo X="-3362.154" Y="5129.264" Z="-101.3953" />
+		<MoveTo Nav="Fly" X="-3366.63" Y="5030.19" Z="-53.42955" />
+	</If>
+</If>
+
+<If Condition="Me.Z &lt; 10 &amp;&amp; Me.SubZoneId == 3905"> <!-- Coilfang Reservoir -->
+	<RunTo X="732.505" Y="6866.253" Z="-69.99228" /> <!-- Get to hub midpoint -->
+	<CustomBehavior File="MyCTM" X="640.1569" Y="6867.016" Z="-79.94122" />
+	<CustomBehavior File="MyCTM" X="628.2573" Y="6877.445" Z="-72.81714" />
+	<CustomBehavior File="MyCTM" X="609.9643" Y="6897.478" Z="-49.44904" />
+	<CustomBehavior File="MyCTM" X="595.0367" Y="6926.387" Z="-43.61401" />
+	<CustomBehavior File="MyCTM" X="569.9607" Y="6941.254" Z="-31.59301" />
+	<CustomBehavior File="MyCTM" X="563.212" Y="6942.899" Z="6.220116" />
+	<CustomBehavior File="MyCTM" X="540.8738" Y="6921.511" Z="24.85828" />
+</If>

@@ -1,0 +1,25 @@
+<If Condition="Me.MapId != 544" > <!-- Enter -->
+	<MoveTo X="734.336" Y="7014.322" Z="-72.06383" />
+	<CustomBehavior File="MyCTM" X="742.7482" Y="7013.561" Z="-72.98393" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 544" > <!-- Run -->
+	<If Condition="killMennu" >
+		<CustomBehavior File="InteractWith" MobId="17941" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="84.21481" Y="-380.2324" Z="12.64545" />
+	</If>
+	<!-- before big drop X="-80.11595" Y="-379.0884" Z="78.72168" />
+		after big drop X="-210.2096" Y="-380.1454" Z="7.919087" /> -->
+	<If Condition="killRokmar" >
+		<CustomBehavior File="InteractWith" MobId="17991" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-35.11033" Y="-454.7559" Z="-2.114727" />
+	</If>
+	<If Condition="killQuagmirran" >
+		<MoveTo X="-204.9972" Y="-707.0803" Z="37.37375" />
+		<CustomBehavior File="WaitTimer" WaitTime="60000" TerminateWhen="Unit(17942, u =&gt; u.Distance &lt;= 10) != null" />
+		<CustomBehavior File="InteractWith" MobId="17942" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-204.9972" Y="-707.0803" Z="37.37375" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 544" > <!-- Exit -->
+	<MoveTo X="120.1538" Y="-131.4964" Z="-0.7520493" />
+	<CustomBehavior File="MyCTM" X="117.9537" Y="-140.3962" Z="0.2677509" TerminateWhen="!Me.IsInInstance" />
+</If>

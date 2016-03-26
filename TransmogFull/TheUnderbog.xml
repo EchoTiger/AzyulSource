@@ -1,0 +1,29 @@
+<If Condition="Me.MapId != 544" > <!-- Enter -->
+	<MoveTo X="781.8679" Y="6750.615" Z="-72.53829" />
+	<CustomBehavior File="MyCTM" X="781.6541" Y="6742.927" Z="-72.53829" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 544" > <!-- Run -->
+	<If Condition="killHungarfen" >
+		<CustomBehavior File="InteractWith" MobId="17770" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-121.3438" Y="-388.6259" Z="36.86593" />
+	</If>
+	<If Condition="killGhazan" >
+		<CustomBehavior File="InteractWith" MobId="18105" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="222.8672" Y="-401.2414" Z="45.49323" />
+	</If>
+	<!-- X="324.7716" Y="-469.5115" Z="50.77295" />  on top
+		X="350.9888" Y="-473.0211" Z="24.30762" />  down
+	-->
+
+	<If Condition="killMuselek" >
+		<CustomBehavior File="InteractWith" MobId="17826" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="285.1636" Y="-121.1222" Z="29.77421" />
+	</If>
+
+	<If Condition="killBlackStalker" >
+		<CustomBehavior File="InteractWith" MobId="17882" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="143.6717" Y="10.87584" Z="26.79156" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 544" > <!-- Exit -->
+	<MoveTo X="6.907508" Y="-17.23494" Z="-2.752645" />
+	<CustomBehavior File="MyCTM" X="3.783023" Y="-10.5617" Z="-2.751715" TerminateWhen="!Me.IsInInstance" />
+</If>

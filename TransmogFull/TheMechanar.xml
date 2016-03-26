@@ -1,0 +1,59 @@
+<If Condition="Me.ZoneId != 3523 &amp;&amp; !Me.IsInInstance" > <!-- Enter Netherstorm -->
+	<CustomBehavior File="FlyTo" X="589.3289" Y="3427.308" Z="291.0131" />
+	<CustomBehavior File="MyCTM" X="2945.934" Y="1784.823" Z="206.9143" />
+</If>
+
+<If Condition="Me.MapId != 554" > <!-- Enter -->
+	<If Condition="Me.Location.Distance(new WoWPoint(2868.389, 1551.293, 252.1595)) &gt;= 55" >				
+		<MoveTo Nav="Fly" X="2878.577" Y="1560.613" Z="248.8946" />
+		<CustomBehavior File="ForcedDismount" />
+	</If>
+	<RunTo X="2864.212" Y="1547.367" Z="252.1594" />
+	<CustomBehavior File="MyCTM" X="2860.946" Y="1544.616" Z="252.1594" TerminateWhen="Me.IsInInstance" />
+	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 554" > <!-- Run -->
+	<If Condition="killGatewatchers" >
+		<CustomBehavior File="InteractWith" MobId="19710" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="144.7354" Y="-76.48514" Z="7.94109" /> <!-- Watcher 1 -->
+		<ElseIf Condition="killSepethrea || killPathaleon" >
+			<CustomBehavior File="KillUntilComplete" MobId="19710" X="144.7354" Y="-76.48514" Z="7.94109" TerminateWhen="Unit(19710, u =&gt; u.IsDead) != null" />
+		</ElseIf>
+	</If>
+	<If Condition="killCapacitus" >
+		<CustomBehavior File="InteractWith" MobId="19219" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="207.7941" Y="4.521502" Z="-2.192105" />
+	</If>
+	<If Condition="killGatewatchers" >
+		<CustomBehavior File="InteractWith" MobId="19218" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="85.52759" Y="20.20054" Z="14.92212" /> <!-- Watcher 2 -->
+		<CustomBehavior File="InteractWith" MobId="184465" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="222.5428" Y="70.61063" Z="-0.004793386" />
+		<ElseIf Condition="killSepethrea || killPathaleon" >
+			<CustomBehavior File="KillUntilComplete" MobId="19218" X="85.52759" Y="20.20054" Z="14.92212" TerminateWhen="Unit(19218, u =&gt; u.IsDead) != null" />
+		</ElseIf>
+	</If>
+
+	<While Condition="(killSepethrea || killPathaleon) &amp;&amp; Me.Z &lt; 18" >
+		<MoveTo X="247.727" Y="52.35807" Z="0.218011" />
+		<CustomBehavior File="WaitTimer" WaitTime="20000" TerminateWhen="Object(183788, o =&gt; o.Z &lt; 1) != null" />
+		<CustomBehavior File="MyCTM" X="257.2543" Y="52.49348" Z="0.2448017" TerminateWhen="Me.Z &gt; 5" />
+		<CustomBehavior File="WaitTimer" WaitTime="20000" TerminateWhen="Object(183788, o =&gt; o.Z &gt; 25) != null" />
+		<CustomBehavior File="MyCTM" X="273.0743" Y="52.436" Z="25.43767" TerminateWhen="Me.IsFalling" />
+	</While>
+
+	<If Condition="killSepethrea" >
+		<CustomBehavior File="InteractWith" MobId="19221" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="326.5168" Y="13.19593" Z="27.83656" />
+	</If>
+	<If Condition="killPathaleon" >
+		<CustomBehavior File="InteractWith" MobId="19220" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="139.5425" Y="149.3192" Z="25.58077" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 554" > <!-- Exit -->
+	<If Condition="Me.Z &gt; 18" >
+		<MoveTo X="80.09383" Y="150.2444" Z="25.5808" />
+		<CustomBehavior File="MyCTM" X="71.0237" Y="150.5397" Z="25.5808" TerminateWhen="!Me.IsInInstance" />
+	</If>
+	<If Condition="Me.Z &lt; 18" >
+		<MoveTo X="-33.71968" Y="0.009838104" Z="-1.8124" />
+		<CustomBehavior File="MyCTM" X="-41.85207" Y="0.6927355" Z="-1.8124" TerminateWhen="!Me.IsInInstance" />
+	</If>
+</If>

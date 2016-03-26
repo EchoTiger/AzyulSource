@@ -1,0 +1,124 @@
+<If Condition="Me.Z &gt; 0" > <!-- Enter Caverns -->
+	<MoveTo Nav="Fly" X="-8178.014" Y="-4723.195" Z="38.75698" />
+	<CustomBehavior File="MyCTM" X="-8163.938" Y="-4825.534" Z="41.46125" />
+	<CustomBehavior File="MyCTM" X="-8163.12" Y="-4892.083" Z="29.47881" />
+	<CustomBehavior File="MyCTM" X="-8112.123" Y="-4884.003" Z="18.89497" />
+	<CustomBehavior File="MyCTM" X="-8091.606" Y="-4848.023" Z="-4.553775" />
+	<CustomBehavior File="MyCTM" X="-8132.29" Y="-4852.177" Z="-17.59421" />
+	<CustomBehavior File="MyCTM" X="-8140.016" Y="-4896.396" Z="-32.64989" />
+	<CustomBehavior File="MyCTM" X="-8098.638" Y="-4909.052" Z="-42.61154" />
+	<CustomBehavior File="MyCTM" X="-8073.51" Y="-4867.711" Z="-56.6311" />
+	<CustomBehavior File="MyCTM" X="-8110.92" Y="-4714.097" Z="-93.09811" />
+	<CustomBehavior File="MyCTM" X="-8303.079" Y="-4595.182" Z="-161.361" />
+	<CustomBehavior File="MyCTM" X="-8472.756" Y="-4639.271" Z="-194.8684" />
+	<CustomBehavior File="MyCTM" X="-8515.11" Y="-4620.958" Z="-195.5024" />
+	<CustomBehavior File="MyCTM" X="-8489.974" Y="-4488.689" Z="-203.1049" />
+</If>
+
+<If Condition="Me.MapId != 269" > <!-- Enter -->
+	<MoveTo X="-8768.882" Y="-4179.974" Z="-209.8296" />
+	<CustomBehavior File="MyCTM" X="-8773.93" Y="-4161.558" Z="-210.6023" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 269" > <!-- Run -->
+	<MoveTo X="-2028.684" Y="7116.404" Z="22.6634" />
+
+	<If Condition="killDeja" >
+		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17879, u =&gt; u.IsDead) != null">
+			<HuntingGrounds>
+				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
+				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
+				<Hotspot X="-2025.295" Y="7119.58" Z="22.66427" /> <!-- Meivh -->
+				<Hotspot X="-1898.916" Y="7097.073" Z="18.11597" />
+				<Hotspot X="-1882.178" Y="7102.375" Z="22.84878" />
+			</HuntingGrounds>
+			<PursuitList>
+				<PursueUnit Id="17881" Priority="2000" /> <!-- Aeonus -->
+				<PursueUnit Id="17880" Priority="2000" /> <!-- Temporus -->
+				<PursueUnit Id="17879" Priority="2000" /> <!-- Deja -->
+				<PursueUnit Id="21148" Priority="1000" /> <!-- Rift Opener 1 -->
+				<PursueUnit Id="21140" Priority="1000" /> <!-- Rift Opener 2 -->
+				<PursueUnit Id="21104" Priority="1000" /> <!-- Rift Opener 3 -->
+				<PursueUnit Id="17839" Priority="1000" /> <!-- Rift Opener 4 -->
+				<PursueUnit Id="21818" Priority="800" /> <!-- Whelp -->
+				<PursueUnit Id="21136" Priority="500" />
+				<PursueUnit Id="21137" Priority="500" />
+				<PursueUnit Id="17892" Priority="500" />
+				<PursueUnit Id="18994" Priority="500" /> 
+				<PursueUnit Id="21139" Priority="500" />
+				<PursueUnit Id="18995" Priority="500" />
+				<PursueUnit Id="17835" Priority="500" />
+				<PursueUnit Id="21137" Priority="500" />
+				<PursueUnit Id="21138" Priority="500" />
+			</PursuitList>
+		</CustomBehavior>
+		<CustomBehavior File="InteractWith" MobId="17879" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" />
+	</If>
+	<If Condition="killTemporus" >
+		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17880, u =&gt; u.IsDead) != null">
+			<HuntingGrounds>
+				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
+				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
+				<Hotspot X="-2025.295" Y="7119.58" Z="22.66427" /> <!-- Meivh -->
+				<Hotspot X="-1898.916" Y="7097.073" Z="18.11597" />
+				<Hotspot X="-1882.178" Y="7102.375" Z="22.84878" />
+			</HuntingGrounds>
+			<PursuitList>
+				<PursueUnit Id="17881" Priority="2000" /> <!-- Aeonus -->
+				<PursueUnit Id="17880" Priority="2000" /> <!-- Temporus -->
+				<PursueUnit Id="17879" Priority="2000" /> <!-- Deja -->
+				<PursueUnit Id="21148" Priority="1000" /> <!-- Rift Opener 1 -->
+				<PursueUnit Id="21140" Priority="1000" /> <!-- Rift Opener 2 -->
+				<PursueUnit Id="21104" Priority="1000" /> <!-- Rift Opener 3 -->
+				<PursueUnit Id="17839" Priority="1000" /> <!-- Rift Opener 4 -->
+				<PursueUnit Id="21818" Priority="800" /> <!-- Whelp -->
+				<PursueUnit Id="21136" Priority="500" />
+				<PursueUnit Id="21137" Priority="500" />
+				<PursueUnit Id="17892" Priority="500" />
+				<PursueUnit Id="18994" Priority="500" /> 
+				<PursueUnit Id="21139" Priority="500" />
+				<PursueUnit Id="18995" Priority="500" />
+				<PursueUnit Id="17835" Priority="500" />
+				<PursueUnit Id="21137" Priority="500" />
+				<PursueUnit Id="21138" Priority="500" />
+			</PursuitList>
+		</CustomBehavior>
+		<CustomBehavior File="InteractWith" MobId="17880" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" />
+	</If>
+	<If Condition="killAeonus" >
+		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17881, u =&gt; u.IsDead) != null">
+			<HuntingGrounds>
+				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
+				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
+				<Hotspot X="-2025.295" Y="7119.58" Z="22.66427" /> <!-- Meivh -->
+				<Hotspot X="-1898.916" Y="7097.073" Z="18.11597" />
+				<Hotspot X="-1882.178" Y="7102.375" Z="22.84878" />
+			</HuntingGrounds>
+			<PursuitList>
+				<PursueUnit Id="17881" Priority="2000" /> <!-- Aeonus -->
+				<PursueUnit Id="17880" Priority="2000" /> <!-- Temporus -->
+				<PursueUnit Id="17879" Priority="2000" /> <!-- Deja -->
+				<PursueUnit Id="21148" Priority="1000" /> <!-- Rift Opener 1 -->
+				<PursueUnit Id="21140" Priority="1000" /> <!-- Rift Opener 2 -->
+				<PursueUnit Id="21104" Priority="1000" /> <!-- Rift Opener 3 -->
+				<PursueUnit Id="17839" Priority="1000" /> <!-- Rift Opener 4 -->
+				<PursueUnit Id="21818" Priority="800" /> <!-- Whelp -->
+				<PursueUnit Id="21136" Priority="500" />
+				<PursueUnit Id="21137" Priority="500" />
+				<PursueUnit Id="17892" Priority="500" />
+				<PursueUnit Id="18994" Priority="500" /> 
+				<PursueUnit Id="21139" Priority="500" />
+				<PursueUnit Id="18995" Priority="500" />
+				<PursueUnit Id="17835" Priority="500" />
+				<PursueUnit Id="21137" Priority="500" />
+				<PursueUnit Id="21138" Priority="500" />
+			</PursuitList>
+		</CustomBehavior>
+		<CustomBehavior File="InteractWith" MobId="17881" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="44.72272" Y="286.9597" Z="25.01321" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 269" > <!-- Exit -->
+	<MoveTo X="-1492.448" Y="7037.925" Z="32.42463" />
+	<CustomBehavior File="MyCTM" X="-1493.478" Y="7025.006" Z="33.02884" TerminateWhen="!Me.IsInInstance" />
+</If>

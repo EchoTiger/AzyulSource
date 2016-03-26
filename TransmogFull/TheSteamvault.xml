@@ -1,0 +1,33 @@
+<If Condition="Me.MapId != 545" > <!-- Enter -->
+	<MoveTo X="819.1292" Y="6941.444" Z="-80.51276" />
+	<CustomBehavior File="MyCTM" X="818.7762" Y="6951.784" Z="-80.54026" TerminateWhen="Me.IsInInstance" />
+</If>
+
+<If Condition="Me.MapId == 545" > <!-- Run -->
+	<If Condition="killHydromancer" >
+		<CustomBehavior File="InteractWith" MobId="17797" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="88.39713" Y="-316.1105" Z="-7.87075" />
+	</If>
+	<If Condition="killKalithresh" > <!-- Interact Chamber Access -->
+		<MoveTo X="88.39713" Y="-316.1105" Z="-7.87075" />
+		<CustomBehavior File="KillUntilComplete" MobId="17797" X="88.39713" Y="-316.1105" Z="-7.87075" TerminateWhen="Unit(17797, u =&gt; u.IsDead) != null" />
+		<CustomBehavior File="InteractWith" MobId="184125" WaitTime="1500" X="98.81569" Y="-316.3364" Z="-6.683962" />
+	</If>
+
+	<If Condition="killSteamrigger" >
+		<CustomBehavior File="InteractWith" MobId="17796" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-330.0833" Y="-121.5055" Z="-8.068374" />
+	</If>
+	<If Condition="killKalithresh" > <!-- Interact Chamber Access -->
+		<MoveTo X="-328.8887" Y="-119.6022" Z="-7.997937" />
+		<CustomBehavior File="KillUntilComplete" MobId="17796" X="-330.0833" Y="-121.5055" Z="-8.068374" TerminateWhen="Unit(17797, u =&gt; u.IsDead) != null" />
+		<CustomBehavior File="InteractWith" MobId="184126" WaitTime="1500" X="-332.35" Y="-117.1587" Z="-6.707662" />
+	</If>
+
+	<If Condition="killKalithresh" >
+		<CustomBehavior File="InteractWith" MobId="17798" InteractByLooting="true" MobState="Dead" NumOfTimes="2" WaitTime="1000" X="-95.41883" Y="-552.0314" Z="8.187073" />
+	</If>
+</If>
+
+<If Condition="Me.MapId == 545" > <!-- Exit -->
+	<MoveTo X="6.907508" Y="-17.23494" Z="-2.752645" />
+	<CustomBehavior File="MyCTM" X="3.783023" Y="-10.5617" Z="-2.751715" TerminateWhen="!Me.IsInInstance" />
+</If>

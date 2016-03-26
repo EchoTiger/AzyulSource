@@ -1,0 +1,14 @@
+<If Condition="Me.Z &gt; 14"> <!-- Enter Reservoir, SubZoneId == 3905 -->
+	<If Condition="Me.SubZoneId != 3905" >
+		<MoveTo Nav="Fly" X="558.1843" Y="6946.185" Z="21.47748" /> <!-- Get to Reservoir -->
+		<CustomBehavior File="ForcedDismount" />
+	</If>
+	<CustomBehavior File="MyCTM" X="563.72" Y="6943.596" Z="-19.6552" />
+	<CustomBehavior File="MyCTM" X="577.8546" Y="6938.277" Z="-33.88863" />
+	<CustomBehavior File="MyCTM" X="589.3403" Y="6928.088" Z="-41.50488" />
+	<CustomBehavior File="MyCTM" X="599.9918" Y="6917.659" Z="-44.05712" />
+	<CustomBehavior File="MyCTM" X="608.0247" Y="6900.954" Z="-49.61736" />
+	<CustomBehavior File="MyCTM" X="639.3483" Y="6866.813" Z="-79.6183" />
+	<CustomBehavior File="MyCTM" X="655.5017" Y="6862.942" Z="-81.42478" />
+	<CustomBehavior File="MyCTM" X="677.3033" Y="6829.534" Z="-69.42696" />
+</If>
