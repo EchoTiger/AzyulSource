@@ -32,7 +32,7 @@
 	<MoveTo X="-2028.684" Y="7116.404" Z="22.6634" />
 
 	<If Condition="killDeja" >
-		<CustomBehavior File="InteractWith" MobState="Dead" TerminateWhen="Unit(17879, u =&gt; u.IsDead) != null">
+		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17879, u =&gt; u.IsDead) != null">
 			<HuntingGrounds>
 				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
 				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
@@ -56,14 +56,13 @@
 				<PursueUnit Id="21139" Priority="500" />
 				<PursueUnit Id="18995" Priority="500" />
 				<PursueUnit Id="17835" Priority="500" />
-				<PursueUnit Id="21137" Priority="500" />
 				<PursueUnit Id="21138" Priority="500" />
 			</PursuitList>
 		</CustomBehavior>
 		<CustomBehavior File="InteractWith" MobId="17879" InteractByLooting="true" MobState="Dead" />
 	</If>
 	<If Condition="killTemporus" >
-		<CustomBehavior File="InteractWith" MobState="Dead" TerminateWhen="Unit(17880, u =&gt; u.IsDead) != null">
+		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17880, u =&gt; u.IsDead) != null">
 			<HuntingGrounds>
 				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
 				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
@@ -87,14 +86,13 @@
 				<PursueUnit Id="21139" Priority="500" />
 				<PursueUnit Id="18995" Priority="500" />
 				<PursueUnit Id="17835" Priority="500" />
-				<PursueUnit Id="21137" Priority="500" />
 				<PursueUnit Id="21138" Priority="500" />
 			</PursuitList>
 		</CustomBehavior>
 		<CustomBehavior File="InteractWith" MobId="17880" InteractByLooting="true" MobState="Dead" />
 	</If>
 	<If Condition="killAeonus" >
-		<CustomBehavior File="InteractWith" MobState="Dead" TerminateWhen="Unit(17881, u =&gt; u.IsDead) != null">
+		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17881, u =&gt; u.IsDead) != null">
 			<HuntingGrounds>
 				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
 				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
@@ -118,7 +116,6 @@
 				<PursueUnit Id="21139" Priority="500" />
 				<PursueUnit Id="18995" Priority="500" />
 				<PursueUnit Id="17835" Priority="500" />
-				<PursueUnit Id="21137" Priority="500" />
 				<PursueUnit Id="21138" Priority="500" />
 			</PursuitList>
 		</CustomBehavior>
