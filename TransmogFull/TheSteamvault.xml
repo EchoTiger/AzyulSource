@@ -31,9 +31,9 @@
 </If>
 
 <If Condition="Me.MapId == 545" > <!-- Exit -->
-	<MoveTo X="6.907508" Y="-17.23494" Z="-2.752645" />
+	<MoveTo X="-19.15961" Y="5.641284" Z="-4.293409" />
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
-	<CustomBehavior File="MyCTM" X="3.783023" Y="-10.5617" Z="-2.751715" TerminateWhen="!Me.IsInInstance" />
+	<CustomBehavior File="MyCTM" X="-25.11219" Y="5.411796" Z="-4.253025" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>
