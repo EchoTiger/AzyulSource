@@ -1,5 +1,5 @@
 <If Condition="Me.MapId != 544" > <!-- Enter -->
-	<MoveTo X="734.336" Y="7014.322" Z="-72.06383" />
+	<MoveTo Nav="Fly" X="734.336" Y="7014.322" Z="-72.06383" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="742.7482" Y="7013.561" Z="-72.98393" TerminateWhen="Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="1500" />
