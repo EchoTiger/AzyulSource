@@ -31,6 +31,8 @@
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
 	<MoveTo X="-2028.684" Y="7116.404" Z="22.6634" />
 
+	<EnableBehavior Name="Pull" />
+
 	<If Condition="killDeja" >
 		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17879, u =&gt; u.IsDead) != null">
 			<HuntingGrounds>
