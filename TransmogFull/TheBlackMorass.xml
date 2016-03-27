@@ -2,8 +2,10 @@
 	<CustomBehavior File="FlyTo" X="-8178.014" Y="-4723.195" Z="38.75698" />
 	<!-- MoveTo will land, we don't want to land. -->
 </If>
-<If Condition="Me.Z &gt;= 0 &amp;&amp; Me.SubZoneId == 2300" />
+<If Condition="Me.Z &gt;= 0 &amp;&amp; Me.SubZoneId == 2300" >
+	<CustomBehavior File="ForcedMount" />
 	<CustomBehavior File="MyCTM" X="-8163.938" Y="-4825.534" Z="41.46125" />
+	<CustomBehavior File="MyCTM" X="-8185.257" Y="-4867.948" Z="34.47907" />
 	<CustomBehavior File="MyCTM" X="-8163.12" Y="-4892.083" Z="29.47881" />
 	<CustomBehavior File="MyCTM" X="-8112.123" Y="-4884.003" Z="18.89497" />
 	<CustomBehavior File="MyCTM" X="-8091.606" Y="-4848.023" Z="-4.553775" />
