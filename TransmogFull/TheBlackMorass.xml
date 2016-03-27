@@ -127,6 +127,9 @@
 
 <If Condition="Me.MapId == 269" > <!-- Exit -->
 	<DisableBehavior Name="Pull" />
+	<MoveTo X="-1492.993" Y="7047.175" Z="32.28091" />
+	<EnableBehavior Name="Pull" />
+	<CustomBehavior File="WaitTimer" WaitTime="30000" TerminateWhen="!Me.Comnbat" />
 	<MoveTo X="-1492.448" Y="7037.925" Z="32.42463" />
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<CustomBehavior File="MyCTM" X="-1493.478" Y="7025.006" Z="33.02884" TerminateWhen="!Me.IsInInstance" />
