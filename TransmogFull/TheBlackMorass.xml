@@ -34,7 +34,7 @@
 	<EnableBehavior Name="Pull" />
 
 	<If Condition="killDeja" >
-		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17879, u =&gt; u.IsDead) != null">
+		<CustomBehavior File="KillUntilComplete" MovementBy="NavigatorOnly" TerminateWhen="Unit(17879, u =&gt; u.IsDead) != null">
 			<HuntingGrounds>
 				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
 				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
@@ -64,7 +64,7 @@
 		<CustomBehavior File="InteractWith" MobId="17879" InteractByLooting="true" MobState="Dead" />
 	</If>
 	<If Condition="killTemporus" >
-		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17880, u =&gt; u.IsDead) != null">
+		<CustomBehavior File="KillUntilComplete" MovementBy="NavigatorOnly" TerminateWhen="Unit(17880, u =&gt; u.IsDead) != null">
 			<HuntingGrounds>
 				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
 				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
@@ -94,7 +94,7 @@
 		<CustomBehavior File="InteractWith" MobId="17880" InteractByLooting="true" MobState="Dead" />
 	</If>
 	<If Condition="killAeonus" >
-		<CustomBehavior File="KillUntilComplete" TerminateWhen="Unit(17881, u =&gt; u.IsDead) != null">
+		<CustomBehavior File="KillUntilComplete" MovementBy="NavigatorOnly" TerminateWhen="Unit(17881, u =&gt; u.IsDead) != null">
 			<HuntingGrounds>
 				<Hotspot X="-1937.194" Y="7187.938" Z="23.51733" />
 				<Hotspot X="-2024.937" Y="7023.86" Z="22.9374" />
@@ -126,6 +126,7 @@
 </If>
 
 <If Condition="Me.MapId == 269" > <!-- Exit -->
+	<DisableBehavior Name="Pull" />
 	<MoveTo X="-1492.448" Y="7037.925" Z="32.42463" />
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<CustomBehavior File="MyCTM" X="-1493.478" Y="7025.006" Z="33.02884" TerminateWhen="!Me.IsInInstance" />
