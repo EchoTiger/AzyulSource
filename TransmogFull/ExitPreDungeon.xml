@@ -27,17 +27,17 @@
 
 <If Condition="Me.SubZoneId == 3842" > <!-- Tempest Keep -->
 	<If Condition="Me.Location.Distance(new WoWPoint(3443.96, 1463.131, 180.6002)) &lt; 155" > <!-- The Botanica -->
-		<MoveTo Nav="Fly" X="3331.621" Y="1545.502" Z="205.6498" />
+		<CustomBehavior File="FlyTo" X="3331.621" Y="1545.502" Z="205.6498" />
 		<CustomBehavior File="MyCTM" X="3138.475" Y="1732.7" Z="209.2248" />
 	</If>
 
 	<If Condition="Me.Location.Distance(new WoWPoint(3327.227, 1296.622, 503.6214)) &lt; 161" > <!-- The Arcatraz -->
-		<MoveTo Nav="Fly" X="3276.699" Y="1422.908" Z="520.1997" />
+		<CustomBehavior File="FlyTo" X="3276.699" Y="1422.908" Z="520.1997" />
 		<CustomBehavior File="MyCTM" X="3139.676" Y="1740.573" Z="254.9443" />
 	</If>
 
 	<If Condition="Me.Location.Distance(new WoWPoint(2832.104, 1518.54, 249.778)) &lt; 165" > <!-- The Mechanar -->
-		<MoveTo Nav="Fly" X="2941.354" Y="1617.298" Z="263.4011" />
+		<CustomBehavior File="FlyTo" X="2941.354" Y="1617.298" Z="263.4011" />
 		<CustomBehavior File="MyCTM" X="3001.8" Y="1757.466" Z="187.8155" />
 	</If>
 </If>
