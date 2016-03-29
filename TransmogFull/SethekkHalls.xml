@@ -10,6 +10,7 @@
 
 <If Condition="Me.MapId == 556" > <!-- Run -->
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<MoveTo X="-129.938" Y="168.0356" Z="0.01007618" />
 	<If Condition="killSyth" >
 		<CustomBehavior File="InteractWith" MobId="18472" InteractByLooting="true" MobState="Dead" X="-144.8268" Y="173.5574" Z="1.685324" />
 	</If>
