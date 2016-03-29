@@ -101,11 +101,9 @@
 
 <If Condition="Me.MapId == 560" > <!-- Exit -->
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
-	<While Condition="Me.IsInInstance" >
-		<MoveTo X="152.0139" Y="391.3595" Z="-34.01377" />
-		<CustomBehavior File="MyCTM" X="160.2607" Y="391.3514" Z="-35.81748" TerminateWhen="!Me.IsInInstance" />
-		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
-		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
-	</While>
+	<MoveTo X="2758.646" Y="1303.95" Z="13.88629" />
+	<CustomBehavior File="MyCTM" X="2764.737" Y="1297.209" Z="13.72614" TerminateWhen="!Me.IsInInstance" />
+	<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
+	<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>

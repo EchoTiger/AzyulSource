@@ -43,23 +43,12 @@
 </If>
 
 <If Condition="Me.MapId == 552" > <!-- Exit -->
-	<If Condition="killZerekth &amp;&amp; !killDalliah &amp;&amp; !killSoccothrates &amp;&amp; !killSkyriss" >
-		<DisableBehavior Name="Combat" />
-		<MoveTo X="-1.490852" Y="-0.2063602" Z="-0.205496" />
-		<EnableBehavior Name="Combat" />
-		<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
-		<CustomBehavior File="MyCTM" X="-6.173574" Y="0.07185109" Z="-0.205496" TerminateWhen="!Me.IsInInstance" />
-		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
-		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
-		<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
-
-	<Else> <!-- MoveTo from Zerekth fails, so using alternative exit -->
-		<MoveTo X="152.0139" Y="391.3595" Z="-34.01377" />
-		<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
-		<CustomBehavior File="MyCTM" X="160.2607" Y="391.3514" Z="-35.81748" TerminateWhen="!Me.IsInInstance" />
-		<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
-		<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
-		<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
-	</Else>
-	</If>
+	<DisableBehavior Name="Combat" />
+	<MoveTo X="-1.490852" Y="-0.2063602" Z="-0.205496" />
+	<EnableBehavior Name="Combat" />
+	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+	<CustomBehavior File="MyCTM" X="-6.173574" Y="0.07185109" Z="-0.205496" TerminateWhen="!Me.IsInInstance" />
+	<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
+	<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />
+	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 </If>
