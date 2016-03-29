@@ -15,6 +15,11 @@
 	]]>
 	</CustomBehavior>
 
+			<CustomBehavior File="Misc\RunLua" Lua="JumpOrAscendStart()" WaitTime="3000" />
+			<CustomBehavior File="Misc\RunLua" Lua="AscendStop()" />
+			<CustomBehavior File="Misc\InstanceTimer" Timer="Check" WaitTime="369000" />
+
+
 	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.MailMinBagSlots" >
 		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.Orange, &quot;You're still under 20 bagslots after selling. Moving to mail.&quot;);" />
 		<MoveTo Nav="Fly" X="8443.004" Y="-329.3138" Z="906.6082" />
