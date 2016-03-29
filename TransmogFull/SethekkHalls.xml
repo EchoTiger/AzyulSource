@@ -1,8 +1,8 @@
 <If Condition="Me.MapId != 556" > <!-- Enter -->
 	<If Condition="Me.SubZoneId != 3688" >
-		<MoveTo Nav="Fly" X="-3361.696" Y="4755.17" Z="-101.3956" />
+		<MoveTo Nav="Fly" X="-3360.818" Y="4821.186" Z="-98.19902" />
 	</If>
-	<MoveTo X="-3361.836" Y="4657.663" Z="-101.0489" />
+	<RunTo X="-3361.836" Y="4657.663" Z="-101.0489" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 	<CustomBehavior File="MyCTM" X="-3361.931" Y="4652.315" Z="-101.0489" TerminateWhen="Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="1500" />
