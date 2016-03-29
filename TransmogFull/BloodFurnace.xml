@@ -14,8 +14,10 @@
 		</Else>
 	</If>
 	
-	<CustomBehavior File="InteractWith" MobId="181982" X="456.0855" Y="60.34892" Z="9.47833" />
-	<CustomBehavior File="WaitTimer" WaitTime="30000" TerminateWhen="Object(212908, o =&gt; o.ToGameObject().State == WoWGameObjectState.Active) != null" />
+	<If Condition="killBroggok || killKelidan" >
+		<CustomBehavior File="InteractWith" MobId="181982" X="456.0855" Y="60.34892" Z="9.47833" />
+		<CustomBehavior File="WaitTimer" WaitTime="30000" TerminateWhen="Object(212908, o =&gt; o.ToGameObject().State == WoWGameObjectState.Active) != null" />
+	</If>
 
 	<If Condition="killBroggok" >
 		<CustomBehavior File="InteractWith" MobId="17308" InteractByLooting="true" MobState="Dead" X="-1122.34" Y="1718.407" Z="89.34828" />
