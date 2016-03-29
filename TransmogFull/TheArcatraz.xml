@@ -37,7 +37,7 @@
 	</If>
 	<If Condition="killSkyriss" >
 		<CustomBehavior File="InteractWith" MobId="20904" Range="1" X="445.8029" Y="-169.0068" Z="43.64423" />
-		<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="Unit(20912) != null &amp;&amp; Me.Combat" />
+		<CustomBehavior File="WaitTimer" WaitTime="300000" TerminateWhen="Unit(20912, u =&gt; u.IsDead) != null" />
 		<CustomBehavior File="InteractWith" MobId="20912" InteractByLooting="true" MobState="Dead" X="448.5085" Y="-172.5178" Z="43.04952" />
 	</If>
 </If>
