@@ -21,9 +21,9 @@
 		<CustomBehavior File="InteractWith" MobId="17308" InteractByLooting="true" MobState="Dead" X="-1122.34" Y="1718.407" Z="89.34828" />
 	</If>
 	<If Condition="killKelidan" >
-		<CustomBehavior File="InteractWith" MobId="17653" X="333.5563" Y="-119.0174" Z="-25.09809" /> <!-- Shadowmoon Channeler, start boss event. -->
+		<CustomBehavior File="InteractWith" MobId="17653" Range="1" X="333.5563" Y="-119.0174" Z="-25.09809" /> <!-- Shadowmoon Channeler, start boss event. -->
 		<MoveTo X="326.1256" Y="-86.64767" Z="-24.65528" />
-		<CustomBehavior File="InteractWith" MobId="17377" X="326.5029" Y="-86.00275" Z="-24.66032" /> <!-- Loot Fel Iron Chest -->
+		<CustomBehavior File="InteractWith" MobId="17377" InteractByLooting="true" MobState="Dead" X="326.5029" Y="-86.00275" Z="-24.66032" />
 	</If>
 </If>
 
