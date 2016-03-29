@@ -19,7 +19,7 @@
 	</If>
 
 	<If Condition="killIkiss" >
-		<!-- <MoveTo X="-236.7271" Y="319.0752" Z="26.73051" /> If bot tries going wrong way. -->
+		<MoveTo X="-236.7271" Y="319.0752" Z="26.73051" />
 		<CustomBehavior File="InteractWith" MobId="18473" InteractByLooting="true" MobState="Dead" X="44.72272" Y="286.9597" Z="25.01321" />
 	</If>
 </If>
