@@ -44,7 +44,8 @@
 
 <If Condition="Me.MapId == 552" > <!-- Exit -->
 	<DisableBehavior Name="Combat" />
-	<MoveTo X="-1.490852" Y="-0.2063602" Z="-0.205496" />
+	<RunTo X="203.0138" Y="-112.9022" Z="-10.12245" />
+	<RunTo X="-1.490852" Y="-0.2063602" Z="-0.205496" />
 	<EnableBehavior Name="Combat" />
 	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 	<CustomBehavior File="MyCTM" X="-6.173574" Y="0.07185109" Z="-0.205496" TerminateWhen="!Me.IsInInstance" />
