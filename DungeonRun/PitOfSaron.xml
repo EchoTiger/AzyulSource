@@ -97,7 +97,14 @@
 	<CustomBehavior File="MyCTM" X="988.9683" Y="52.10757" Z="586.6832" />
 	<CustomBehavior File="MyCTM" X="964.7907" Y="52.97291" Z="567.1357" />
 
-	<CustomBehavior File="NoCombatMoveTo" X="431.4645" Y="212.686" Z="528.7086" />
+	<DisableBehavior Name="Combat" />
+		<RunTo X="914.7256" Y="76.66406" Z="553.4944" />
+		<RunTo X="883.1805" Y="52.69792" Z="527.5096" />
+		<RunTo X="431.4645" Y="212.686" Z="528.7086" />
+	<EnableBehavior Name="Combat" />
+
+	<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="!Me.Combat" />
+	<RunTo X="431.4645" Y="212.686" Z="528.7086" />
 
 	<CustomBehavior File="RunMacro" Macro="/sw pause" />
 </If>
