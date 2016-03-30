@@ -36,7 +36,7 @@
 	<EnableBehavior Name="Combat" />
 
 	<CustomBehavior File="ForcedDismount" />
-	<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="Me.Combat" />
+	<CustomBehavior File="WaitTimer" WaitTime="5000" TerminateWhen="!Me.Combat" />
 
 
 	<MoveTo X="694.9253" Y="-114.1457" Z="513.8766" />
@@ -91,6 +91,7 @@
 	<MoveTo X="1025.215" Y="162.9924" Z="628.1561" />
 	<CustomBehavior File="InteractWith" MobId="36658" MobState="Dontcare" X="1025.672" Y="162.4676" Z="628.1563" />
 	<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="Unit(36658, u =&gt; u.IsDead) != null" />
+	<CustomBehavior File="WaitTimer" WaitTime="60000" TerminateWhen="Me.HasAura(70525) || Me.HasAura(70623) || Me.HasAura(70639)" />
 
 	<RunTo X="985.543" Y="122.1211" Z="628.1571" />
 	<CustomBehavior File="MyCTM" X="988.9683" Y="52.10757" Z="586.6832" />
