@@ -30,6 +30,7 @@
 		<DisableBehavior Name="Pull" />
 		<Else>
 			<MoveTo X="-303.1642" Y="-39.04573" Z="8.072831" />
+			<EnableBehavior Name="Pull" /> <!-- KUC won't interact properly if pull is disabled. -->
 			<CustomBehavior File="InteractWith" MobState="Dead" MobId="18667" X="-321.4991" Y="-28.53862" Z="12.68886" TerminateWhen="Unit(18667, u =&gt; u.IsDead) != null" />
 			<DisableBehavior Name="Pull" />
 		</Else>
