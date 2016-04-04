@@ -18,6 +18,9 @@
 	</If>
 	<If Condition="killShaffar" >
 		<CustomBehavior File="InteractWith" MobId="18344" InteractByLooting="true" MobState="Dead" X="-184.3657" Y="9.333467" Z="16.73412" />
+		<!-- Below is navigation for shortcut out -->
+		<MoveTo X="-99.61199" Y="-41.17957" Z="16.78781" />
+		<CustomBehavior File="MyCTM" X="-83.39738" Y="-66.35379" Z="-0.6635202" />
 	</If>
 </If>
 
