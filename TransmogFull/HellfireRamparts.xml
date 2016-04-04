@@ -17,6 +17,7 @@
 		<CustomBehavior File="InteractWith" MobId="17517" X="-1383.386" Y="1711.82" Z="82.71272" /> <!-- Blackrock Sentry, start boss event. -->
 		<MoveTo X="-1417.518" Y="1745.163" Z="81.00729" />
 		<CustomBehavior File="WaitTimer" WaitTime="15000" TerminateWhen="Unit(17536, u =&gt; u.IsDead) != null" />
+		<CustomBehavior File="WaitTimer" WaitTime="10000" /> <!-- Need to check chest status -->
 		<CustomBehavior File="InteractWith" MobIds="185168, 185169" InteractByLooting="true" MobState="Dead" X="-1429.81" Y="1772.916" Z="82.0765" /> <!-- Loot Fel Iron Chest -->
 	</If>
 </If>
