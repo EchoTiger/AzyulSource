@@ -24,10 +24,14 @@
 		<CustomBehavior File="InteractWith" MobId="18731" InteractByLooting="true" MobState="Dead" X="-156.6754" Y="4.982729" Z="8.073065" />
 	</If>
 	<If Condition="killBlackheart" >
+		<MoveTo X="-303.1642" Y="-39.04573" Z="8.072831" />
+		<EnableBehavior Name="Pull" /> <!-- Interact won't interact properly if pull is disabled. -->
 		<CustomBehavior File="InteractWith" MobId="18667" InteractByLooting="true" MobState="Dead" X="-321.4991" Y="-28.53862" Z="12.68886" />
+		<DisableBehavior Name="Pull" />
 		<Else>
 			<MoveTo X="-303.1642" Y="-39.04573" Z="8.072831" />
 			<CustomBehavior File="InteractWith" MobState="Dead" MobId="18667" X="-321.4991" Y="-28.53862" Z="12.68886" TerminateWhen="Unit(18667, u =&gt; u.IsDead) != null" />
+			<DisableBehavior Name="Pull" />
 		</Else>
 	</If>
 
