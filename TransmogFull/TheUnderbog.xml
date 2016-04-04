@@ -11,7 +11,7 @@
 		<CustomBehavior File="InteractWith" MobId="17770" InteractByLooting="true" MobState="Dead" X="-121.3438" Y="-388.6259" Z="36.86593" />
 	</If>
 	<If Condition="killGhazan" >
-		<CustomBehavior File="InteractWith" MobId="18105" InteractByLooting="true" MobState="Dead" X="222.8672" Y="-401.2414" Z="45.49323" />
+		<CustomBehavior File="InteractWith" MobId="18105" InteractByLooting="true" MobState="Dead" X="196.0494" Y="-483.9134" Z="60.2388" />
 	</If>
 	<!-- X="324.7716" Y="-469.5115" Z="50.77295" />  on top
 		X="350.9888" Y="-473.0211" Z="24.30762" />  down
