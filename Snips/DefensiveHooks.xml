@@ -55,7 +55,7 @@
 
 <!-- Speed Buffs -->
 <If Condition="Me.Class == WoWClass.Druid" > <!-- Dash, Keep Catform On -->
-	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseSpeedBuffs &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; ((Me.HasAura(768) || Me.HasAura(171746)) &amp;&amp; SpellManager.CanCast(1850))" >
+	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseSpeedBuffs &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; ((Me.HasAura(768) || Me.HasAura(171746)) &amp;&amp; SpellManager.CanCast(1850))" >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of speed buffs.&quot;);" />
 		<CustomBehavior File="RunCode" Code="SpellManager.Cast(1850);" />
 	</CustomBehavior>
@@ -64,14 +64,17 @@
 		<CustomBehavior File="RunCode" Code="SpellManager.Cast(768);" />
 	</CustomBehavior>
 </If>
-<If Condition="Me.Class == WoWClass.Rogue" > <!-- Sprint -->
-	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseSpeedBuffs &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (SpellManager.CanCast(2983))" >
+<If Condition="Me.Class == WoWClass.Rogue" > <!-- Sprint or Burst of Speed -->
+	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseSpeedBuffs &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (SpellManager.CanCast(2983))" >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of speed buffs.&quot;);" />
 		<CustomBehavior File="RunCode" Code="SpellManager.Cast(2983);" />
 	</CustomBehavior>
+	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveBurstHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Me.IsMoving &amp;&amp; Me.IsAlive) &amp;&amp; SpellManager.CanCast(108212) &amp;&amp; !Me.HasAura(137573)" >
+		<CustomBehavior File="RunCode" Code="SpellManager.Cast(108212);" WaitTime="500" />
+	</CustomBehavior>
 </If>
 <If Condition="Me.Class == WoWClass.Shaman" > <!-- Ghost Wolf -->
-	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseSpeedBuffs &amp;&amp; Me.Combat &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (!Me.HasAura(2645))" >
+	<CustomBehavior File="Hooks\DoWhen" ActivityName="MoveSpeedHook" LogExecution="false" AllowUseDuringCombat="True" UseWhen="(Settings.Instance.UseSpeedBuffs &amp;&amp; Me.IsMoving &amp;&amp; Me.IsInInstance &amp;&amp; Me.IsAlive) &amp;&amp; (!Me.HasAura(2645))" >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Attempting use of speed buffs.&quot;);" />
 		<CustomBehavior File="RunCode" Code="SpellManager.Cast(2645);" />
 	</CustomBehavior>
