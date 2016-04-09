@@ -1,7 +1,7 @@
 <If Condition="Me.MapId == 632" >
 	<CustomBehavior File="RunMacro" Macro="/sw clear" />
 	<CustomBehavior File="RunMacro" Macro="/sw play" />
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 
 	<DisableBehavior Name="Combat" />
 		<RunTo X="4949.285" Y="2220.286" Z="638.733" />

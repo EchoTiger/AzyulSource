@@ -16,7 +16,7 @@
 </If>
 
 <If Condition="Me.MapId == 552" > <!-- Run -->
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 	<DisableBehavior Name="Combat" />
 	<MoveTo X="202.7816" Y="-93.58123" Z="-10.10085" />
 	<EnableBehavior Name="Combat" />
@@ -47,7 +47,7 @@
 	<RunTo X="203.0138" Y="-112.9022" Z="-10.12245" />
 	<RunTo X="-1.490852" Y="-0.2063602" Z="-0.205496" />
 	<EnableBehavior Name="Combat" />
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+	<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 	<CustomBehavior File="MyCTM" X="-6.173574" Y="0.07185109" Z="-0.205496" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />
 	<CustomBehavior File="WaitTimer" WaitTime="35000" TerminateWhen="!Me.IsInInstance" />

@@ -28,7 +28,7 @@
 </If>
 
 <If Condition="Me.MapId == 560" > <!-- Run -->
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 	<MoveTo X="2376.866" Y="1180.384" Z="65.80715" />
 	<If Condition="!HasItem(25853)" >
 		<CustomBehavior File="InteractWith" MobId="18723" X="2375.554" Y="1178.651" Z="65.38126" WaitTime="500" />
@@ -100,7 +100,7 @@
 </If>
 
 <If Condition="Me.MapId == 560" > <!-- Exit -->
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+	<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 	<MoveTo X="2758.646" Y="1303.95" Z="13.88629" />
 	<CustomBehavior File="MyCTM" X="2764.737" Y="1297.209" Z="13.72614" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="MoveForwardStart();" />

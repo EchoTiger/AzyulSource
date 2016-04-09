@@ -9,7 +9,7 @@
 </If>
 
 <If Condition="Me.MapId == 555" > <!-- Run -->
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 	<If Condition="killHellmaw" >
 		<CustomBehavior File="InteractWith" MobId="18794" MobState="AliveNotInCombat" NumOfTimes="500" TerminateWhen="Unit(18731, u =&gt; !u.HasAura(30231)) != null" >
 			<HuntingGrounds>
@@ -51,7 +51,7 @@
 
 <If Condition="Me.MapId == 555" > <!-- Exit -->
 	<MoveTo X="4.884669" Y="-0.3230898" Z="-1.128737" />
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+	<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 	<CustomBehavior File="MyCTM" X="10.3539" Y="-0.3335206" Z="-1.128737" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />

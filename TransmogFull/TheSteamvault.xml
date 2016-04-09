@@ -6,7 +6,7 @@
 </If>
 
 <If Condition="Me.MapId == 545" > <!-- Run -->
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 	<If Condition="killHydromancer" >
 		<CustomBehavior File="InteractWith" MobId="17797" InteractByLooting="true" MobState="Dead" X="88.39713" Y="-316.1105" Z="-7.87075" />
 	</If>
@@ -32,7 +32,7 @@
 
 <If Condition="Me.MapId == 545" > <!-- Exit -->
 	<MoveTo X="-19.15961" Y="5.641284" Z="-4.293409" />
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+	<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 	<CustomBehavior File="MyCTM" X="-25.11219" Y="5.411796" Z="-4.253025" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />

@@ -1,5 +1,5 @@
 <If Condition="Me.IsInInstance" >
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 
 	<MoveTo X="1.399361" Y="19.53091" Z="-5.708767" />
 

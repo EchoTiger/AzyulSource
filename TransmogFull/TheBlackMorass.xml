@@ -28,7 +28,7 @@
 </If>
 
 <If Condition="Me.MapId == 269" > <!-- Run -->
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 	<MoveTo X="-2028.684" Y="7116.404" Z="22.6634" />
 
 	<EnableBehavior Name="Pull" />
@@ -131,7 +131,7 @@
 	<EnableBehavior Name="Pull" />
 	<CustomBehavior File="WaitTimer" WaitTime="30000" TerminateWhen="!Me.Combat" />
 	<MoveTo X="-1492.448" Y="7037.925" Z="32.42463" />
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+	<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 	<CustomBehavior File="MyCTM" X="-1493.478" Y="7025.006" Z="33.02884" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />

@@ -15,7 +15,7 @@
 </If>
 
 <If Condition="Me.MapId == 554" > <!-- Run -->
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 	<If Condition="killGatewatchers" >
 		<CustomBehavior File="InteractWith" MobId="19710" InteractByLooting="true" MobState="Dead" X="144.7354" Y="-76.48514" Z="7.94109" /> <!-- Watcher 1 -->
 		<ElseIf Condition="killSepethrea || killPathaleon" >
@@ -50,7 +50,7 @@
 </If>
 
 <If Condition="Me.MapId == 554" > <!-- Exit -->
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+	<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 	<If Condition="Me.Z &gt; 18" >
 		<MoveTo X="80.09383" Y="150.2444" Z="25.5808" />
 		<CustomBehavior File="MyCTM" X="71.0237" Y="150.5397" Z="25.5808" TerminateWhen="!Me.IsInInstance" />

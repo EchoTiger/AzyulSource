@@ -1,6 +1,6 @@
 <If Condition="Me.MapId == 602" >
 
-	<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 
 	<DisableBehavior Name="Combat" />
 		<RunTo X="1337.66" Y="163.1053" Z="53.70436" />

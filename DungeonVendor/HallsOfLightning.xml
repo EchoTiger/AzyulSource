@@ -17,7 +17,7 @@
 
 			<CustomBehavior File="Misc\RunLua" Lua="JumpOrAscendStart()" WaitTime="3000" />
 			<CustomBehavior File="Misc\RunLua" Lua="AscendStop()" />
-			<CustomBehavior File="Misc\InstanceTimer" Timer="Check" WaitTime="369000" />
+			<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 
 
 	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.MailMinBagSlots" >

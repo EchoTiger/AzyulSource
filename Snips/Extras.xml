@@ -23,6 +23,31 @@
 	</If>
 </CustomBehavior> 
 
+<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+	public class InstanceTimer
+		{
+			private static System.Diagnostics.Stopwatch Timer = new System.Diagnostics.Stopwatch();
+
+			public static void StartTimer()
+			{
+				Timer.Start();
+			}
+
+			public static async Task WaitForTimeAsync(TimeSpan time)
+			{
+				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Your dungeon run took: " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(Timer.Elapsed).ToString());
+				while (Timer.Elapsed < time)
+				{
+					Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Waiting to prevent dungeon timeout: " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(Timer.Elapsed).ToString() + " of " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(time).ToString());
+					await Coroutine.Sleep(1000);
+				}
+
+				Timer.Reset();
+			}
+	}
+	]]>
+</CustomBehavior>
+
 <CustomBehavior File="RunCode" Code="try { var webRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(&quot;http://azyul.com/azyultracking.php&quot;); webRequest.Referer = ProfileManager.CurrentProfile.Name; webRequest.GetResponse(); }
 catch(Exception) {}"/>
 
