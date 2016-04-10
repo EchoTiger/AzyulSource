@@ -30,13 +30,26 @@
 
 			public static void StartTimer()
 			{
+				if (Timer.IsRunning) {
+					Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Resetting timer since it's already running!");
+					Timer.Reset();
+				}
+				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Instance timer started.");
 				Timer.Start();
 			}
 
 			public static async Task WaitForTimeAsync(TimeSpan time)
 			{
 				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Your dungeon run took: " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(Timer.Elapsed).ToString());
-				while (Timer.Elapsed < time)
+
+				if (Timer.Elapsed < time) {
+					Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Waiting to prevent dungeon timeout: " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(Timer.Elapsed).ToString() + " of " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(time).ToString());
+				}
+				else {
+					Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Not waiting since the run was over the wait time.");
+				}
+
+				while (Timer.Elapsed < time && Timer.Elapsed != 0)
 				{
 					Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Waiting to prevent dungeon timeout: " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(Timer.Elapsed).ToString() + " of " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(time).ToString());
 					await Coroutine.Sleep(1000);
