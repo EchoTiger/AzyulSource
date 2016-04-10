@@ -42,10 +42,7 @@
 			{
 				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Your dungeon run took: " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(Timer.Elapsed).ToString());
 
-				if (Timer.Elapsed < time) {
-					Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Waiting to prevent dungeon timeout: " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(Timer.Elapsed).ToString() + " of " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(time).ToString());
-				}
-				else {
+				if (Timer.Elapsed > time) {
 					Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Not waiting since the run was over the wait time.");
 				}
 
