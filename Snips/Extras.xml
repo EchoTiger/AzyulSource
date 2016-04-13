@@ -66,6 +66,8 @@
 	]]>
 </CustomBehavior>
 
+<CustomBehavior File="RunCode" Code="AzyulGPHTracker.BlacklistBagItems();" />
+
 <CustomBehavior File="Hooks\DoWhen" ActivityName="UniversalDungeonDeath" LogExecution="false" UseAtInterval="5000" >
 	<If Condition="Me.IsGhost &amp;&amp; Me.CorpseMapId != Me.MapId" >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Orange, &quot;[Azyul]: We died inside of a dungeon! Returning to instance..&quot;);" />
