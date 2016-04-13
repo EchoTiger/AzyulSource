@@ -7,6 +7,7 @@
 			<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 		</Else>
 	</If>
+	<CustomBehavior File="RunCode" Code="AzyulGPHTracker.LogGPH();" />
 	<CustomBehavior File="MyCTM" X="-230.1028" Y="2103.024" Z="76.8905" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="15000" TerminateWhen="!Me.IsInInstance" />
 

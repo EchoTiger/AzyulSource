@@ -4,6 +4,7 @@
 	<CustomBehavior File="InteractWith" MobId1="206602" MobId2="206603" WaitForNpcs="false" WaitTime="2000" /> 
 
 	<If Condition="Settings.Instance.DepositGold" >
+		<CustomBehavior File="RunCode" Code="AzyulGPHTracker.LogGPH(); AzyulGPHTracker.ResetGPHTracker();" />
 		<CustomBehavior File="Misc\RunLua" Lua="DepositGuildBankMoney(GetMoney());" />
 	</If>
 
