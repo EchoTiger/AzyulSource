@@ -19,8 +19,6 @@
 				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
 				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				int _diffGold = (_currentGold - startingGold);
-				Logging.Write("Starting Gold: " + startingGold.ToString() + "\nStarting Time:" + startingTime.ToString() + "\nCurrent Glold: " + _currentGold + "\nElapsed Time: " + _elapsedTime + "\nDiffGold: " + _diffGold);
-
 				if (_elapsedTime > 60 && _diffGold != 0) {
 					int _gph = (_diffGold/(_elapsedTime/60));
 					return _gph;
