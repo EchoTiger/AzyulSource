@@ -6,6 +6,8 @@
 			private static int bagItemsWorth = 0;
 			private static List<WoWGuid> blacklistItems = new List<WoWGuid>();
 
+
+
 			public static void LogGPH()
 			{
 				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "Current Gold Per Hour: " + GPH().ToString());
@@ -17,8 +19,10 @@
 				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
 				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				int _diffGold = (_currentGold - startingGold);
-				if (_elapsedTime != 0) {
-					int _gph = (_diffGold/(_elapsedTime/3600));
+				Logging.Write("Starting Gold: " + startingGold.ToString() + "\nStarting Time:" + startingTime.ToString() + "\nCurrent Glold: " + _currentGold + "\nElapsed Time: " + _elapsedTime + "\nDiffGold: " + _diffGold);
+
+				if (_elapsedTime > 60 && _diffGold != 0) {
+					int _gph = (_diffGold/(_elapsedTime/60));
 					return _gph;
 				}
 				else {
@@ -31,8 +35,8 @@
 				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
 				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				int _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
-				if (_elapsedTime != 0) {
-					int _gphBags = (_diffGoldBags/(_elapsedTime/3600));
+				if (_elapsedTime > 60 && _diffGoldBags != 0) {
+					int _gphBags = (_diffGoldBags/(_elapsedTime/60));
 					return _gphBags;
 				}
 				else {
