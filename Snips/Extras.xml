@@ -2,7 +2,7 @@
 	public class AzyulGPHTracker
 		{
 			private static int startingGold = Convert.ToInt32(StyxWoW.Me.Copper);
-			private static long startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+			private static long startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerSecond);
 			private static int bagItemsWorth = 0;
 			private static List<WoWGuid> blacklistItems = new List<WoWGuid>();
 
