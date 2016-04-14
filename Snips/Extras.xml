@@ -42,13 +42,13 @@
 
 			public static int BagItemWorth()
 			{
-				int _bagItemsWorth = 0;
+				int bagItemsWorth = 0;
 				foreach (WoWItem i in StyxWoW.Me.BagItems)
 				{
 					if (i != null && i.ItemInfo.SellPrice != 0 && !blacklistItems.Contains(i.Guid))
-						_bagItemsWorth += i.ItemInfo.SellPrice;
+						bagItemsWorth += i.ItemInfo.SellPrice;
 				}
-				return _bagItemsWorth;
+				return bagItemsWorth;
 			}
 
 			public static void BlacklistBagItems()
