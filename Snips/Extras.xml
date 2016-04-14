@@ -19,8 +19,8 @@
 				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
 				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				int _diffGold = (_currentGold - startingGold);
-				if (_elapsedTime > 60 && _diffGold != 0) {
-					int _gph = (_diffGold/(_elapsedTime/60));
+				if (_elapsedTime != 0 && _diffGold != 0) {
+					int _gph = (_diffGold/(_elapsedTime/3600));
 					return _gph;
 				}
 				else {
@@ -33,8 +33,8 @@
 				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
 				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				int _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
-				if (_elapsedTime > 60 && _diffGoldBags != 0) {
-					int _gphBags = (_diffGoldBags/(_elapsedTime/60));
+				if (_elapsedTime != 0 && _diffGoldBags != 0) {
+					int _gphBags = (_diffGoldBags/(_elapsedTime/3600));
 					return _gphBags;
 				}
 				else {
