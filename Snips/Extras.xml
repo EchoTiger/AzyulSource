@@ -1,4 +1,103 @@
-4
+<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+	public class AzyulGPHTracker
+		{
+			private static int startingGold = Convert.ToInt32(StyxWoW.Me.Copper);
+			private static long startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerSecond);
+			private static int bagItemsWorth = 0;
+			private static List<WoWGuid> blacklistItems = new List<WoWGuid>();
+
+
+
+			public static void LogGPH()
+			{
+				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "GPH: " + GPHString());
+				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "GPH+Bag: " + GPHBagString());
+			}
+
+			public static string GPHString()
+			{
+				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
+				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
+				int _diffGold = (_currentGold - startingGold);
+				Logging.Write("Starting Gold: " + startingGold.ToString() + "\nStarting Time:" + startingTime.ToString() + "\nCurrent Glold: " + _currentGold + "\nElapsed Time: " + _elapsedTime + "\nDiffGold: " + _diffGold);
+				int _gphRaw = (_diffGold*(3600/_elapsedTime));
+				string _gphString = Lua.GetReturnVal<string>($"return GetCoinText({_gphRaw})", 0);
+
+				return _gphString;
+			}
+
+			public static string GPHBagString()
+			{
+				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
+				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
+				int _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
+				int _gphBagsRaw = (_diffGoldBags*(3600/_elapsedTime));
+				string _gphBagsString = Lua.GetReturnVal<string>($"return GetCoinText({_gphBagsRaw})", 0);
+
+				return _gphBagsString;
+			}
+
+
+			public static int GPHInt()
+			{
+				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
+				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
+				int _diffGold = (_currentGold - startingGold);
+				Logging.Write("Starting Gold: " + startingGold.ToString() + "\nStarting Time:" + startingTime.ToString() + "\nCurrent Glold: " + _currentGold + "\nElapsed Time: " + _elapsedTime + "\nDiffGold: " + _diffGold);
+				int _gphRaw = (_diffGold*(3600/_elapsedTime));
+				
+				return _gphRaw;
+			}
+
+			public static int GPHBagInt()
+			{
+				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
+				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
+				int _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
+				int _gphBagsRaw = (_diffGoldBags*(3600/_elapsedTime));
+
+				return _gphBagsRaw;
+			}
+
+
+			public static int BagItemWorth()
+			{
+				int bagItemsWorth = 0;
+				foreach (WoWItem i in StyxWoW.Me.BagItems)
+				{
+					if (i != null && i.ItemInfo.SellPrice != 0 && !blacklistItems.Contains(i.Guid))
+						bagItemsWorth += i.ItemInfo.SellPrice;
+				}
+				return bagItemsWorth;
+			}
+
+			public static void BlacklistBagItems()
+			{
+				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "Excluding current bag items from GPH tracker.");
+				foreach (WoWItem i in StyxWoW.Me.BagItems)
+				{
+					if (i != null) 
+					{
+						blacklistItems.Add(i.Guid);
+					}
+				}
+			}
+
+			public static void ResetGPHTracker()
+			{
+				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "Resetting GPH tracker since you deposited gold! Any GPH value outputs after this won't be accurate!");
+				blacklistItems.Clear();
+				BlacklistBagItems();
+				startingGold = 0;
+				startingGold = Convert.ToInt32(StyxWoW.Me.Copper);
+				startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerSecond);
+			}
+
+	}
+	]]>
+</CustomBehavior>
+
+<CustomBehavior File="RunCode" Code="AzyulGPHTracker.BlacklistBagItems();" />
 
 <CustomBehavior File="Hooks\DoWhen" ActivityName="UniversalDungeonDeath" LogExecution="false" UseAtInterval="5000" >
 	<If Condition="Me.IsGhost &amp;&amp; Me.CorpseMapId != Me.MapId" >
