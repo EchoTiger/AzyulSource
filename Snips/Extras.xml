@@ -1,84 +1,4 @@
-<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
-	public class AzyulGPHTracker
-		{
-			private static int startingGold = Convert.ToInt32(StyxWoW.Me.Copper);
-			private static long startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerSecond);
-			private static int bagItemsWorth = 0;
-			private static List<WoWGuid> blacklistItems = new List<WoWGuid>();
-
-
-
-			public static void LogGPH()
-			{
-				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "Current Gold Per Hour: " + GPH().ToString());
-				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "Current Gold Per Hour + Bag Value: " + GPHBag().ToString());
-			}
-
-			public static int GPH()
-			{
-				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
-				int _diffGold = (_currentGold - startingGold);
-				if (_elapsedTime != 0 && _diffGold != 0) {
-					int _gph = (_diffGold/(_elapsedTime/3600));
-					return _gph;
-				}
-				else {
-					return 0;
-				}
-			}
-
-			public static int GPHBag()
-			{
-				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
-				int _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
-				if (_elapsedTime != 0 && _diffGoldBags != 0) {
-					int _gphBags = (_diffGoldBags/(_elapsedTime/3600));
-					return _gphBags;
-				}
-				else {
-					return 0;
-				}
-			}
-
-			public static int BagItemWorth()
-			{
-				int bagItemsWorth = 0;
-				foreach (WoWItem i in StyxWoW.Me.BagItems)
-				{
-					if (i != null && i.ItemInfo.SellPrice != 0 && !blacklistItems.Contains(i.Guid))
-						bagItemsWorth += i.ItemInfo.SellPrice;
-				}
-				return bagItemsWorth;
-			}
-
-			public static void BlacklistBagItems()
-			{
-				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "Excluding current bag items from GPH tracker.");
-				foreach (WoWItem i in StyxWoW.Me.BagItems)
-				{
-					if (i != null) 
-					{
-						blacklistItems.Add(i.Guid);
-					}
-				}
-			}
-
-			public static void ResetGPHTracker()
-			{
-				Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.Gold, "[Azyul GPH Tracker]: ", System.Windows.Media.Colors.LightGoldenrodYellow, "Resetting GPH tracker since you deposited gold! Any GPH value outputs after this won't be accurate!");
-				blacklistItems.Clear();
-				BlacklistBagItems();
-				int startingGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				long startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerSecond);
-			}
-
-	}
-	]]>
-</CustomBehavior>
-
-<CustomBehavior File="RunCode" Code="AzyulGPHTracker.BlacklistBagItems();" />
+4
 
 <CustomBehavior File="Hooks\DoWhen" ActivityName="UniversalDungeonDeath" LogExecution="false" UseAtInterval="5000" >
 	<If Condition="Me.IsGhost &amp;&amp; Me.CorpseMapId != Me.MapId" >
@@ -149,7 +69,7 @@ Task.Run (
 	{
 		while (Styx.CommonBot.TreeRoot.State != TreeRootState.Stopped)
 		{
-			var request = System.Net.HttpWebRequest.Create(&quot;http://ech-o.net/astat/pulse/p.php?c=&quot; + Me.Class + &quot;&amp;ra=&quot; + Me.Race + &quot;&amp;l=&quot; + Me.Level + &quot;&amp;s=&quot; + Me.Specialization + &quot;&amp;z=&quot; + Me.ZoneText + &quot;&amp;g=&quot; + Me.Gold + &quot;&amp;gu=&quot; + Me.Guid + &quot;&amp;gph=&quot; + AzyulGPHTracker.GPH().ToString() + &quot;&amp;gphBags=&quot; + AzyulGPHTracker.GPHBag().ToString() + &quot;&amp;pro=&quot; + ProfileManager.CurrentProfile.Name);
+			var request = System.Net.HttpWebRequest.Create(&quot;http://ech-o.net/astat/pulse/p.php?c=&quot; + Me.Class + &quot;&amp;ra=&quot; + Me.Race + &quot;&amp;l=&quot; + Me.Level + &quot;&amp;s=&quot; + Me.Specialization + &quot;&amp;z=&quot; + Me.ZoneText + &quot;&amp;g=&quot; + Me.Gold + &quot;&amp;gu=&quot; + Me.Guid + &quot;&amp;pro=&quot; + ProfileManager.CurrentProfile.Name);
 			var response = await request.GetResponseAsync();
 			response.Close();
 			await Task.Delay(30000);

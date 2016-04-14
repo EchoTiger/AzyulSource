@@ -5,7 +5,7 @@
 			<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 		</Else>
 	</If>
-	<CustomBehavior File="RunCode" Code="AzyulGPHTracker.LogGPH();" />
+	<!-- Log GPH -->
 	<CustomBehavior File="MyCTM" X="1330.933" Y="276.6876" Z="53.39822" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="!Me.IsInInstance" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
