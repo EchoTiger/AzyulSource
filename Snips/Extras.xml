@@ -15,7 +15,7 @@
 			public static int GPH()
 			{
 				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - startingTime);
+				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				int _diffGold = (_currentGold - startingGold);
 				int _gph = (_diffGold/(_elapsedTime/3600));
 				return _gph;
@@ -24,7 +24,7 @@
 			public static int GPHBag()
 			{
 				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - startingTime);
+				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				int _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
 				int _gphBags = (_diffGoldBags/(_elapsedTime/3600));
 				return _gphBags;
@@ -59,7 +59,7 @@
 				blacklistItems.Clear();
 				BlacklistBagItems();
 				int startingGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				long startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+				long startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerSecond);
 			}
 
 	}
