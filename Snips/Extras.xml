@@ -1,9 +1,9 @@
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 	public class AzyulGPHTracker
 		{
-			private static int startingGold = Convert.ToInt32(StyxWoW.Me.Copper);
+			private static double startingGold = Convert.ToDouble(StyxWoW.Me.Copper);
 			private static long startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerSecond);
-			private static int bagItemsWorth = 0;
+			private static double bagItemsWorth = 0;
 			private static List<WoWGuid> blacklistItems = new List<WoWGuid>();
 
 
@@ -16,11 +16,11 @@
 
 			public static string GPHString()
 			{
-				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
-				int _diffGold = (_currentGold - startingGold);
+				double _currentGold = Convert.ToDouble(StyxWoW.Me.Copper);
+				double _elapsedTime = Convert.ToDouble((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
+				double _diffGold = (_currentGold - startingGold);
 				Logging.Write("Starting Gold: " + startingGold.ToString() + "\nStarting Time:" + startingTime.ToString() + "\nCurrent Glold: " + _currentGold + "\nElapsed Time: " + _elapsedTime + "\nDiffGold: " + _diffGold);
-				int _gphRaw = (_diffGold*(3600/_elapsedTime));
+				double _gphRaw = (_diffGold/_elapsedTime);
 				string _gphString = Lua.GetReturnVal<string>($"return GetCoinText({_gphRaw})", 0);
 
 				return _gphString;
@@ -28,41 +28,18 @@
 
 			public static string GPHBagString()
 			{
-				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
-				int _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
-				int _gphBagsRaw = (_diffGoldBags*(3600/_elapsedTime));
+				double _currentGold = Convert.ToDouble(StyxWoW.Me.Copper);
+				double _elapsedTime = Convert.ToDouble((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
+				double _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
+				double _gphBagsRaw = (_diffGoldBags/_elapsedTime);
 				string _gphBagsString = Lua.GetReturnVal<string>($"return GetCoinText({_gphBagsRaw})", 0);
 
 				return _gphBagsString;
 			}
 
-
-			public static int GPHInt()
+			public static double BagItemWorth()
 			{
-				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
-				int _diffGold = (_currentGold - startingGold);
-				Logging.Write("Starting Gold: " + startingGold.ToString() + "\nStarting Time:" + startingTime.ToString() + "\nCurrent Glold: " + _currentGold + "\nElapsed Time: " + _elapsedTime + "\nDiffGold: " + _diffGold);
-				int _gphRaw = (_diffGold*(3600/_elapsedTime));
-				
-				return _gphRaw;
-			}
-
-			public static int GPHBagInt()
-			{
-				int _currentGold = Convert.ToInt32(StyxWoW.Me.Copper);
-				int _elapsedTime = Convert.ToInt32((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
-				int _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
-				int _gphBagsRaw = (_diffGoldBags*(3600/_elapsedTime));
-
-				return _gphBagsRaw;
-			}
-
-
-			public static int BagItemWorth()
-			{
-				int bagItemsWorth = 0;
+				double bagItemsWorth = 0;
 				foreach (WoWItem i in StyxWoW.Me.BagItems)
 				{
 					if (i != null && i.ItemInfo.SellPrice != 0 && !blacklistItems.Contains(i.Guid))
@@ -89,7 +66,7 @@
 				blacklistItems.Clear();
 				BlacklistBagItems();
 				startingGold = 0;
-				startingGold = Convert.ToInt32(StyxWoW.Me.Copper);
+				startingGold = Convert.ToDouble(StyxWoW.Me.Copper);
 				startingTime = (DateTime.Now.Ticks / TimeSpan.TicksPerSecond);
 			}
 
