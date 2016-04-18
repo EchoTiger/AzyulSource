@@ -19,7 +19,7 @@
 				double _currentGold = Convert.ToDouble(StyxWoW.Me.Copper);
 				double _elapsedTime = Convert.ToDouble((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				double _diffGold = (_currentGold - startingGold);
-				double _gphRaw = (_diffGold/_elapsedTime);
+				double _gphRaw = (_diffGold*(3600/_elapsedTime));
 				string _gphString = Lua.GetReturnVal<string>($"return GetCoinText({_gphRaw})", 0);
 
 				return _gphString;
@@ -30,7 +30,7 @@
 				double _currentGold = Convert.ToDouble(StyxWoW.Me.Copper);
 				double _elapsedTime = Convert.ToDouble((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				double _diffGoldBags = (_currentGold - startingGold) + BagItemWorth();
-				double _gphBagsRaw = (_diffGoldBags/_elapsedTime);
+				double _gphBagsRaw = (_diffGoldBags*(3600/_elapsedTime));
 				string _gphBagsString = Lua.GetReturnVal<string>($"return GetCoinText({_gphBagsRaw})", 0);
 
 				return _gphBagsString;
