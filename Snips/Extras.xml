@@ -19,7 +19,6 @@
 				double _currentGold = Convert.ToDouble(StyxWoW.Me.Copper);
 				double _elapsedTime = Convert.ToDouble((DateTime.Now.Ticks / TimeSpan.TicksPerSecond) - startingTime);
 				double _diffGold = (_currentGold - startingGold);
-				Logging.Write("Starting Gold: " + startingGold.ToString() + "\nStarting Time:" + startingTime.ToString() + "\nCurrent Glold: " + _currentGold + "\nElapsed Time: " + _elapsedTime + "\nDiffGold: " + _diffGold);
 				double _gphRaw = (_diffGold/_elapsedTime);
 				string _gphString = Lua.GetReturnVal<string>($"return GetCoinText({_gphRaw})", 0);
 
