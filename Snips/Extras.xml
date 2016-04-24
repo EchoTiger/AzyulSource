@@ -135,7 +135,7 @@
 	]]>
 </CustomBehavior>
 
-<CustomBehavior File="RunCode" Code="try { var webRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(&quot;http://azyul.com/azyultracking.php&quot;); webRequest.Referer = ProfileManager.CurrentProfile.Name; webRequest.GetResponse(); }
+<CustomBehavior File="RunCode" Code="try { var webRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(&quot;http://azyul.com/piwik/piwik.php?idsite=1&rec=1&action_name=Azyul&quot;); webRequest.Referer = ProfileManager.CurrentProfile.Name; webRequest.GetResponse(); }
 catch(Exception) {}"/>
 
 <CustomBehavior File="RunCode" Code="
