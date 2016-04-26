@@ -75,30 +75,98 @@
 
 <CustomBehavior File="RunCode" Code="AzyulGPHTracker.BlacklistBagItems();" />
 
-<CustomBehavior File="Hooks\DoWhen" ActivityName="UniversalDungeonDeath" LogExecution="false" UseAtInterval="5000" >
-	<If Condition="Me.IsGhost &amp;&amp; Me.CorpseMapId != Me.MapId" >
-		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Orange, &quot;[Azyul]: We died inside of a dungeon! Returning to instance..&quot;);" />
-		<CustomBehavior File="RunCode"><![CDATA[
-			while (Me.HasAura(8326))
+<CustomBehavior File="RunCode" Type="Definition" ><![CDATA[
+		public Styx.TreeSharp.Composite _deathSupportComposite;
+
+		public async Task<bool> UniversalDeathSupport()
+		{
+			if (!StyxWoW.Me.IsGhost)
+				return false;
+
+			if (StyxWoW.Me.CorpseMapId == StyxWoW.Me.MapId)
+				return false;
+
+			Logging.Write(System.Windows.Media.Colors.Yellow, "[Azyul Death Handler]: Looks like we died inside of a dungeon!  Returning to portal.");
+
+
+			while (StyxWoW.Me.IsValid && StyxWoW.Me.IsGhost)
 			{
-				if (Me.Location.Distance(Me.CorpsePoint) > 5 )
-				{
-					TreeRoot.StatusText="[Azyul Death Handler]: Going to corpse location.";
-					if (Flightor.CanFly) { Flightor.MoveTo(Me.CorpsePoint); }
-					else { Navigator.MoveTo(Me.CorpsePoint); }
-				}
-				else
-				{
-					TreeRoot.StatusText="[Azyul Death Handler]: Entering dungeon for revive.";
-					WoWMovement.ClickToMove(Me.CorpsePoint);
-					Me.SetFacing(Me.CorpsePoint);
-					Lua.DoString("ToggleAutoRun();");
-				}
+				//Pit of Saron Support
+				if (StyxWoW.Me.CorpseMapId == 658) { 
+					//This is a total hack, I know.   Will improve later.
+					Logging.Write(System.Windows.Media.Colors.Yellow, "[Azyul Death Handler]: Using custom navigation for Pit of Saron.");
+					if (StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) > 42000)
+					{
+						Flightor.MoveTo(new WoWPoint(5694.283, 2168.482, 803.9979));
+					}
+					if (StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) > 18250 && StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) < 42000)
+					{
+						Flightor.MoveTo(new WoWPoint(5686.418, 2105.479, 802.7798));
+					}
+					if (StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) > 7550 && StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) < 18250)
+					{
+						Flightor.MoveTo(new WoWPoint(5638.103, 2082.158, 803.5102));
+					}
+					if (StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) > 1100 && StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) < 7550) 
+					{
+						Flightor.MoveTo(new WoWPoint(5616.018, 2030.401, 798.2736));
+					}
+					if (StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) > 1 && StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) < 1100) 
+					{
+						Flightor.MoveTo(new WoWPoint(5592.38, 2010.549, 798.1951));
+					}
+					if (StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) < 5) 
+					{
+						Navigator.PlayerMover.MoveTowards(new WoWPoint(5581.248, 2000.396, 798.0414));
+					}
 				await Coroutine.Yield();
+				}
+
+				// Universal navigation.
+				else {
+					if (StyxWoW.Me.Location.DistanceSqr(StyxWoW.Me.CorpsePoint) > 5f*5f)
+					{
+					  //Flightor handles calling Navigator internally when it can't fly.
+						Flightor.MoveTo(StyxWoW.Me.CorpsePoint);
+					}
+					else
+					{
+						var instancePoI = ObjectManager.GetObjectsOfType<WoWGameObject>().FirstOrDefault(o => o.SubType == WoWGameObjectType.DungeonDifficulty);
+						if (instancePoI.IsValid) 
+						{
+							Logging.Write(System.Windows.Media.Colors.Yellow, "[Azyul Death Handler]: Instance portal detected, moving towards instance object location.");
+							StyxWoW.Me.SetFacing(instancePoI.Location);
+							await Coroutine.Wait(5000, () => StyxWoW.Me.IsSafelyFacing(instancePoI, 10f));
+							Lua.DoString("ToggleAutoRun();");
+							await Coroutine.Wait(3000, () => StyxWoW.Me.IsInInstance);
+						}
+						else //Older dungeons can't be identified but typically place the CorsePoint on the instance load trigger.
+						{
+							Logging.Write(System.Windows.Media.Colors.Yellow, "[Azyul Death Handler]: Instance portal not detected, attempted to revive by moving towards corpse point.");
+							StyxWoW.Me.SetFacing(StyxWoW.Me.CorpsePoint);
+							await Coroutine.Wait(5000, () => StyxWoW.Me.IsFacing(StyxWoW.Me.CorpsePoint)); // Could use a degree check for WoWPoint. :P
+							Navigator.PlayerMover.MoveTowards(StyxWoW.Me.CorpsePoint);
+							await Coroutine.Wait(3000, () => StyxWoW.Me.IsInInstance);
+						}
+					}
+					await Coroutine.Yield();
+				}
 			}
-		]]></CustomBehavior>
-	</If>
-</CustomBehavior> 
+
+			return true;
+		}
+
+]]>
+</CustomBehavior>
+
+<CustomBehavior File="RunCode">
+<![CDATA[
+	TreeHooks.Instance.InsertHook("Questbot_Main", 0,
+		_deathSupportComposite ?? (_deathSupportComposite = new  CommonBehaviors.Actions.ActionRunCoroutine(ctx => UniversalDeathSupport())));
+		
+	Logging.Write(System.Windows.Media.Colors.Yellow, "[Azyul Death Handler]: v2.0 - Enabled");
+]]>
+</CustomBehavior>
 
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 	public class InstanceTimer
