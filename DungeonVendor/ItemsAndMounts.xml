@@ -1,6 +1,6 @@
-<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots &amp;&amp; (Me.KnowsSpell(61425) || Me.KnowsSpell(61447) || Me.KnowsSpell(122708))" >
+<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots &amp;&amp; (SpellManager.CanCast(61425) || SpellManager.CanCast(61447) || SpellManager.CanCast(122708))" >
 
-	<If Condition="(Me.KnowsSpell(61425) || Me.KnowsSpell(61447) || Me.KnowsSpell(122708)) &amp;&amp; Mount.CanMount()" > <!-- Traveler's + Yak -->
+	<If Condition="SpellManager.CanCast(61425) || SpellManager.CanCast(61447) || SpellManager.CanCast(122708)" > <!-- Traveler's + Yak -->
 		<CustomBehavior File="WaitTimer" WaitTime="750" />
 		<CustomBehavior File="RunCode" Code="if (Me.KnowsSpell(61425)) { Mount.SummonMount(61425); } else if (Me.KnowsSpell(61447)) { Mount.SummonMount(61447); } else { Mount.SummonMount(122708); }" />
 		<CustomBehavior File="WaitTimer" WaitTime="2000" />
