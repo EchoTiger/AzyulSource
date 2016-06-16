@@ -194,6 +194,7 @@
 				while (Timer.Elapsed < time && Timer.ElapsedMilliseconds != 0)
 				{
 					Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, "[Azyul]: ", System.Windows.Media.Colors.LightGreen, "Waiting to prevent dungeon timeout: " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(Timer.Elapsed).ToString() + " of " + Honorbuddy.QuestBehaviorCore.Utility.PrettyTime(time).ToString());
+					await Coroutine.Sleep(5000);
 				}
 
 				Timer.Reset();
