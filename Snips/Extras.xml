@@ -89,7 +89,7 @@
 			Logging.Write(System.Windows.Media.Colors.Yellow, "[Azyul Death Handler]: Looks like we died inside of a dungeon!  Returning to portal.");
 
 
-			while (StyxWoW.Me.IsValid && StyxWoW.Me.IsGhost)
+			while (StyxWoW.Me.IsValid && StyxWoW.Me.IsGhost && StyxWoW.Me.CorpseMapId == StyxWoW.Me.MapId)
 			{
 				//Pit of Saron Support
 				if (StyxWoW.Me.CorpseMapId == 658) { 
