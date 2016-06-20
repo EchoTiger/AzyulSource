@@ -1,11 +1,22 @@
 <If Condition="SpellManager.CanCast(83958) &amp;&amp; (Settings.Instance.DepositGold || Settings.Instance.DepositItems)" >
 	<CustomBehavior File="RunCode" Code="SpellManager.Cast(83958);" />
 	<CustomBehavior File="WaitTimer" WaitTime="3500" />
-	<CustomBehavior File="InteractWith" MobId1="206602" MobId2="206603" WaitForNpcs="false" WaitTime="2000" /> 
+	<!-- <CustomBehavior File="InteractWith" MobId1="206602" MobId2="206603" WaitForNpcs="false" WaitTime="2000" /> -->
 
 	<If Condition="Settings.Instance.DepositGold" >
 		<CustomBehavior File="RunCode" Code="AzyulGPHTracker.LogGPH();" />
-		<CustomBehavior File="Misc\RunLua" Lua="DepositGuildBankMoney(GetMoney());" />
+		<CustomBehavior File="RunCode"><![CDATA[
+				var guildBankFrame = new GuildBankFrame();
+				var guildBank = ObjectManager.GetObjectsOfType<WoWGameObject>().FirstOrDefault(o => o.Entry == 206602 || o.Entry == 206603);
+				if (guildBank != null)
+				{
+					guildBank.Interact();
+					await Coroutine.Wait(2500, () => guildBankFrame.IsVisible);
+					guildBankFrame.DepositMoney((int)StyxWoW.Me.Copper);
+					await Coroutine.Sleep(1000);
+				}
+			]]>
+		</CustomBehavior>	
 		<CustomBehavior File="RunCode" Code="AzyulGPHTracker.ResetGPHTracker();" />
 	</If>
 
