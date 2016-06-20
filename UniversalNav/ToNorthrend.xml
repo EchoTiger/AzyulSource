@@ -17,7 +17,7 @@
 		}
 		return false;
 	}
-	bool HearthIsPriorityLocation()
+	bool HearthIsPriorityLocationNorthrend()
 	{
 		if (StyxWoW.Me.IsAlliance)
 		{
