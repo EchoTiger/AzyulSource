@@ -39,8 +39,5 @@
 				}
 			]]>
 		</CustomBehavior>	
-		<CustomBehavior File="RunCode" Code="
-
-		" />
 	</If>
 </If>
