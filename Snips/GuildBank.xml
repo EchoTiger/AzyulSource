@@ -21,10 +21,26 @@
 	</If>
 
 	<If Condition="Settings.Instance.DepositItems" >
-		<CustomBehavior File="RunCode" Code="foreach (WoWItem i in Me.BagItems) {
-			if((Contains(Settings.Instance.DepositItemNames, i.Name) || Contains(Settings.Instance.DepositItemNames, i.Quality.ToString()) || Contains(Settings.Instance.DepositItemNames, i.Entry.ToString())) &amp;&amp; Lua.GetReturnVal&lt;bool&gt;(&quot;return GuildBankFrame:IsVisible();&quot;, 0))
-				i.UseContainerItem();
-				StyxWoW.SleepForLagDuration();
-		}" />
+		<CustomBehavior File="RunCode"><![CDATA[
+				var guildBankFrame = new GuildBankFrame();
+				var guildBank = ObjectManager.GetObjectsOfType<WoWGameObject>().FirstOrDefault(o => o.Entry == 206602 || o.Entry == 206603);
+				if (guildBank != null)
+				{
+					guildBank.Interact();
+					await Coroutine.Wait(2500, () => guildBankFrame.IsVisible);
+					foreach (WoWItem i in Me.BagItems)
+					{
+						if((Contains(Settings.Instance.DepositItemNames, i.Name) || Contains(Settings.Instance.DepositItemNames, i.Quality.ToString()) || Contains(Settings.Instance.DepositItemNames, i.Entry.ToString())) && guildBankFrame.IsVisible)
+						{
+							i.UseContainerItem();
+							StyxWoW.SleepForLagDuration();
+						}
+					}
+				}
+			]]>
+		</CustomBehavior>	
+		<CustomBehavior File="RunCode" Code="
+
+		" />
 	</If>
 </If>
