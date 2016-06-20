@@ -38,6 +38,13 @@
 		if (SpellManager.CanCast(556)) return true; // Astral Recall
 		return false;
 	}
+	bool HasHearthOutland()
+	{
+		if (HasItem(64488)) return true; // Innkeeper Daughter
+		if (HasItem(6948)) return true; // Hearthstone
+		if (SpellManager.CanCast(556)) return true; // Astral Recall
+		return false;
+	}
 	bool CastingInterruptedOutland()
 	{
 		if (StyxWoW.Me.Combat || !Me.IsCasting) return true;
@@ -66,7 +73,7 @@
 		<If Condition="!HasArrivedOutland() &amp;&amp; HearthIsPriorityLocationOutland() &amp;&amp; !InPriorityLocationOutland()" >
 			<CustomBehavior File="RunCode" Code="OutlandLog(Colors.LightGreen, &quot;Hearthing would be faster to reach our destination, attempting to Hearth!&quot;);" />
 			<CustomBehavior File="ForcedDismount" />
-			<While Condition="!(HasArrivedOutland() || InPriorityLocationOutland())" >
+			<While Condition="!(HasArrivedOutland() || InPriorityLocationOutland()) &amp;&amp; HasHearthOutland()" >
 				<CustomBehavior File="RunCode" Code="await Coroutine.Wait(1800000, () => HearthIsReadyOutland());" />
 				<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948); UseItemByName(64488); CastSpellByID(556);" WaitTime="500" />
 				<CustomBehavior File="WaitTimer" WaitTime="50000" TerminateWhen="HasArrivedOutland() || InPriorityLocationOutland() || CastingInterruptedOutland()" />

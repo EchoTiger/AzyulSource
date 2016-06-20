@@ -23,6 +23,13 @@
 		if (SpellManager.CanCast(556)) return true; // Astral Recall
 		return false;
 	}
+	bool HasHearthPandaria()
+	{
+		if (HasItem(64488)) return true; // Innkeeper Daughter
+		if (HasItem(6948)) return true; // Hearthstone
+		if (SpellManager.CanCast(556)) return true; // Astral Recall
+		return false;
+	}
 	bool CastingInterruptedPandaria()
 	{
 		if (StyxWoW.Me.Combat || !Me.IsCasting) return true;
@@ -51,7 +58,7 @@
 		<If Condition="!HasArrivedPandaria() &amp;&amp; HearthIsPriorityLocationPandaria() &amp;&amp; !InPriorityLocationPandaria()" >
 			<CustomBehavior File="RunCode" Code="PandariaLog(Colors.LightGreen, &quot;Hearthing would be faster to reach our destination, attempting to Hearth!&quot;);" />
 			<CustomBehavior File="ForcedDismount" />
-			<While Condition="!(HasArrivedPandaria() || InPriorityLocationPandaria())" >
+			<While Condition="!(HasArrivedPandaria() || InPriorityLocationPandaria()) &amp;&amp; HasHearthPandaria()" >
 				<CustomBehavior File="RunCode" Code="await Coroutine.Wait(1800000, () => HearthIsReadyPandaria());" />
 				<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948); UseItemByName(64488); CastSpellByID(556);" WaitTime="500" />
 				<CustomBehavior File="WaitTimer" WaitTime="50000" TerminateWhen="HasArrivedPandaria() || InPriorityLocationPandaria() || CastingInterruptedPandaria()" />

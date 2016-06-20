@@ -44,6 +44,13 @@
 		if (SpellManager.CanCast(556)) return true; // Astral Recall
 		return false;
 	}
+	bool HasHearthDraenor()
+	{
+		if (HasItem(64488)) return true; // Innkeeper Daughter
+		if (HasItem(6948)) return true; // Hearthstone
+		if (SpellManager.CanCast(556)) return true; // Astral Recall
+		return false;
+	}
 	bool CastingInterruptedDraenor()
 	{
 		if (StyxWoW.Me.Combat || !Me.IsCasting) return true;
@@ -97,7 +104,7 @@
 		<If Condition="!HasArrivedDraenor() &amp;&amp; HearthIsPriorityLocationDraenor() &amp;&amp; !InPriorityLocationDraenor()" >
 			<CustomBehavior File="RunCode" Code="DraenorLog(Colors.LightGreen, &quot;Hearthing would be faster to reach our destination, attempting to Hearth!&quot;);" />
 			<CustomBehavior File="ForcedDismount" />
-			<While Condition="!(HasArrivedDraenor() || InPriorityLocationDraenor())" >
+			<While Condition="!(HasArrivedDraenor() || InPriorityLocationDraenor()) &amp;&amp; HasHearthDraenor()" >
 				<CustomBehavior File="RunCode" Code="await Coroutine.Wait(1800000, () => HearthIsReadyDraenor());" />
 				<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948); UseItemByName(64488); CastSpellByID(556);" WaitTime="500" />
 				<CustomBehavior File="WaitTimer" WaitTime="50000" TerminateWhen="HasArrivedDraenor() || InPriorityLocationDraenor() || CastingInterruptedDraenor()" />
