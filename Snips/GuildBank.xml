@@ -12,8 +12,12 @@
 				{
 					guildBank.Interact();
 					await Coroutine.Wait(2500, () => guildBankFrame.IsVisible);
-					guildBankFrame.DepositMoney((int)StyxWoW.Me.Copper);
-					await Coroutine.Sleep(1000);
+					var goldAmount = StyxWoW.Me.Copper;
+					while (guildBankFrame.IsVisible && goldAmount == StyxWoW.Me.Copper)
+					{
+						guildBankFrame.DepositMoney((int)StyxWoW.Me.Copper);
+						await Coroutine.Sleep(1000);
+					}
 				}
 			]]>
 		</CustomBehavior>	
