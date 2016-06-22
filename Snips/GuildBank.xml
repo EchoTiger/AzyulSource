@@ -8,16 +8,13 @@
 		<CustomBehavior File="RunCode"><![CDATA[
 				var guildBankFrame = new GuildBankFrame();
 				var guildBank = ObjectManager.GetObjectsOfType<WoWGameObject>().FirstOrDefault(o => o.Entry == 206602 || o.Entry == 206603);
+				var goldAmount = StyxWoW.Me.Copper;
 				if (guildBank != null)
 				{
 					guildBank.Interact();
-					await Coroutine.Wait(2500, () => guildBankFrame.IsVisible);
-					var goldAmount = StyxWoW.Me.Copper;
-					while (guildBankFrame.IsVisible && goldAmount == StyxWoW.Me.Copper)
-					{
-						guildBankFrame.DepositMoney((int)StyxWoW.Me.Copper);
-						await Coroutine.Sleep(1000);
-					}
+					await Coroutine.Wait(3000, () => guildBankFrame.IsVisible);
+					guildBankFrame.DepositMoney((int)goldAmount);
+					await Coroutine.Sleep(1000);
 				}
 			]]>
 		</CustomBehavior>	
