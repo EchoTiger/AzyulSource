@@ -2,8 +2,14 @@
 	<If Condition="Me.Location.Distance(new WoWPoint(6944.809, -4426.977, 450.8831)) &gt; 100 " >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: Heading to Instance.&quot;);" />
 	</If>
-	<MoveTo Nav="Fly" X="6966.817" Y="-4405.588" Z="443.6469" />
-	<CustomBehavior File="MyCTM" X="6973.58" Y="-4400.046" Z="441.5751" TerminateWhen="Me.IsInInstance" />
+	<If Condition="CanFly()" >
+		<CustomBehavior File="FlyTo" X="6964.247" Y="-4408.18" Z="445.2327" />
+		<Else>
+			<MoveTo Nav="Fly" X="6964.247" Y="-4408.18" Z="445.2327" />
+		</Else>
+	</If>
+
+	<CustomBehavior File="MyCTM" X="7019.952" Y="-4350.624" Z="451.4101" TerminateWhen="Me.IsInInstance" />
 	<!--<CustomBehavior File="GoThruPortal" Timeout="30000" X="6968.59" Y="-4404.028" Z="442.5896" />-->
 	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="Me.IsInInstance" />
 </If>
