@@ -63,7 +63,115 @@
 		<MoveTo X="-155.3918" Y="398.094" Z="-17.79432" />
 		<MoveTo X="-173.3446" Y="369.5784" Z="-17.69936" />
 		<MoveTo X="-193.35" Y="369.8827" Z="-15.1717" /> <!-- Face Laj -->
-		<CustomBehavior File="RunMacro" Macro="/target Laj\n/cast Ice Lance \n/cast Provoke \n/cast Icy Touch \n/cast Judgment \n/cast Shadow Word: Pain \n/cast Taunt \n/cast Throw \n/cast Moonfire \n/cast Earth Shock \n/cast Corruption \n/cast Arcane Shot \n/cast Heroic Throw" /> <!-- Pull Laj -->
+		<CustomBehavior File="RunCode"><![CDATA[
+				var lajPoi = Unit(17980);
+
+				lajPoi.Target();
+				await Coroutine.Sleep(200);
+
+				if (StyxWoW.Me.Class == WoWClass.Mage)
+				{
+					if (SpellManager.CanCast(44425)) SpellManager.Cast(44425); // Arcane Barrage
+					if (SpellManager.CanCast(157980)) SpellManager.Cast(157980); // Supernova
+					if (SpellManager.CanCast(114923)) SpellManager.Cast(114923); // Nether Tempest
+					if (SpellManager.CanCast(30455)) SpellManager.Cast(30455); // Ice Lance
+					if (SpellManager.CanCast(108853)) SpellManager.Cast(108853); // Inferno Blast
+					if (SpellManager.CanCast(2136)) SpellManager.Cast(2136); // Fire Blast
+					if (SpellManager.CanCast(44457)) SpellManager.Cast(44457); // Living Bomb
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Hunter)
+				{
+					if (SpellManager.CanCast(53301)) SpellManager.Cast(53301); // Explosive Shot
+					if (SpellManager.CanCast(3674)) SpellManager.Cast(3674); // Black Arrow
+					if (SpellManager.CanCast(147362)) SpellManager.Cast(147362); // Counter Shot, costs no focus.
+					if (SpellManager.CanCast(53209)) SpellManager.Cast(53209); // Chimaera Shot
+					if (SpellManager.CanCast(117050)) SpellManager.Cast(117050); // Glaive Toss
+					if (SpellManager.CanCast(3044)) SpellManager.Cast(3044); // Arcane Shot
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Rogue)
+				{
+					SpellManager.Cast(121733); // Throw
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Shaman)
+				{
+					if (SpellManager.CanCast(8042)) SpellManager.Cast(8042); // Earth Shock
+					if (SpellManager.CanCast(8050)) SpellManager.Cast(8050); // Flame Shock
+					if (SpellManager.CanCast(8056)) SpellManager.Cast(8056); // Frost Shock
+					if (SpellManager.CanCast(57994)) SpellManager.Cast(57994); // Wind Shear
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Paladin)
+				{
+					if (SpellManager.CanCast(31935)) SpellManager.Cast(31935); // Avenger's Shield
+					if (SpellManager.CanCast(20271)) SpellManager.Cast(20271); // Judgment
+					if (SpellManager.CanCast(62124)) SpellManager.Cast(62124); // Reckoning
+					if (SpellManager.CanCast(879)) SpellManager.Cast(879); // Exorcism
+					if (SpellManager.CanCast(20473)) SpellManager.Cast(20473); // Holy Shock
+					if (SpellManager.CanCast(114165)) SpellManager.Cast(114165); // Holy Prism
+
+					//114158 Light's Hammer. Needs SpellManager.ClickRemoteLocation support.
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Warrior)
+				{
+					if (SpellManager.CanCast(57755)) SpellManager.Cast(57755); // Heroic Throw
+					if (SpellManager.CanCast(355)) SpellManager.Cast(355); // Taunt
+					if (SpellManager.CanCast(107570)) SpellManager.Cast(107570); // Storm Bolt
+					if (SpellManager.CanCast(152277)) SpellManager.Cast(152277); // Ravager			
+					if (SpellManager.CanCast(100)) SpellManager.Cast(100); // Charge
+
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Warlock)
+				{
+					if (SpellManager.CanCast(17962)) SpellManager.Cast(17962); // Conflagrate
+					if (SpellManager.CanCast(17877)) SpellManager.Cast(17877); // Shadowburn
+					if (SpellManager.CanCast(980)) SpellManager.Cast(980); // Agony
+					if (SpellManager.CanCast(172)) SpellManager.Cast(172); // Corruption, may cast Immolate if Destro spec.
+
+					//5740 Rain of Fire.  Needs SpellManager.ClickRemoteLocation support.
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Priest)
+				{
+					if (SpellManager.CanCast(589)) SpellManager.Cast(589); // Shadow Word: Pain
+					if (SpellManager.CanCast(127632)) SpellManager.Cast(127632); // Cascade
+					if (SpellManager.CanCast(204197)) SpellManager.Cast(204197); // Purge the Wicked
+					if (SpellManager.CanCast(129250)) SpellManager.Cast(129250); // Power Word: Solace
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Druid)
+				{
+					if (SpellManager.CanCast(8921)) SpellManager.Cast(8921); // Moonfire
+					if (SpellManager.CanCast(93402)) SpellManager.Cast(93402); // Sunfire
+					if (SpellManager.CanCast(106707)) SpellManager.Cast(106707); // Faerie Swarm
+					if (SpellManager.CanCast(6795)) SpellManager.Cast(6795); // Growl
+					if (SpellManager.CanCast(102280)) SpellManager.Cast(102280); // Displacer Beast
+					if (SpellManager.CanCast(102401)) SpellManager.Cast(102401); // Wild Charge
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.DeathKnight)
+				{
+					if (SpellManager.CanCast(49576)) SpellManager.Cast(49576); // Death Grip
+					if (SpellManager.CanCast(49184)) SpellManager.Cast(49184); // Howling Blast
+					if (SpellManager.CanCast(108194)) SpellManager.Cast(108194); // Asphyxiate
+					if (SpellManager.CanCast(77606)) SpellManager.Cast(77606); // Dark Simulacrum
+				}
+
+				else if (StyxWoW.Me.Class == WoWClass.Monk)
+				{
+					if (SpellManager.CanCast(115098)) SpellManager.Cast(115098); // Chi Wave
+					if (SpellManager.CanCast(121253)) SpellManager.Cast(121253); // Keg Smash
+					if (SpellManager.CanCast(115546)) SpellManager.Cast(115546); // Provoke
+					SpellManager.Cast(117952); // Crackling Jade Lightning
+				}
+
+
+			]]>
+		</CustomBehavior>
 		<CustomBehavior File="WaitTimer" WaitTime="1000" />
 	<EnableBehavior Name="Combat" />
 
