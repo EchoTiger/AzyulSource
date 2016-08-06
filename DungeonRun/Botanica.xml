@@ -66,6 +66,7 @@
 		<CustomBehavior File="RunCode"><![CDATA[
 				var lajPoi = Unit(17980);
 
+				lajPai.Face();
 				lajPoi.Target();
 				await Coroutine.Sleep(200);
 
