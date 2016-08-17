@@ -17,7 +17,7 @@
 <If Condition="Me.MapId == 554" > <!-- Run -->
 	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 	<If Condition="killGatewatchers" >
-		<CustomBehavior File="InteractWith" MobId="19710" InteractByLooting="true" MobState="Dead" X="144.7354" Y="-76.48514" Z="7.94109" /> <!-- Watcher 1 -->
+		<CustomBehavior File="InteractWith" MobId="19710" InteractByLooting="true" X="144.7354" Y="-76.48514" Z="7.94109" /> <!-- Watcher 1 -->
 		<ElseIf Condition="killSepethrea || killPathaleon" >
 			<CustomBehavior File="InteractWith" MobState="Dead" MobId="19710" X="144.7354" Y="-76.48514" Z="7.94109" TerminateWhen="Unit(19710, u =&gt; u.IsDead) != null" />
 		</ElseIf>
@@ -26,7 +26,7 @@
 		<CustomBehavior File="InteractWith" MobId="19219" InteractByLooting="true" MobState="Dead" X="207.7941" Y="4.521502" Z="-2.192105" />
 	</If>
 	<If Condition="killGatewatchers" >
-		<CustomBehavior File="InteractWith" MobId="19218" InteractByLooting="true" MobState="Dead" X="85.52759" Y="20.20054" Z="14.92212" /> <!-- Watcher 2 -->
+		<CustomBehavior File="InteractWith" MobId="19218" InteractByLooting="true" X="85.52759" Y="20.20054" Z="14.92212" /> <!-- Watcher 2 -->
 		<CustomBehavior File="InteractWith" MobId="184465" InteractByLooting="true" MobState="Dead" X="222.5428" Y="70.61063" Z="-0.004793386" />
 		<ElseIf Condition="killSepethrea || killPathaleon" >
 			<CustomBehavior File="InteractWith" MobState="Dead" MobId="19218" X="85.52759" Y="20.20054" Z="14.92212" TerminateWhen="Unit(19218, u =&gt; u.IsDead) != null" />
