@@ -22,7 +22,10 @@
 		<CustomBehavior File="InteractWith" MobId="19710" InteractByLooting="true" MobState="Dead" X="144.7354" Y="-76.48514" Z="7.94109" /> <!-- Watcher 1 -->
 		<DisableBehavior Name="Pull" />
 		<ElseIf Condition="killSepethrea || killPathaleon" >
+			<MoveTo X="144.7354" Y="-76.48514" Z="7.94109" />
+			<EnableBehavior Name="Pull" />
 			<CustomBehavior File="InteractWith" MobState="Dead" MobId="19710" X="144.7354" Y="-76.48514" Z="7.94109" TerminateWhen="Unit(19710, u =&gt; u.IsDead) != null" />
+			<DisableBehavior Name="Pull" />
 		</ElseIf>
 	</If>
 	<If Condition="killCapacitus" >
