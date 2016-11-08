@@ -32,7 +32,7 @@
 	</If>
 
 	<If Condition="Me.Location.Distance(new WoWPoint(3327.227, 1296.622, 503.6214)) &lt; 161" > <!-- The Arcatraz -->
-		<CustomBehavior File="FlyTo" X="3276.699" Y="1422.908" Z="520.1997" />
+		<CustomBehavior File="FlyTo" X="3281.389" Y="1407.704" Z="521.2457" />
 		<CustomBehavior File="MyCTM" X="3139.676" Y="1740.573" Z="254.9443" />
 	</If>
 
