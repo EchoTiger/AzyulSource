@@ -11,6 +11,7 @@
 	<CustomBehavior File="MyCTM" X="3309.969" Y="1337.143" Z="505.5604" />
 	<RunTo X="3311.929" Y="1332.03" Z="505.558" />
 	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
+	<CustomBehavior File="InteractWith" MobId="184320" Range="2" NonCompeteDistance="0" WaitForNpcs="false" />
 	<CustomBehavior File="MyCTM" X="3313.6" Y="1327.441" Z="505.5584" TerminateWhen="Me.IsInInstance" />
 	<CustomBehavior File="WaitTimer" WaitTime="1500" />
 </If>
