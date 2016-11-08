@@ -1,4 +1,4 @@
-<If Condition="Me.SubZoneId != 3905" >
+<If Condition="Me.SubZoneId != 3905 &amp;&amp; !Me.IsInInstance" >
 	<MoveTo Nav="Fly" X="558.1843" Y="6946.185" Z="21.47748" /> <!-- Get to Reservoir -->
 	<CustomBehavior File="ForcedDismount" />
 	
