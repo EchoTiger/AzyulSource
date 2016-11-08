@@ -1,0 +1,7 @@
+<CustomBehavior File="RunCode"><![CDATA[
+		bool HasAppearance(int itemId)
+		{
+			return Lua.GetReturnVal<bool>($"return C_TransmogCollection.PlayerHasTransmog({itemId});");
+		}
+	]]>
+</CustomBehavior>
