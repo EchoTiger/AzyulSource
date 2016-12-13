@@ -44,6 +44,7 @@
 			]]>
 			</CustomBehavior> -->
 		<ClearMailbox />
+		<MoveTo Nav="Fly" X="8890.329" Y="-1357.161" Z="1049.483" />
 		<MoveTo Nav="Fly" X="8607.005" Y="-458.6642" Z="1092.152" />
 	</If>
 </If>
