@@ -36,11 +36,8 @@
 
 	<MoveTo X="5629.906" Y="2467.044" Z="708.6968" /> <!-- Before boss. -->
 
-	<CustomBehavior File="GetOutOfGroundEffectAndAuras" MoveAwayFromMobWithAuraId1="69051" EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="36502" EventX="5661.752" EventY="2507.394" EventZ="708.83" >
-		<Safespots>
-			<RunTo X="5641.85" Y="2498.017" Z="708.697" />
-		</Safespots>
-	</CustomBehavior>
+	<CustomBehavior File="Hooks\Avoid" AvoidName="MirroredSoul" ObjectType="Npc" ObjectId="36502" Radius="15" AvoidWhen="UNIT.HasAura(69051)" />
+	<CustomBehavior File="KillUntilComplete" MobId="36502" X="5661.752" Y="2507.394" Z="708.83" />
 
 	<RunTo X="4964.0605" Y="2237.5291" Z="638.8666"  />
 
