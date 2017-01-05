@@ -3,17 +3,20 @@
 	<CustomBehavior File="WaitTimer" WaitTime="3500" />
 	<!-- <CustomBehavior File="InteractWith" MobId1="206602" MobId2="206603" WaitForNpcs="false" WaitTime="2000" /> -->
 
-	<If Condition="Settings.Instance.DepositGold" >
+	<If Condition="Settings.Instance.DepositGold &amp;&amp; Me.Gold &gt;= DepositGoldAt" >
 		<CustomBehavior File="RunCode" Code="AzyulGPHTracker.LogGPH();" />
 		<CustomBehavior File="RunCode"><![CDATA[
 				var guildBankFrame = new GuildBankFrame();
 				var guildBank = ObjectManager.GetObjectsOfType<WoWGameObject>().FirstOrDefault(o => o.Entry == 206602 || o.Entry == 206603);
-				var goldAmount = StyxWoW.Me.Copper;
+				var copperAmount = StyxWoW.Me.Copper;
+				//var goldAmount = (uint)(DepositGoldAmount*10000);
+				//var depositAmount = copperAmount > goldAmount ? : 0;
+
 				if (guildBank != null)
 				{
 					guildBank.Interact();
 					await Coroutine.Wait(3000, () => guildBankFrame.IsVisible);
-					guildBankFrame.DepositMoney((int)goldAmount);
+					guildBankFrame.DepositMoney((int)copperAmount);
 					await Coroutine.Sleep(1000);
 				}
 			]]>
