@@ -3,7 +3,7 @@
 	<CustomBehavior File="WaitTimer" WaitTime="3500" />
 	<!-- <CustomBehavior File="InteractWith" MobId1="206602" MobId2="206603" WaitForNpcs="false" WaitTime="2000" /> -->
 
-	<If Condition="Settings.Instance.DepositGold &amp;&amp; Me.Gold &gt;= DepositGoldAt" >
+	<If Condition="Settings.Instance.DepositGold &amp;&amp; Me.Gold &gt;= Settings.Instance.DepositGoldAt" >
 		<CustomBehavior File="RunCode" Code="AzyulGPHTracker.LogGPH();" />
 		<CustomBehavior File="RunCode"><![CDATA[
 				var guildBankFrame = new GuildBankFrame();
