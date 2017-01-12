@@ -1,9 +1,7 @@
 <If Condition="Me.MapId == 602" >
-	<CustomBehavior File="RunMacro" Macro="/sw clear" />
-	<CustomBehavior File="RunMacro" Macro="/sw play" />
-	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
 	
-	<CustomBehavior File="UserSettings" LootMobs="True" PullDistance="40" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
+	<CustomBehavior File="WaitTimer" WaitTime="1000" />
 	<MoveTo X="1331.41" Y="199.7128" Z="52.81123" />
 
 
