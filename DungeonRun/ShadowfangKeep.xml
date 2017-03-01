@@ -1,5 +1,6 @@
 <If Condition="Me.MapId == 33" >
-	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" /> 
+	<CustomBehavior File="RunCode" Code="RoutineManager.SetCapabilityState(CapabilityFlags.Facing, CapabilityState.DontCare);" />
+	<CustomBehavior File="RunCode" Code="RoutineManager.SetCapabilityState(CapabilityFlags.Movement, CapabilityState.DontCare);" /> 
 	<DisableBehavior Name="Combat" />
 		<MoveTo X="-196.6586" Y="2117.689" Z="81.06112" />
 		<MoveTo X="-194.7979" Y="2132.125" Z="81.49727" />

@@ -1,7 +1,8 @@
 <If Condition="Me.MapId == 658" >
 	<CustomBehavior File="RunMacro" Macro="/sw clear" />
 	<CustomBehavior File="RunMacro" Macro="/sw play" />
-	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
+	<CustomBehavior File="RunCode" Code="RoutineManager.SetCapabilityState(CapabilityFlags.Facing, CapabilityState.DontCare);" />
+	<CustomBehavior File="RunCode" Code="RoutineManager.SetCapabilityState(CapabilityFlags.Movement, CapabilityState.DontCare);" />
 
 	<CustomBehavior File="ForcedMount" />
 
