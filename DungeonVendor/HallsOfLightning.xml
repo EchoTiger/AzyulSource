@@ -15,7 +15,7 @@
 	]]>
 	</CustomBehavior>
 
-		<MoveTo Nav="Fly" X="8889.1" Y="-1348.151" Z="1040.588" />
+		<MoveTo X="8888.425" Y="-1348.647" Z="1033.069" />
 
 		<CustomBehavior File="Misc\RunLua" Lua="JumpOrAscendStart()" WaitTime="3000" />
 		<CustomBehavior File="Misc\RunLua" Lua="AscendStop()" />
