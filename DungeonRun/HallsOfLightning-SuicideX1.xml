@@ -2,6 +2,8 @@
 
 	<CustomBehavior File="RunCode" Code="RoutineManager.SetCapabilityState(CapabilityFlags.Facing, CapabilityState.DontCare);" />
 	<CustomBehavior File="RunCode" Code="RoutineManager.SetCapabilityState(CapabilityFlags.Movement, CapabilityState.DontCare);" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
+
 	<CustomBehavior File="WaitTimer" WaitTime="1000" />
 	<MoveTo X="1331.41" Y="199.7128" Z="52.81123" />
 

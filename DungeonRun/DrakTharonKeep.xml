@@ -5,6 +5,8 @@
 	<CustomBehavior File="RunMacro" Macro="/sw play" />
 	<CustomBehavior File="RunCode" Code="RoutineManager.SetCapabilityState(CapabilityFlags.Facing, CapabilityState.DontCare);" />
 	<CustomBehavior File="RunCode" Code="RoutineManager.SetCapabilityState(CapabilityFlags.Movement, CapabilityState.DontCare);" />
+	<CustomBehavior File="RunCode" Code="InstanceTimer.StartTimer();" />
+
 	
     <RunTo X="-515.2283" Y="-500.0652" Z="11.0231"  />
     <RunTo X="-508.0701" Y="-514.1385" Z="11.0453"  />
