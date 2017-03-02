@@ -15,9 +15,11 @@
 	]]>
 	</CustomBehavior>
 
-			<CustomBehavior File="Misc\RunLua" Lua="JumpOrAscendStart()" WaitTime="3000" />
-			<CustomBehavior File="Misc\RunLua" Lua="AscendStop()" />
-			<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
+		<MoveTo Nav="Fly" X="8889.1" Y="-1348.151" Z="1040.588" />
+
+		<CustomBehavior File="Misc\RunLua" Lua="JumpOrAscendStart()" WaitTime="3000" />
+		<CustomBehavior File="Misc\RunLua" Lua="AscendStop()" />
+		<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
 
 
 	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.MailMinBagSlots" >
