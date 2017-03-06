@@ -1,6 +1,7 @@
 <If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
 	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
-	<MoveTo Nav="Fly" X="8891.013" Y="-1359.756" Z="1033.76" />
+	<MoveTo Nav="Fly" X="8905.84" Y="-1343.75" Z="1028.35" />
+	<MoveTo Nav="Fly" X="8890.52" Y="-1352.32" Z="1033.19" />
 
 	<CustomBehavior File="InteractWith" MobId="32477" MobState="Alive" WaitTime="1000" X="8893.612" Y="-1361.069" Z="1033.906" />
 	<CustomBehavior File="RunCode" >
@@ -15,7 +16,6 @@
 	]]>
 	</CustomBehavior>
 
-		<MoveTo X="8888.425" Y="-1348.647" Z="1033.069" />
 
 		<CustomBehavior File="Misc\RunLua" Lua="JumpOrAscendStart()" WaitTime="3000" />
 		<CustomBehavior File="Misc\RunLua" Lua="AscendStop()" />
