@@ -16,6 +16,7 @@
 				{
 					guildBank.Interact();
 					await Coroutine.Wait(3000, () => guildBankFrame.IsVisible);
+					await Coroutine.Sleep(1000);
 					guildBankFrame.DepositMoney((int)copperAmount);
 					await Coroutine.Sleep(1000);
 				}
@@ -32,6 +33,7 @@
 				{
 					guildBank.Interact();
 					await Coroutine.Wait(2500, () => guildBankFrame.IsVisible);
+					await Coroutine.Sleep(1000);
 					foreach (WoWItem i in Me.BagItems)
 					{
 						if((Contains(Settings.Instance.DepositItemNames, i.Name) || Contains(Settings.Instance.DepositItemNames, i.Quality.ToString()) || Contains(Settings.Instance.DepositItemNames, i.Entry.ToString())) && guildBankFrame.IsVisible)
