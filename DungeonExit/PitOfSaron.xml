@@ -1,17 +1,31 @@
 <If Condition="Me.MapId == 658" >
-	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots &amp;&amp; !(Me.KnowsSpell(61425) || Me.KnowsSpell(61447) || Me.KnowsSpell(122708))" >
-		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Skipping wait since we're going to the vendor.&quot;);" />
-		<Else>
-			<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
-		</Else>
-	</If>
-	<CustomBehavior File="RunCode" Code="AzyulGPHTracker.LogGPH();" />
-	<CustomBehavior File="MyCTM" X="425.3003" Y="212.2813" Z="529.9125" TerminateWhen="!Me.IsInInstance" />
-	<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="!Me.IsInInstance" />
-	<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
 
-	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" > <!-- Extra code to navigate out of the no-mount-zone for Pit of Saron -->
-		<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
-		<RunTo X="5692.327" Y="2149.98" Z="798.1213" />
+	<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots &amp;&amp; SpellManager.CanCast(50977)" > <!-- Use DK hall to sell. -->
+		<CustomBehavior File="ForcedDismount" />
+		<While Condition="Me.MapId != 0" >
+			<CustomBehavior File="Misc\RunLua" Lua="CastSpellByID(50977);" WaitTime="500" />
+			<CustomBehavior File="WaitTimer" WaitTime="50000" TerminateWhen="Me.ZoneId == 139 || !Me.IsCasting || Object(190942) != null" />
+			<CustomBehavior File="InteractWith" MobId="190942" WaitForNpcs="false" />
+		</While>
+	</If>
+
+	<CustomBehavior File="RunCode" Code="AzyulGPHTracker.LogGPH();" />
+
+	<If Condition="!SpellManager.CanCast(50977)" > <!-- Not a DK -->
+		<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots &amp;&amp; !(Me.KnowsSpell(61425) || Me.KnowsSpell(61447) || Me.KnowsSpell(122708))" >
+			<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Skipping wait since we're going to the vendor.&quot;);" />
+			<Else>
+				<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
+			</Else>
+		</If>
+
+		<CustomBehavior File="MyCTM" X="425.3003" Y="212.2813" Z="529.9125" TerminateWhen="!Me.IsInInstance" />
+		<CustomBehavior File="WaitTimer" WaitTime="10000" TerminateWhen="!Me.IsInInstance" />
+		<CustomBehavior File="Misc\RunLua" Lua="ResetInstances();" />
+
+		<If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" > <!-- Extra code to navigate out of the no-mount-zone for Pit of Saron -->
+			<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
+			<RunTo X="5692.327" Y="2149.98" Z="798.1213" />
+		</If>
 	</If>
 </If>

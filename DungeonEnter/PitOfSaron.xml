@@ -1,4 +1,11 @@
 <If Condition="Me.MapId != 658 &amp;&amp; Me.FreeBagSlots &gt;= Settings.Instance.VendorMinBagSlots" >
+	<While Condition="Me.ZoneId == 139" > <!-- Coming from DK hall -->
+		<CustomBehavior File="ForcedDismount" />
+		<CustomBehavior File="WaitTimer" WaitTime="60000" TerminateWhen="SpellManager.CanCast(50977)" />
+		<CustomBehavior File="Misc\RunLua" Lua="CastSpellByID(50977);" WaitTime="500" />
+		<CustomBehavior File="InteractWith" MobId="190942" WaitForNpcs="false" />
+	</While>
+
 	<If Condition="Me.Location.Distance(new WoWPoint(5634.798, 2045.548, 798.2698)) &gt; 300" >
 		<CustomBehavior File="FlyTo" X="5770.986" Y="2326.418" Z="850.9347" />
 		<CustomBehavior File="FlyTo" X="5698.327" Y="2260.403" Z="804.2882" />

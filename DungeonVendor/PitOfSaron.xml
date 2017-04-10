@@ -1,31 +1,54 @@
 <If Condition="Me.FreeBagSlots &lt; Settings.Instance.VendorMinBagSlots" >
+
 	<CustomBehavior File="RunCode" Code="Bots.Professionbuddy.PBLog.Log(System.Windows.Media.Colors.DeepSkyBlue, &quot;[Azyul]: &quot;, System.Windows.Media.Colors.LightGreen, &quot;Moving to Sell, Repair and Mail.&quot;);" />
-	<MoveTo Nav="Fly" X="5784.907" Y="693.1074" Z="647.0889" />
-	<CustomBehavior File="MyCTM" X="5792.684" Y="686.665" Z="647.0988" />
-	<CustomBehavior File="MyCTM" X="5797.183" Y="688.9267" Z="648.1799" />
 
-	<CustomBehavior File="InteractWith" MobId="35496" MobState="Alive" WaitTime="1000" X="5798.024" Y="689.6007" Z="647.0987" />
-	<CustomBehavior File="RunCode" >
-	<![CDATA[
-		foreach (WoWItem i in Me.BagItems)
-		{
-			if (i != null && i.Entry != 6948 &&	!(Contains(Settings.Instance.ProtectedItemNames, i.Quality.ToString()) || Contains(Settings.Instance.ProtectedItemNames, i.Name) || Contains(Settings.Instance.ProtectedItemNames, i.Entry.ToString())) && !(Contains(Settings.Instance.DepositItemNames, i.Name) || Contains(Settings.Instance.DepositItemNames, i.Entry.ToString())) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
-				i.UseContainerItem();
-				StyxWoW.SleepForLagDuration();
-		}
-		Lua.DoString("RepairAllItems();");
-	]]>
-	</CustomBehavior>
+	<If Condition="Me.ZoneId != 139" >
+		<MoveTo Nav="Fly" X="5784.907" Y="693.1074" Z="647.0889" />
+		<CustomBehavior File="MyCTM" X="5792.684" Y="686.665" Z="647.0988" />
+		<CustomBehavior File="MyCTM" X="5797.183" Y="688.9267" Z="648.1799" />
 
-	<RunTo X="5788.56" Y="689.9357" Z="647.0991" />
-	<SetMailbox>
-		<Mailboxes>
-			<Mailbox X="5800.739" Y="731.1019" Z="640.4297" />
-		</Mailboxes>
-	</SetMailbox>
-	<RunTo X="5800.739" Y="731.1019" Z="640.4297" />
-	<CustomBehavior File="ForceSetVendor" DoMail="True" DoSell="False" DoRepair="False" />
-	<RunTo X="5803.12" Y="718.2377" Z="640.7383" />
-	<ClearMailbox />
-	<MoveTo Nav="Fly" X="5686.838" Y="905.868" Z="712.2202" />
+		<CustomBehavior File="InteractWith" MobId="35496" MobState="Alive" WaitTime="1000" X="5798.024" Y="689.6007" Z="647.0987" />
+		<CustomBehavior File="RunCode" >
+		<![CDATA[
+			foreach (WoWItem i in Me.BagItems)
+			{
+				if (i != null && i.Entry != 6948 &&	!(Contains(Settings.Instance.ProtectedItemNames, i.Quality.ToString()) || Contains(Settings.Instance.ProtectedItemNames, i.Name) || Contains(Settings.Instance.ProtectedItemNames, i.Entry.ToString())) && !(Contains(Settings.Instance.DepositItemNames, i.Name) || Contains(Settings.Instance.DepositItemNames, i.Entry.ToString())) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+					i.UseContainerItem();
+					StyxWoW.SleepForLagDuration();
+			}
+			Lua.DoString("RepairAllItems();");
+		]]>
+		</CustomBehavior>
+
+		<RunTo X="5788.56" Y="689.9357" Z="647.0991" />
+		<SetMailbox>
+			<Mailboxes>
+				<Mailbox X="5800.739" Y="731.1019" Z="640.4297" />
+			</Mailboxes>
+		</SetMailbox>
+		<RunTo X="5800.739" Y="731.1019" Z="640.4297" />
+		<CustomBehavior File="ForceSetVendor" DoMail="True" DoSell="False" DoRepair="False" />
+		<RunTo X="5803.12" Y="718.2377" Z="640.7383" />
+		<ClearMailbox />
+		<MoveTo Nav="Fly" X="5686.838" Y="905.868" Z="712.2202" />
+	</If>
+
+
+
+	<If Condition="Me.ZoneId == 139" > <!-- In DK Zone -->
+		<CustomBehavior File="InteractWith" MobId="28500" NonCompeteDistance="0" X="2450.295" Y="-5647.15" Z="420.6429" />
+		<CustomBehavior File="RunCode" >
+		<![CDATA[
+			foreach (WoWItem i in Me.BagItems)
+			{
+				if (i != null && i.Entry != 6948 &&	!(Contains(Settings.Instance.ProtectedItemNames, i.Quality.ToString()) || Contains(Settings.Instance.ProtectedItemNames, i.Name) || Contains(Settings.Instance.ProtectedItemNames, i.Entry.ToString())) && !(Contains(Settings.Instance.DepositItemNames, i.Name) || Contains(Settings.Instance.DepositItemNames, i.Entry.ToString())) && !Me.Combat && !Me.IsDead && !Me.IsGhost && MerchantFrame.Instance.IsVisible)
+					i.UseContainerItem();
+					StyxWoW.SleepForLagDuration();
+			}
+			Lua.DoString("RepairAllItems();");
+		]]>
+		</CustomBehavior>
+
+		<CustomBehavior File="RunCode" Code="await InstanceTimer.WaitForTimeAsync(TimeSpan.FromSeconds(370));" />
+	</If>
 </If>
