@@ -3,6 +3,7 @@
 		<CustomBehavior File="ForcedDismount" />
 		<CustomBehavior File="WaitTimer" WaitTime="60000" TerminateWhen="SpellManager.CanCast(50977)" />
 		<CustomBehavior File="Misc\RunLua" Lua="CastSpellByID(50977);" WaitTime="500" />
+		<CustomBehavior File="WaitTimer" WaitTime="50000" TerminateWhen="Me.ZoneId != 139 || !Me.IsCasting || Object(190942) != null" />
 		<CustomBehavior File="InteractWith" MobId="190942" WaitForNpcs="false" />
 	</While>
 
